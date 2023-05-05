@@ -1,6 +1,6 @@
 .barra_navegacion {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     overflow: auto;
     padding: 2em 0em;
 }
