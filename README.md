@@ -1,2 +1,2 @@
 # App_Veterinaria_INGS2
-Proyecto de Ingeniería de Software como parte de un trabajo para la facultad. Contiene el código fuente del sistema, la documentación necesaria y los recursos utilizados en el desarrollo del proyecto. 
+Este repositorio de GitHub es para un proyecto de Ingeniería de Software como parte de un trabajo para la facultad. Contiene el código fuente del sistema, la documentación necesaria y los recursos utilizados en el desarrollo del proyecto. El objetivo del sistema es crear una plataforma para la vinculación entre cuidadores, personas y perros, con características destacadas como la ubicación de veterinarias cercanas y la programación de citas y servicios de veterinaria de manera efectiva.
