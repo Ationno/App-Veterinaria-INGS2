@@ -1,1 +1,119 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bitter:wght@700&family=Mulish:wght@300;600;1000&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: #FDFFFC;
+    margin: 0 75px;
+}
+
+.has-overlay::after {
+    content: "";
+    display: block;
+    position: fixed;
+    padding: 100px 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.5);
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 3em;
+}
+
+h2 {
+    font-family: 'Abril Fatface', cursive;
+    font-weight: 500;
+    font-size: 2em;
+} 
+
+h3 {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+} 
+
+h4 {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+    font-size: 1.35em;
+} 
+
+p {
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.5;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    font-family: 'Mulish', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+button {
+    background-color: #FDFFFC;
+    border:#FDFFFC;
+    padding: 0;
+    cursor: pointer;
+}
+
+img, svg {
+    vertical-align: middle;
+}
+
+.linea_pagina1, .linea_pagina2 {
+    position: absolute;
+    top: 1.5em;
+    width: 2px;
+    height: 100%;
+    background-color: #d1d1d1;
+}
+
+.linea_pagina1 {
+    left: -40px;
+}
+
+.linea_pagina2 {
+    right: -40px;
+}
+
+/* 
+Linea y titulo de cada seccion
+*/
+
+.titulo {
+    display: flex;
+}
+
+.linea {
+    margin-left: 25px;
+    height: 2px;
+    width: 300px;
+    align-self: center;
+    background-color: #d1d1d1;
+}
+
+.error {
+    margin-top: .25em;
+    padding: .25em 0;
+}
+
+.error p {
+    color: red;
+}

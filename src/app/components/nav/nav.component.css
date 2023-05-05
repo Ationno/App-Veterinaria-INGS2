@@ -1,0 +1,31 @@
+.barra_navegacion {
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+    padding: 2em 0em;
+}
+
+.barra_navegacion > * {
+    margin-right: 1em;
+    font-size: 24px;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+}
+
+.barra_navegacion a img{
+    height: 64px;
+}
+
+.barra_navegacion i {
+    color: #F1965B;
+    font-size: 1.5em;
+    align-self: center;
+}
+
+.barra_navegacion .push {
+    margin-left: auto;
+}
+
+.barra_navegacion :last-child {
+    margin-right: 0;
+}
