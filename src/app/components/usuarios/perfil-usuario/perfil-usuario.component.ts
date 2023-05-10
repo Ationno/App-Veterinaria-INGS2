@@ -13,6 +13,7 @@ export class PerfilUsuarioComponent {
 	ngOnInit() : void {}
 
 	public onDelete(usuario: Usuario) {
+		console.log("hola")
 		this.onDeleteUsuario.emit(usuario);
 	}
 

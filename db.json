@@ -1,6 +1,7 @@
 {
   "usuarios": [
     {
+      "id": 0,
       "nombre": "Antonio",
       "apellido": "Glorioso",
       "DNI": "44619701",
@@ -8,16 +9,10 @@
       "telefono": "+54 221 5464041"
     },
     {
+      "id": 1,
       "nombre": "Juanma",
       "apellido": "Sisti",
       "DNI": "44629701",
-      "email": "antonioglorioso1@hotmail.com",
-      "telefono": "+54 221 5464041"
-    },
-    {
-      "nombre": "Juan",
-      "apellido": "Molinari",
-      "DNI": "34619701",
       "email": "antonioglorioso1@hotmail.com",
       "telefono": "+54 221 5464041"
     }
