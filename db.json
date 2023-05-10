@@ -1,19 +1,25 @@
 {
-  "posts": [
+  "usuarios": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "nombre": "Antonio",
+      "apellido": "Glorioso",
+      "DNI": "44619701",
+      "email": "antonioglorioso1@hotmail.com",
+      "telefono": "+54 221 5464041"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "nombre": "Juanma",
+      "apellido": "Sisti",
+      "DNI": "44629701",
+      "email": "antonioglorioso1@hotmail.com",
+      "telefono": "+54 221 5464041"
+    },
+    {
+      "nombre": "Juan",
+      "apellido": "Molinari",
+      "DNI": "34619701",
+      "email": "antonioglorioso1@hotmail.com",
+      "telefono": "+54 221 5464041"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

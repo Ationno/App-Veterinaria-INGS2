@@ -6,6 +6,7 @@
 
 a {
     font-weight: 700;
+    padding-bottom: .25em;
 }
 
 .barra_navegacion > * {
@@ -21,7 +22,7 @@ a {
 
 .barra_navegacion i {
     color: #F1965B;
-    font-size: 1.5em;
+    font-size: 1.65em;
     align-self: center;
 }
 
@@ -44,12 +45,14 @@ a {
 
 .dropdown-title i {
     font-size: 1.25em;
+    padding-bottom: .25em;
 }
   
   
 .dropdown-content {
     display: none;
     border: 1px solid #d1d1d1;
+    background-color: white;
     border-radius: 5px;
     position: absolute;
     padding: 12px 16px;

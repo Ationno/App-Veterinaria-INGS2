@@ -27,27 +27,30 @@ h1, h2, h3, h4, p {
 }
 
 h1 {
-    font-family: 'Abril Fatface', cursive;
+    font-family: 'Mulish', sans-serif;
     font-size: 3em;
     color: #F1965B;
 }
 
 h2 {
-    font-family: 'Abril Fatface', cursive;
+    font-family: 'Mulish', sans-serif;
     font-weight: 500;
     font-size: 2em;
+    color: #F1965B;
 } 
 
 h3 {
     font-family: 'Mulish', sans-serif;
     font-weight: 600;
     font-size: 1.5em;
+    color: #F1965B;
 } 
 
 h4 {
     font-family: 'Mulish', sans-serif;
     font-weight: 600;
     font-size: 1.35em;
+    color: #F1965B;
 } 
 
 p {
@@ -77,47 +80,32 @@ a {
     color: #F1965B;
 }
 
-button {
-    background-color: #FDFFFC;
-    border:#FDFFFC;
-    padding: 0;
-    cursor: pointer;
+.button-edit {
+  appearance: none;
+  margin-top: .5em;
+  background-color: #75B5C7;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Mulish', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 4px 12px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button-edit:hover {
+  background-color: #30798d;
 }
 
 img, svg {
     vertical-align: middle;
-}
-
-.linea_pagina1, .linea_pagina2 {
-    position: absolute;
-    top: 1.5em;
-    width: 2px;
-    height: 100%;
-    background-color: #d1d1d1;
-}
-
-.linea_pagina1 {
-    left: -40px;
-}
-
-.linea_pagina2 {
-    right: -40px;
-}
-
-/* 
-Linea y titulo de cada seccion
-*/
-
-.titulo {
-    display: flex;
-}
-
-.linea {
-    margin-left: 25px;
-    height: 2px;
-    width: 300px;
-    align-self: center;
-    background-color: #d1d1d1;
 }
 
 .error {

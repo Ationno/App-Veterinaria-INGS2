@@ -9,13 +9,17 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    UsuariosComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

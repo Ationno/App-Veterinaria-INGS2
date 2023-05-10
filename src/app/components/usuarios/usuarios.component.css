@@ -1,0 +1,8 @@
+h1 {
+    margin-bottom: .5em;
+}
+.usuarios {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 175px));
+    column-gap: 1em;
+}
