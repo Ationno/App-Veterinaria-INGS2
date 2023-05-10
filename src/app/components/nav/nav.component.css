@@ -4,11 +4,15 @@
     padding: 2em 0em;
 }
 
+a {
+    font-weight: 700;
+}
+
 .barra_navegacion > * {
     margin-right: 1em;
     font-size: 24px;
     font-family: 'Mulish', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .barra_navegacion a img{
@@ -47,7 +51,6 @@
     display: none;
     border: 1px solid #d1d1d1;
     border-radius: 5px;
-    top: 35px;
     position: absolute;
     padding: 12px 16px;
     z-index: 1;
@@ -57,6 +60,10 @@
    margin-bottom: 1em;
    display: flex;
 }
+
+.dropdown-content li:last-child  {
+    margin-bottom: .5em;
+} 
 
 .dropdown-content li div {
     margin-left: .5em;
