@@ -1,7 +1,6 @@
 .barra_navegacion {
     display: flex;
     align-items: center;
-    overflow: auto;
     padding: 2em 0em;
 }
 
@@ -28,4 +27,53 @@
 
 .barra_navegacion :last-child {
     margin-right: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-title {
+    display: flex;
+}
+
+.dropdown-title i {
+    font-size: 1.25em;
+}
+  
+  
+.dropdown-content {
+    display: none;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    top: 35px;
+    position: absolute;
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown-content li  {
+   margin-bottom: 1em;
+   display: flex;
+}
+
+.dropdown-content li div {
+    margin-left: .5em;
+    line-height: 1;
+    font-size: 1.10rem;
+}
+
+.dropdown-content li div span {
+    font-size: .85rem;
+    color: #656d76;
+    font-weight: 300;
+}
+
+.dropdown-content li  i {
+    font-size: 2em;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

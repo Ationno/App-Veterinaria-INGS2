@@ -1,5 +1,40 @@
 <nav class="barra_navegacion">
     <a href="/" class="yoprogramo"><img src="../../../assets/img/Logo Veterinaria Crop.png" alt="Logo Veterinaria"></a>
+    <div class="dropdown">
+        <div class="dropdown-title">
+            <a href="">Mascotas</a>
+            <i class='bx bx-chevron-down'></i>
+        </div>
+        <ul class="dropdown-content" *ngIf="true" >
+            <li>
+                <i class='bx bxs-dog'></i>
+                <div>
+                    <p>Tus Mascotas</p>
+                    <span>Consulta y modifica tus mascotas</span>
+                </div>
+            </li>
+            <li>
+                <i class='bx bx-search-alt-2' ></i>
+                <div>
+                    <p>Busqueda de Mascotas</p>
+                    <span>Descubre la mascota de tus sueños</span>
+                </div>
+            </li>
+            <li>
+                <i class='bx bxs-briefcase-alt' ></i>
+                <div>
+                    <p>Anuncios de Trabajo</p>
+                    <span>Contrata a profesionales certificados</span>
+                </div>
+            </li>
+            <li>
+                <i class='bx bxs-baby-carriage' ></i>
+                <div>
+                    <p>Cruza de Animales</p>
+                    <span>Encuentra la pareja ideal de tu mascota</span>
+                </div>
+            </li>
+        </ul>
+    </div>
     <a routerLink="/login" class="push"><i class='bx bx-log-in' ></i></a>
-    <a href=""><i class='bx bx-menu'></i></a>
 </nav>
