@@ -1,5 +1,7 @@
 h1 {
     margin-bottom: .5em;
+    padding-bottom: .15em;
+    border-bottom: 2px solid #F1965B;
 }
 .usuarios {
     display: flex;
