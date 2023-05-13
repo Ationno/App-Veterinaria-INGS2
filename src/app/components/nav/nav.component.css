@@ -87,3 +87,8 @@ a {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.anuncios-link{
+    display: flex;
+    align-items: center;
+}
