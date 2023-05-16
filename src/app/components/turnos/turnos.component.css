@@ -1,0 +1,20 @@
+.turnos {
+    display: flex;
+}
+
+.turno {
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 1.75rem;
+    margin-bottom: .25em;
+}
+
+h2 {
+    font-size: 1.50rem;
+    margin-bottom: .15em;
+}

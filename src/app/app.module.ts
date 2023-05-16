@@ -14,6 +14,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
 import { FormularioUsuarioComponent } from './components/usuarios/formulario-usuario/formulario-usuario.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TurnosComponent } from './components/turnos/turnos.component';
+import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-turnos.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FooterComponent } from './components/footer/footer.component';
     UsuariosComponent,
     PerfilUsuarioComponent,
     FormularioUsuarioComponent,
-    FooterComponent
+    FooterComponent,
+    TurnosComponent,
+    ListaTurnosComponent
   ],
   imports: [
     BrowserModule,
