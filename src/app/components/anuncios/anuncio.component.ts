@@ -9,5 +9,12 @@ import { Anuncio } from 'src/app/interfaces/Anuncio';
 
 export class AnunciosComponent {
     anuncios : Anuncio[] = [];
-	anuncio: Anuncio = {nombre: "", servicio: "", zona: "", disponibilidad: ""};
+	
+    constructor(){
+        this.anuncios = [
+            { id: 1, nombre: "Cuidador 1", servicio: "Cuidado de perros", zona: "Los Hornos", disponibilidad: "Lunes a viernes" },
+            { id: 2, nombre: "Cuidador 2", servicio: "Paseo de perros", zona: "La Plata", disponibilidad: "Fines de semana" },
+            { id: 3, nombre: "Cuidador 3", servicio: "Cuidado de perros", zona: "La Plata", disponibilidad: "Todos los días" }
+        ];
+    }
 }

@@ -3,17 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//Home, Login, Nav
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+//Anuncios
 import { AnunciosComponent } from './components/anuncios/anuncio.component';
+import { ListaAnunciosComponent } from './components/anuncios/lista-anuncios/lista-anuncios.component';
+
+//Usuarios
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
 import { FormularioUsuarioComponent } from './components/usuarios/formulario-usuario/formulario-usuario.component';
+
+//Footer
 import { FooterComponent } from './components/footer/footer.component';
+
+//Turnos
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-turnos.component';
 
@@ -24,6 +34,7 @@ import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-tur
     HomeComponent,
     NavComponent,
     AnunciosComponent,
+    ListaAnunciosComponent,
     UsuariosComponent,
     PerfilUsuarioComponent,
     FormularioUsuarioComponent,

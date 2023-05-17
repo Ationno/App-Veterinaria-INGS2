@@ -1,0 +1,43 @@
+.anuncios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 30px;
+  }
+  
+  .anuncio {
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+  
+  .anuncio img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
+  .anuncio h2 {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 1.75rem;
+    margin-bottom: .25em;
+  }
+  
+  .anuncio p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .anuncio p:first-of-type {
+    font-weight: bold;
+  }
+  
+  .anuncio p:last-of-type {
+    margin-bottom: 0;
+  }

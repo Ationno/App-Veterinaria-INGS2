@@ -1,5 +1,5 @@
 export interface Anuncio {
-    id?: number,
+    id: number,
     nombre: string,
     servicio: string,
     zona: string,
