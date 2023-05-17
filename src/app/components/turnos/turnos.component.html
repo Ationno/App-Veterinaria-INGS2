@@ -2,7 +2,7 @@
 
 <ul class="turnos">
     <li class="turno" *ngFor="let turno of turnos">
-        <h1>{{"Turno " + turno.id}}</h1>
+        <h1 class="turnos_h1">{{"Turno " + turno.id}}</h1>
         <h2>{{turno.horario}}</h2>
         <h2>{{turno.motivo}}</h2>
         <button (click)="onSelect(turno)" class="button" value="editar">Editar</button>

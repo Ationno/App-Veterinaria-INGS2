@@ -91,4 +91,10 @@ a {
 .anuncios-link{
     display: flex;
     align-items: center;
+    font-family: 'Mulish', sans-serif;
+    line-height: 1.5;
+    color: #75B5C7;
+    font-weight: 600;
+    white-space: nowrap;
+    padding-bottom: 0;
 }

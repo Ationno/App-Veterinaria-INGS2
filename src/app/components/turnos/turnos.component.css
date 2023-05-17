@@ -9,6 +9,12 @@
 }
 
 h1 {
+    margin-bottom: .5em;
+    padding-bottom: .15em;
+    border-bottom: 2px solid #F1965B;
+}
+
+.turnos_h1 {
     font-weight: 700;
     font-size: 1.75rem;
     margin-bottom: .25em;
