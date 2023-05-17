@@ -1,0 +1,14 @@
+<div *ngIf="turno">
+
+    <h2>{{"Turno " + turno.id}} Información</h2>
+    <div><span>id: </span>{{turno.id}}</div>
+    <div>
+        <label>horario:
+            <input [(ngModel)]="turno.horario" placeholder="name" />
+        </label>
+        <label>motivo:
+            <input [(ngModel)]="turno.motivo" placeholder="name" />
+        </label>
+    </div>
+
+</div>
