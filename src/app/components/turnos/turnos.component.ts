@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Turno } from '../../interfaces/Turno'
-import { TURNOS } from "./DatosTurnos"
+import { TurnosService } from 'src/app/servicios/turnos.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-turnos',
@@ -8,17 +10,20 @@ import { TURNOS } from "./DatosTurnos"
   styleUrls: ['./turnos.component.css']
 })
 export class TurnosComponent implements OnInit {
-  turnos = TURNOS;
-  selectedTurno: Turno;
+  turnos: Turno[] = [];
+  subscription?: Subscription;
+  turno!: Turno
 
-  constructor() {
-    this.selectedTurno = { id: 0, horario: "", motivo: "" }
+  constructor(
+    private turnosService: TurnosService
+  ) {
+
   }
 
-  ngOnInit() { }
-
-  onSelect(turno: Turno): void {
-    this.selectedTurno = turno;
+  ngOnInit() {
+    this.turnosService.get().subscribe((turnos) => {
+      this.turnos = turnos;
+    })
   }
 
 }

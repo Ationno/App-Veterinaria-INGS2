@@ -7,6 +7,8 @@ import { AnunciosComponent } from './components/anuncios/anuncio.component';
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { FormularioUsuarioComponent } from './components/usuarios/formulario-usuario/formulario-usuario.component';
 import { FormularioAnuncioComponent } from './components/anuncios/formulario-anuncio/formulario-anuncio.component';
+import { FormularioTurnoComponent } from './components/turnos/formulario-turno/formulario-turno.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -14,8 +16,9 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent, pathMatch: 'full' },
   { path: 'anuncios', component: AnunciosComponent, pathMatch: 'full' },
   { path: 'turnos', component: TurnosComponent, pathMatch: 'full' },
-  { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full'},
-  { path: 'anuncios/formAnuncios/:id', component: FormularioAnuncioComponent, pathMatch: 'full'}
+  { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full' },
+  { path: 'anuncios/formAnuncios/:id', component: FormularioAnuncioComponent, pathMatch: 'full' },
+  { path: 'turnos/formTurnos/:id', component: FormularioTurnoComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

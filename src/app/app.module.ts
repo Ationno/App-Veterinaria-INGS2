@@ -26,6 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
 //Turnos
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-turnos.component';
+import { FormularioTurnoComponent } from './components/turnos/formulario-turno/formulario-turno.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-tur
     FormularioUsuarioComponent,
     FooterComponent,
     TurnosComponent,
-    ListaTurnosComponent
+    ListaTurnosComponent,
+    FormularioTurnoComponent
   ],
   imports: [
     BrowserModule,

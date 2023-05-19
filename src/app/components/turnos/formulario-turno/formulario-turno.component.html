@@ -1,0 +1,33 @@
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Turno</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="horario">Horario:</label>
+                <input type="text" name="horario" placeholder="Agregar horario" formControlName="horario">
+                <div *ngIf="Horario?.errors && Horario?.touched" class="error">
+                    <p *ngIf="Horario?.hasError('required')">
+                        El horario es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="motivo">Motivo:</label>
+                <input type="text" name="motivo" placeholder="Agregar motivo" formControlName="motivo">
+                <div *ngIf="Motivo?.errors && Motivo?.touched" class="error">
+                    <p *ngIf="Motivo?.hasError('required')">
+                        El motivo es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input [routerLink]="'/turnos'" *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar"
+                (click)="onAdd()">
+            <input [routerLink]="'/turnos'" *ngIf="this.edit" class="button button-green" type="submit" value="Editar"
+                (click)="onEdit()">
+            <input [routerLink]="'/turnos'" class="button button-red" type="submit" value="Cancelar">
+        </div>
+    </form>
+</div>

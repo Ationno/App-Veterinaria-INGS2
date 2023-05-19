@@ -1,26 +1,9 @@
-.turnos {
+.usuarios {
     display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 175px));
+    column-gap: 1em;
 }
 
-.turno {
-    border: 1px solid #d1d1d1;
-    border-radius: 5px;
-    padding: 1em;
-}
-
-h1 {
-    margin-bottom: .5em;
-    padding-bottom: .15em;
-    border-bottom: 2px solid #F1965B;
-}
-
-.turnos_h1 {
-    font-weight: 700;
-    font-size: 1.75rem;
-    margin-bottom: .25em;
-}
-
-h2 {
-    font-size: 1.50rem;
-    margin-bottom: .15em;
+.button {
+    margin-top: 1.5em;
 }

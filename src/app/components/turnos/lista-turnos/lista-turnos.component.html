@@ -1,14 +1,9 @@
-<div *ngIf="turno">
-
-    <h2>{{"Turno " + turno.id}} Información</h2>
-    <div><span>id: </span>{{turno.id}}</div>
-    <div>
-        <label>horario:
-            <input [(ngModel)]="turno.horario" placeholder="name" />
-        </label>
-        <label>motivo:
-            <input [(ngModel)]="turno.motivo" placeholder="name" />
-        </label>
+<div class="turno">
+    <h1>{{"Turno " + turno.id}} </h1>
+    <p>{{turno.horario}}</p>
+    <p>{{turno.motivo}}</p>
+    <div style="display: flex;">
+        <button [routerLink]="['/turnos/formTurnos', turno.id]" class="button button-blue"
+            value="editar">Editar</button>
     </div>
-
 </div>
