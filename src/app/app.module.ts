@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //Anuncios
 import { AnunciosComponent } from './components/anuncios/anuncio.component';
+import { FormularioAnuncioComponent } from './components/anuncios/formulario-anuncio/formulario-anuncio.component';
 
 //Usuarios
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -33,6 +34,7 @@ import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-tur
     HomeComponent,
     NavComponent,
     AnunciosComponent,
+    FormularioAnuncioComponent,
     UsuariosComponent,
     PerfilUsuarioComponent,
     FormularioUsuarioComponent,

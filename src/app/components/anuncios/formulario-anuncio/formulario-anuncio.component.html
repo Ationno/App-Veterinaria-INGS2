@@ -1,0 +1,71 @@
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Anuncio</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>  
+        <div class="form-column">
+            <div class="form-control">
+                <label for="nombre">Nombre:</label>
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    placeholder="Agregar nombre"
+                    formControlName="nombre"
+                >
+                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
+                    <p *ngIf="Nombre?.hasError('required')">
+                        El nombre es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="servicio">Servicio:</label>
+                <input 
+                    type="text"  
+                    name="servicio" 
+                    placeholder="Agregar servicio"
+                    formControlName="servicio"  
+                >
+                <div *ngIf="Servicio?.errors && Servicio?.touched" class="error">
+                    <p *ngIf="Servicio?.hasError('required')">
+                        El servicio es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="Zona">Zona:</label>
+                <input 
+                    type="text"  
+                    name="zona" 
+                    placeholder="Agregar Zona"
+                    formControlName="zona"  
+                >
+                <div *ngIf="Zona?.errors && Zona?.touched" class="error">
+                    <p *ngIf="Zona?.hasError('required')">
+                        La zona es requerida
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="Disponibilidad">Disponibilidad:</label>
+            <input 
+                type="text"  
+                name="disponibilidad" 
+                placeholder="Agregar disponibilidad"
+                formControlName="disponibilidad"  
+            >
+            <div *ngIf="Disponibilidad?.errors && Disponibilidad?.touched" class="error">
+                <p *ngIf="Disponibilidad?.hasError('required')">
+                    La disponibilidad es requerida
+                </p>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input [routerLink]="'/anuncios'" *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input [routerLink]="'/anuncios'" *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="'/anuncios'" class="button button-red" type="submit" value="Cancelar">
+        </div>
+    </form>
+</div>

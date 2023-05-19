@@ -25,7 +25,6 @@
       "email": "asdasd@sad"
     }
   ],
-
   "anuncios": [
     {
       "id": 1,
@@ -47,6 +46,13 @@
       "servicio": "Cuidado de perros",
       "zona": "Los Hornos",
       "disponibilidad": "Sabados de 9 a 14hs"
+    },
+    {
+      "id": 4,
+      "nombre": "Carlos",
+      "servicio": "Paseo de perros",
+      "zona": "CityBell",
+      "disponibilidad": "Todos los días de 7 a 16hs"
     }
   ]
 }
