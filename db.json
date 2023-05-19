@@ -1,3 +1,28 @@
 {
-  "usuarios": []
+  "usuarios": [
+    {
+      "id": 2,
+      "nombre": "Anto",
+      "apellido": "Glorioso",
+      "DNI": "44619701",
+      "telefono": "2215464041",
+      "email": "antonioglorioso@hotmail.com"
+    },
+    {
+      "id": 3,
+      "nombre": "Juan2",
+      "apellido": "Molinaris",
+      "DNI": "445678",
+      "telefono": "4543234",
+      "email": "ujanmoli@htomail.com"
+    },
+    {
+      "id": 4,
+      "nombre": "asdasd",
+      "apellido": "sasad",
+      "DNI": "sadasd",
+      "telefono": "asdasd",
+      "email": "asdasd@sad"
+    }
+  ]
 }

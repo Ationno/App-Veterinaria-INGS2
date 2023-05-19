@@ -10,9 +10,9 @@ import { Subscription } from 'rxjs';
 })
 
 export class UsuariosComponent {
-  usuarios : Usuario[] = [];
+  	usuarios : Usuario[] = [];
 	subscription?: Subscription;
-	usuario: Usuario = {nombre: "", apellido: "", DNI: "", email: "", telefono: ""};
+	usuario!: Usuario;
 
   constructor(
 		private usuariosService: UsuariosService,
@@ -23,31 +23,10 @@ export class UsuariosComponent {
 			this.usuarios = usuarios
 		})
 	}
-	
-	public toggleFormUsuario() {
-		this.usuario = {nombre: "", apellido: "", DNI: "", email: "", telefono: ""};
-	}
 
 	public deleteUsuario(usuario: Usuario) {
 		this.usuariosService.delete(usuario).subscribe(() => {
 			this.usuarios = this.usuarios.filter( ele => ele.id !== usuario.id )
 		})
-	}
-
-	public editUsuario(usuario: Usuario) {
-		this.usuariosService.edit(usuario).subscribe(() => {
-			let i: number = this.usuarios.findIndex(ele => ele.id == usuario.id);
-			this.usuarios[i] = usuario;
-		})
-	}
-
-	public addUsuario(usuario: Usuario) {
-		this.usuariosService.add(usuario).subscribe((usuario: Usuario) => {
-			this.usuarios.push(usuario)
-		});
-	}
-
-	public editFormUsuario(usuario: Usuario) {
-		this.usuario = usuario;
 	}
 }

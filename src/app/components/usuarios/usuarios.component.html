@@ -1,12 +1,11 @@
 <div>
-    <h1>Usuarios</h1>
+    <h1 class="h1-delineado">Usuarios</h1>
     <div class="usuarios">
         <app-perfil-usuario
             *ngFor="let usuario of usuarios" 
             [usuario] = "usuario"
             (onDeleteUsuario)="deleteUsuario(usuario)"
-            (onEditFormUsuario)="editFormUsuario(usuario)"
         ></app-perfil-usuario>
     </div>
-    <app-formulario-usuario></app-formulario-usuario>
+    <button [routerLink]="'/usuarios/formUsuarios/-1'" class="button button-green" > Agregar usuario </button>
 </div>

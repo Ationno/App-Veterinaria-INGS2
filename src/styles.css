@@ -33,6 +33,14 @@ h1 {
     color: #F1965B;
 }
 
+
+.h1-delineado {
+    margin-bottom: .5em;
+    padding-bottom: .15em;
+    border-bottom: 2px solid #F1965B;
+}
+
+
 h2 {
     font-family: 'Mulish', sans-serif;
     font-weight: 500;
@@ -93,16 +101,12 @@ a {
   cursor: pointer;
   display: inline-block;
   font-family: 'Mulish', sans-serif;
-  font-size: 14px;
+  font-size: 1.25em;
   font-weight: 600;
   line-height: 20px;
-  padding: 4px 12px;
+  padding: .5em 1em;
   text-align: center;
   text-decoration: none;
-}
-
-.button:hover {
-  background-color: #30798d;
 }
 
 img, svg {
@@ -116,4 +120,34 @@ img, svg {
 
 .error p {
     color: red;
+}
+
+.button-green {
+  	background-color: #2ea44f;
+}
+
+.button-green:hover {
+  	background-color: #2c974b;
+}
+
+.button-red {
+	background-color: #a42e2e;
+}
+
+.button-red:hover {
+	background-color: #972c2c;
+}
+
+.button-blue {
+    background-color: #75B5C7;
+}
+
+.button-blue:hover {
+    background-color: #30798d;
+}
+
+.centrar {
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }

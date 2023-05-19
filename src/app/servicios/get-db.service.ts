@@ -22,6 +22,12 @@ export abstract class getDB {
 		return this.http.get<any[]>(this.apiUrl);
 	}
 
+	public getById(id: number): Observable<any> {
+		const url = `${this.apiUrl}/${id}`
+		return this.http.get<any>(url)
+	}
+	
+
 	public delete(ele: any): Observable<any> {
 		const url = `${this.apiUrl}/${ele.id}`
 		return this.http.delete<any>(url);

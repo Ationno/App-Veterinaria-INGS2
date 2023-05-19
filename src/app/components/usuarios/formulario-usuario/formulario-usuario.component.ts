@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/
 import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario-usuario',
@@ -13,28 +15,37 @@ export class FormularioUsuarioComponent {
 	@Output() onAddExperience: EventEmitter<Usuario> = new EventEmitter();
 	@Output() onEditExperience: EventEmitter<Usuario> = new EventEmitter();
 	@Output() onToggleFormExperience: EventEmitter<Event> = new EventEmitter();
-	@Input() usuario: Usuario = {nombre: "", apellido: "", DNI: "", email: "", telefono: ""};
 	showFormExperience: boolean = false;
 	subscription?: Subscription;
 	form: FormGroup;
+	sub: any;
+	edit: boolean = false;
 
 	constructor(
-		private formBuilder: FormBuilder
+		private formBuilder: FormBuilder,
+		private usuariosService: UsuariosService,
+		private route: ActivatedRoute,
+		public router: Router
 	) {
 		this.form = this.formBuilder.group({
 			id: [],
 			nombre: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-      apellido: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-      DNI: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-      telefono: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-      email: new FormControl('', {validators: [Validators.required, Validators.email], updateOn: "blur"})
+     		apellido: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+      		DNI: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+      		telefono: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+      		email: new FormControl('', {validators: [Validators.required, Validators.email], updateOn: "blur"})
 		})
-	}
-
-	ngOnChanges(changes: SimpleChanges) {
-		if (changes['usuario']?.currentValue)  {
-			this.form?.patchValue(this.usuario);
-		}
+		this.sub = this.route.params.subscribe(params => {
+			this.edit = params['id'] != -1;
+			if (this.edit) {
+				this.edit = true;
+				this.usuariosService.getById(params['id']).subscribe((usuario) => {	
+					this.form?.patchValue(usuario)
+				})
+			} else {
+				this.form.reset()
+			}
+		});
 	}
 
 	get Nombre(){
@@ -45,29 +56,22 @@ export class FormularioUsuarioComponent {
 		return this.form.get("apellido");
 	}
 
-  get DNI(){
+  	get DNI(){
 		return this.form.get("DNI");
 	}
 
-  get Email(){
+  	get Email(){
 		return this.form.get("email");
 	}
 
-  get Telefono(){
+ 	get Telefono(){
 		return this.form.get("telefono");
-	}
-
-	public onClose(): void {
-		this.onToggleFormExperience.emit();
-		this.form.reset();
 	}
 
 	public onAdd(): void {
 		if (this.form.valid) {
-			this.onAddExperience.emit(this.form.getRawValue());
-			this.onToggleFormExperience.emit();
+			this.usuariosService.add(this.form.getRawValue()).subscribe(() => {});
 			this.form.reset()
-			alert("Success!")
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();
@@ -76,10 +80,7 @@ export class FormularioUsuarioComponent {
 
 	public onEdit(): void {
 		if (this.form.valid) {
-			this.onEditExperience.emit(this.form.getRawValue());
-			this.onToggleFormExperience.emit();
-			this.form.reset()
-			alert("Success!")
+			this.usuariosService.edit(this.form.getRawValue()).subscribe(() => {})
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();

@@ -4,7 +4,7 @@
     <p><i class='bx bx-mail-send' ></i> {{usuario.email}}</p>
     <p><i class='bx bx-phone' ></i> {{usuario.telefono}}</p>
     <div style="display: flex;">
-        <button class="button" value="editar">Editar</button>
-        <button (click)="onDelete(usuario)" class="button" value="borrar">Borrar</button>
+        <button [routerLink]="['/usuarios/formUsuarios', usuario.id]" class="button button-blue" value="editar">Editar</button>
+        <button (click)="onDelete(usuario)" class="button button-red" value="borrar">Borrar</button>
     </div>
 </div>

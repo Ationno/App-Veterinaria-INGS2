@@ -1,82 +1,90 @@
-<form *ngIf="false" [formGroup]="form">
-    <i class='bx bx-x cerrar' (click)="onClose()"></i>
-    <h1>{{usuario.id != null ? 'Editar' : 'Agregar'}} Usuario</h1> 
-    <div class="form-control">
-        <label for="nombre">Nombre</label>
-        <input 
-            type="text" 
-            name="nombre" 
-            placeholder="Agregar nombre"
-            formControlName="nombre"
-        >
-        <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
-            <p *ngIf="Nombre?.hasError('required')">
-                El nombre es requerido
-            </p>
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Usuario</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>  
+        <div class="form-column">
+            <div class="form-control">
+                <label for="nombre">Nombre:</label>
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    placeholder="Agregar nombre"
+                    formControlName="nombre"
+                >
+                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
+                    <p *ngIf="Nombre?.hasError('required')">
+                        El nombre es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="apellido">Apellido:</label>
+                <input 
+                    type="text"  
+                    name="apellido" 
+                    placeholder="Agregar apellido"
+                    formControlName="apellido"  
+                >
+                <div *ngIf="Apellido?.errors && Apellido?.touched" class="error">
+                    <p *ngIf="Apellido?.hasError('required')">
+                        Eñ apellido es requerido
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-control">
-        <label for="apellido">Apellido</label>
-        <input 
-            type="text"  
-            name="apellido" 
-            placeholder="Agregar apellido"
-            formControlName="apellido"  
-        >
-        <div *ngIf="Apellido?.errors && Apellido?.touched" class="error">
-            <p *ngIf="Apellido?.hasError('required')">
-                Eñ apellido es requerido
-            </p>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="DNI">DNI:</label>
+                <input 
+                    type="text"  
+                    name="DNI" 
+                    placeholder="Agregar DNI"
+                    formControlName="DNI"  
+                >
+                <div *ngIf="DNI?.errors && DNI?.touched" class="error">
+                    <p *ngIf="DNI?.hasError('required')">
+                        El DNI es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="email">Email:</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Agregar email"
+                    [value] = "Email"
+                    formControlName="email"
+                >
+                <div *ngIf="Email?.errors && Email?.touched" class="error">
+                    <p *ngIf="Email?.hasError('required')">
+                        El email es requerido
+                    </p>
+                    <p *ngIf="Email?.hasError('email')">
+                        El formato del email debe ser valido
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-control">
-        <label for="DNI">DNI</label>
-        <input 
-            type="text"  
-            name="DNI" 
-            placeholder="Agregar DNI"
-            formControlName="DNI"  
-        >
-        <div *ngIf="DNI?.errors && DNI?.touched" class="error">
-            <p *ngIf="DNI?.hasError('required')">
-                El DNI es requerido
-            </p>
-        </div>
-    </div>
-    <div class="form-control">
-        <div style="display: flex;">
-            <label for="email">Email</label>
+        <div class="form-control">
+            <label for="telefono">Telefono:</label>
             <input 
-                type="text" 
-                name="email" 
-                id="email" 
-                placeholder="email"
-                [value] = "Email"
-                formControlName="email"
+                type="text"  
+                name="telefono" 
+                placeholder="Agregar telefono"
+                formControlName="telefono"  
             >
+            <div *ngIf="Telefono?.errors && Telefono?.touched" class="error">
+                <p *ngIf="Telefono?.hasError('required')">
+                    Eñ telefono es requerido
+                </p>
+            </div>
         </div>
-        <div *ngIf="Email?.errors && Email?.touched" class="error">
-            <p *ngIf="Email?.hasError('required')">
-                El email es requerido
-            </p>
-            <p *ngIf="Email?.hasError('email')">
-                El formato del email debe ser valido
-            </p>
+        <div class="form-buttons">
+            <input [routerLink]="'/usuarios'" *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input [routerLink]="'/usuarios'" *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="'/usuarios'" class="button button-red" type="submit" value="Cancelar">
         </div>
-    </div>
-    <div class="form-control">
-        <label for="telefono">Telefono</label>
-        <input 
-            type="text"  
-            name="telefono" 
-            placeholder="Agregar telefono"
-            formControlName="telefono"  
-        >
-        <div *ngIf="Telefono?.errors && Telefono?.touched" class="error">
-            <p *ngIf="Telefono?.hasError('required')">
-                Eñ telefono es requerido
-            </p>
-        </div>
-    </div>
-    <input class="button-green" type="submit" [value]="usuario.id != null ? 'Editar' : 'Agregar'" (click)="usuario.id != null ? onEdit() : onAdd()">
-</form>
+    </form>
+</div>
