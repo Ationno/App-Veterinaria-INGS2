@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Anuncio } from 'src/app/interfaces/Anuncio';
+import { AnunciosService } from 'src/app/servicios/anuncios.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-anuncio',
@@ -9,12 +11,17 @@ import { Anuncio } from 'src/app/interfaces/Anuncio';
 
 export class AnunciosComponent {
     anuncios : Anuncio[] = [];
+    subscription?: Subscription;
+    anuncio!: Anuncio;
 	
-    constructor(){
-        this.anuncios = [
-            { id: 1, nombre: "Cuidador 1", servicio: "Cuidado de perros", zona: "Los Hornos", disponibilidad: "Lunes a viernes" },
-            { id: 2, nombre: "Cuidador 2", servicio: "Paseo de perros", zona: "La Plata", disponibilidad: "Fines de semana" },
-            { id: 3, nombre: "Cuidador 3", servicio: "Cuidado de perros", zona: "La Plata", disponibilidad: "Todos los días" }
-        ];
-    }
+    constructor(
+        private anunciosService: AnunciosService,
+    ){}
+
+    ngOnInit() {
+		this.anunciosService.get().subscribe((anuncios) => {	
+			this.anuncios = anuncios
+		})
+	}
+
 }

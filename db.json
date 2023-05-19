@@ -24,5 +24,29 @@
       "telefono": "asdasd",
       "email": "asdasd@sad"
     }
+  ],
+
+  "anuncios": [
+    {
+      "id": 1,
+      "nombre": "Juan Dominguez",
+      "servicio": "Cuidado de perros",
+      "zona": "La Plata",
+      "disponibilidad": "Tiempo completo"
+    },
+    {
+      "id": 2,
+      "nombre": "Claudia Lopez",
+      "servicio": "Paseo de perros",
+      "zona": "La Plata",
+      "disponibilidad": "Lunes a viernes 24hs"
+    },
+    {
+      "id": 3,
+      "nombre": "Gustavo Peralta",
+      "servicio": "Cuidado de perros",
+      "zona": "Los Hornos",
+      "disponibilidad": "Sabados de 9 a 14hs"
+    }
   ]
 }
