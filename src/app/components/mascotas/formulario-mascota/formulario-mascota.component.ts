@@ -39,7 +39,6 @@ export class FormularioMascotaComponent {
 				this.edit = true;
 				this.mascotaService.getById(params['mascotaId']).subscribe((mascota) => {	
 					this.form?.patchValue(mascota)
-					console.log(this.form.getRawValue())
 				})
 			} else {
 				this.form.reset()
