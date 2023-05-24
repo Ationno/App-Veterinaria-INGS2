@@ -146,6 +146,14 @@ img, svg {
     background-color: #30798d;
 }
 
+.button-purple {
+    background-color: #9275c7;
+}
+
+.button-purple:hover {
+    background-color: #70308d;
+}
+
 .centrar {
     display: grid;
     align-items: center;

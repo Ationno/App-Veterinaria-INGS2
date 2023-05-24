@@ -26,6 +26,9 @@ import { FooterComponent } from './components/footer/footer.component';
 //Turnos
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-turnos.component';
+import { MascotasComponent } from './components/mascotas/mascotas.component';
+import { MascotaComponent } from './components/mascotas/mascota/mascota.component';
+import { FormularioMascotaComponent } from './components/mascotas/formulario-mascota/formulario-mascota.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-tur
     FormularioUsuarioComponent,
     FooterComponent,
     TurnosComponent,
-    ListaTurnosComponent
+    ListaTurnosComponent,
+    MascotasComponent,
+    MascotaComponent,
+    FormularioMascotaComponent
   ],
   imports: [
     BrowserModule,

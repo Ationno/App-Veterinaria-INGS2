@@ -54,5 +54,17 @@
       "zona": "CityBell",
       "disponibilidad": "Todos los días de 7 a 16hs"
     }
+  ],
+  "mascotas": [
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "edad": "12",
+      "raza": "Caniche",
+      "color": "Negro",
+      "tamano": "Mediano",
+      "sexo": "Macho",
+      "usuarioId": "2"
+    }
   ]
 }

@@ -1,0 +1,11 @@
+<div>
+    <h1 class="h1-delineado">Mascotas</h1>
+    <div class="usuarios">
+        <app-mascota
+            *ngFor="let mascota of mascotas" 
+            [mascota] = "mascota"
+            (onDeleteMascota)="deleteMascota(mascota)"
+        ></app-mascota>
+    </div>
+    <button [routerLink]="['/mascotas/formMascota', this.usuarioId, -1]" class="button button-green" > Agregar mascota </button>
+</div>

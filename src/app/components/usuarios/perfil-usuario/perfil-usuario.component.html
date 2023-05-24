@@ -6,5 +6,6 @@
     <div style="display: flex;">
         <button [routerLink]="['/usuarios/formUsuarios', usuario.id]" class="button button-blue" value="editar">Editar</button>
         <button (click)="onDelete(usuario)" class="button button-red" value="borrar">Borrar</button>
+        <button [routerLink]="['/mascotas', usuario.id]" class="button button-purple" value="mascotas">Mascotas</button>
     </div>
 </div>

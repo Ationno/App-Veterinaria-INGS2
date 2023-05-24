@@ -1,0 +1,110 @@
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Usuario</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>  
+        <div class="form-column">
+            <div class="form-control">
+                <label for="nombre">Nombre:</label>
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    placeholder="Agregar nombre"
+                    formControlName="nombre"
+                >
+                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
+                    <p *ngIf="Nombre?.hasError('required')">
+                        El nombre es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="edad">Edad:</label>
+                <input 
+                    type="text"  
+                    name="edad" 
+                    placeholder="Agregar edad"
+                    formControlName="edad"  
+                >
+                <div *ngIf="Edad?.errors && Edad?.touched" class="error">
+                    <p *ngIf="Edad?.hasError('required')">
+                        La edad es requerida
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="raza">Raza:</label>
+                <input 
+                    type="text"  
+                    name="raza" 
+                    placeholder="Agregar raza"
+                    formControlName="raza"  
+                >
+                <div *ngIf="Raza?.errors && Raza?.touched" class="error">
+                    <p *ngIf="Raza?.hasError('required')">
+                        La Raza es requerida
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="color">Color:</label>
+                <input 
+                    type="text" 
+                    name="color" 
+                    id="color" 
+                    placeholder="Agregar color"
+                    formControlName="color"
+                >
+                <div *ngIf="Color?.errors && Color?.touched" class="error">
+                    <p *ngIf="Color?.hasError('required')">
+                        El color es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="tamano">Tamaño:</label>
+                <select 
+                    type="text"  
+                    name="tamano" 
+                    placeholder="Agregar tamaño"
+                    formControlName="tamano"  
+                >
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+                <div *ngIf="Tamano?.errors && Tamano?.touched" class="error">
+                    <p *ngIf="Tamano?.hasError('required')">
+                        El tamaño es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="sexo">Sexo:</label>
+                <select 
+                    type="sexo" 
+                    name="sexo" 
+                    id="sexo" 
+                    placeholder="Agregar sexo"
+                    formControlName="sexo"
+                >
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                </select>
+                <div *ngIf="Sexo?.errors && Sexo?.touched" class="error">
+                    <p *ngIf="Sexo?.hasError('required')">
+                        El sexo es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input [routerLink]="['/mascotas', this.usuarioId]" *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input [routerLink]="['/mascotas', this.usuarioId]" *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="['/mascotas', this.usuarioId]" class="button button-red" type="submit" value="Cancelar">
+        </div>
+    </form>
+</div>

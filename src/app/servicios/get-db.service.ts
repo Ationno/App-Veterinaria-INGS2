@@ -15,7 +15,7 @@ export abstract class getDB {
 	protected apiUrl: string = "http://localhost:5000/"
 
 	constructor(
-		private http:HttpClient
+		public http:HttpClient
 	) { }
 
 	public get(): Observable<any[]> {
@@ -26,7 +26,6 @@ export abstract class getDB {
 		const url = `${this.apiUrl}/${id}`
 		return this.http.get<any>(url)
 	}
-	
 
 	public delete(ele: any): Observable<any> {
 		const url = `${this.apiUrl}/${ele.id}`
