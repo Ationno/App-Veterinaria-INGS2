@@ -12,7 +12,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //Anuncios
-import { AnunciosComponent } from './components/anuncios/anuncio.component';
+import { AnunciosComponent } from './components/anuncios/anuncios.component';
+import {PerfilAnuncioComponent} from './components/anuncios/perfil-anuncio/perfil-anuncio.component';
 import { FormularioAnuncioComponent } from './components/anuncios/formulario-anuncio/formulario-anuncio.component';
 
 //Usuarios
@@ -37,6 +38,7 @@ import { FormularioMascotaComponent } from './components/mascotas/formulario-mas
     HomeComponent,
     NavComponent,
     AnunciosComponent,
+    PerfilAnuncioComponent,
     FormularioAnuncioComponent,
     UsuariosComponent,
     PerfilUsuarioComponent,

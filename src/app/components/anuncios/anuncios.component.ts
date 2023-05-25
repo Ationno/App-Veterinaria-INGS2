@@ -4,9 +4,9 @@ import { AnunciosService } from 'src/app/servicios/anuncios.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-anuncio',
-    templateUrl: './anuncio.component.html',
-    styleUrls: ['./anuncio.component.css']
+    selector: 'app-anuncios',
+    templateUrl: './anuncios.component.html',
+    styleUrls: ['./anuncios.component.css']
 })
 
 export class AnunciosComponent {
@@ -21,6 +21,12 @@ export class AnunciosComponent {
     ngOnInit() {
 		this.anunciosService.get().subscribe((anuncios) => {	
 			this.anuncios = anuncios
+		})
+	}
+
+    public deleteAnuncio(anuncio: Anuncio) {
+		this.anunciosService.delete(anuncio).subscribe(() => {
+			this.anuncios = this.anuncios.filter( ele => ele.id !== anuncio.id )
 		})
 	}
 

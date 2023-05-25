@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
-import { AnunciosComponent } from './components/anuncios/anuncio.component';
+import { AnunciosComponent } from './components/anuncios/anuncios.component';
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { FormularioUsuarioComponent } from './components/usuarios/formulario-usuario/formulario-usuario.component';
 import { FormularioAnuncioComponent } from './components/anuncios/formulario-anuncio/formulario-anuncio.component';

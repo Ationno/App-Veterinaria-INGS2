@@ -31,6 +31,7 @@ export class FormularioAnuncioComponent {
      		servicio: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
       		zona: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
       		disponibilidad: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+			email: new FormControl('', {validators: [Validators.required, Validators.email], updateOn: "blur"}),
 		})
 		this.sub = this.route.params.subscribe(params => {
 			this.edit = params['id'] != -1;
@@ -59,6 +60,10 @@ export class FormularioAnuncioComponent {
 
   	get Disponibilidad(){
 		return this.form.get("disponibilidad");
+	}
+
+	get Email(){
+		return this.form.get("email");
 	}
 
 	public onAdd(): void {
