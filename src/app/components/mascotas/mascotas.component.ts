@@ -15,6 +15,10 @@ export class MascotasComponent {
 	mascota!: Mascota;
 	sub: any;
 	usuarioId!: number;
+	busquedaNombre!: string; 
+	busquedaRaza!: string;
+	busquedaTamano!: string;
+	busquedaSexo!: string;
 
 	constructor(
 		private mascotasService: MascotasService,

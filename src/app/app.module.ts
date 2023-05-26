@@ -30,6 +30,8 @@ import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-tur
 import { MascotasComponent } from './components/mascotas/mascotas.component';
 import { MascotaComponent } from './components/mascotas/mascota/mascota.component';
 import { FormularioMascotaComponent } from './components/mascotas/formulario-mascota/formulario-mascota.component';
+import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
+import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { FormularioMascotaComponent } from './components/mascotas/formulario-mas
     ListaTurnosComponent,
     MascotasComponent,
     MascotaComponent,
-    FormularioMascotaComponent
+    FormularioMascotaComponent,
+    FilterUsuarioPipe,
+    FilterMascotaPipe
   ],
   imports: [
     BrowserModule,

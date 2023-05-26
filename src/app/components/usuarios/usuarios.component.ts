@@ -13,6 +13,9 @@ export class UsuariosComponent {
   	usuarios : Usuario[] = [];
 	subscription?: Subscription;
 	usuario!: Usuario;
+	busquedaNombre!: string; 
+	busquedaDNI!: string;
+	busquedaEmail!: string;
 
   constructor(
 		private usuariosService: UsuariosService,

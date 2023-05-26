@@ -1,8 +1,37 @@
 <div>
     <h1 class="h1-delineado">Usuarios</h1>
+    <div class="busqueda">
+        <h2 for="search">Busqueda</h2>
+        <div class="busqueda_inputs">
+            <div>
+                <label for="search">Nombre:</label>
+                <input 
+                    type="text"  
+                    name="busquedaNombre"
+                    [(ngModel)]="busquedaNombre"
+                >
+            </div>
+            <div>
+                <label for="search">DNI:</label>
+                <input 
+                    type="text"  
+                    name="busquedaDNI"
+                    [(ngModel)]="busquedaDNI"
+                >
+            </div>
+            <div>
+                <label for="search">Email:</label>
+                <input 
+                    type="text"  
+                    name="busquedaEmail"
+                    [(ngModel)]="busquedaEmail"
+                >
+            </div>
+        </div>
+    </div>
     <div class="usuarios">
         <app-perfil-usuario
-            *ngFor="let usuario of usuarios" 
+            *ngFor="let usuario of usuarios | filterUsuario: busquedaNombre:busquedaDNI:busquedaEmail" 
             [usuario] = "usuario"
             (onDeleteUsuario)="deleteUsuario(usuario)"
         ></app-perfil-usuario>

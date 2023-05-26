@@ -77,6 +77,16 @@
       "tamano": "Mediano",
       "sexo": "Macho",
       "usuarioId": "2"
+    },
+    {
+      "id": 2,
+      "nombre": "Yo",
+      "edad": "16",
+      "raza": "Puddle",
+      "color": "Violeta",
+      "tamano": "Pequeño",
+      "sexo": "Macho",
+      "usuarioId": "2"
     }
   ]
 }
