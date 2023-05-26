@@ -1,0 +1,12 @@
+<div>
+    <h1 class="h1-delineado">Anuncios</h1>
+    <div class="anuncios">
+      <app-perfil-anuncio
+          *ngFor="let anuncio of anuncios" 
+          [anuncio] = "anuncio"
+          (onDeleteAnuncio)="deleteAnuncio(anuncio)"
+      ></app-perfil-anuncio>
+    </div>
+    <button [routerLink]="'/anuncios/formAnuncios/-1'" class="button button-green" > Agregar Anuncios </button>
+</div>
+

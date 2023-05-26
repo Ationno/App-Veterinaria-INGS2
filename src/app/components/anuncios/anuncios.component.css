@@ -1,0 +1,11 @@
+.anuncios {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 175px));
+  gap: 1em;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+}
+
+.button {
+  margin-top: 1.5em;
+}

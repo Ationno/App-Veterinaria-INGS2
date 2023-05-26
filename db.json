@@ -27,32 +27,66 @@
   ],
   "anuncios": [
     {
-      "id": 1,
-      "nombre": "Juan Dominguez",
-      "servicio": "Cuidado de perros",
-      "zona": "La Plata",
-      "disponibilidad": "Tiempo completo"
-    },
-    {
       "id": 2,
       "nombre": "Claudia Lopez",
       "servicio": "Paseo de perros",
       "zona": "La Plata",
-      "disponibilidad": "Lunes a viernes 24hs"
+      "disponibilidad": "Lunes a viernes 24hs",
+      "email": "clau@gmail.com"
     },
     {
       "id": 3,
       "nombre": "Gustavo Peralta",
       "servicio": "Cuidado de perros",
       "zona": "Los Hornos",
-      "disponibilidad": "Sabados de 9 a 14hs"
+      "disponibilidad": "Sabados de 9 a 14hs",
+      "email": "gustavo@gmail.com"
     },
     {
       "id": 4,
-      "nombre": "Carlos",
+      "nombre": "Carlos Gonzalez",
       "servicio": "Paseo de perros",
       "zona": "CityBell",
-      "disponibilidad": "Todos los días de 7 a 16hs"
+      "disponibilidad": "Todos los días de 7 a 16hs",
+      "email": "carlos@gmail.com"
+    },
+    {
+      "id": 5,
+      "nombre": "Mauro Avellaneda",
+      "servicio": "Cuidado de perros",
+      "zona": "La Plata",
+      "disponibilidad": "Tiempo completo ",
+      "email": "mauro@gmail.com"
+    },
+    {
+      "id": 6,
+      "nombre": "Miguel Rodriguez",
+      "servicio": "paseador de perros",
+      "zona": "Gonnet",
+      "disponibilidad": "Lunes de 11 a 16hs",
+      "email": "migue@gmail.com"
+    }
+  ],
+  "mascotas": [
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "edad": "12",
+      "raza": "Caniche",
+      "color": "Negro",
+      "tamano": "Mediano",
+      "sexo": "Macho",
+      "usuarioId": "2"
+    },
+    {
+      "id": 2,
+      "nombre": "Yo",
+      "edad": "16",
+      "raza": "Puddle",
+      "color": "Violeta",
+      "tamano": "Pequeño",
+      "sexo": "Macho",
+      "usuarioId": "2"
     }
   ]
 }

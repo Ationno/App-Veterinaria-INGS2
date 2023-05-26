@@ -8,7 +8,6 @@ import { Usuario } from 'src/app/interfaces/Usuario';
 export class PerfilUsuarioComponent {
     @Input() usuario!: Usuario;
 	@Output() onDeleteUsuario: EventEmitter<Usuario> = new EventEmitter();
-	@Output() onEditFormUsuario: EventEmitter<Usuario> = new EventEmitter();
 
 	ngOnInit() : void {}
 

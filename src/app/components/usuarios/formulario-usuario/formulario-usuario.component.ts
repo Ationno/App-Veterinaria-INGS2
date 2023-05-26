@@ -12,10 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class FormularioUsuarioComponent {
-	@Output() onAddExperience: EventEmitter<Usuario> = new EventEmitter();
-	@Output() onEditExperience: EventEmitter<Usuario> = new EventEmitter();
-	@Output() onToggleFormExperience: EventEmitter<Event> = new EventEmitter();
-	showFormExperience: boolean = false;
 	subscription?: Subscription;
 	form: FormGroup;
 	sub: any;

@@ -12,7 +12,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //Anuncios
-import { AnunciosComponent } from './components/anuncios/anuncio.component';
+import { AnunciosComponent } from './components/anuncios/anuncios.component';
+import { PerfilAnuncioComponent } from './components/anuncios/perfil-anuncio/perfil-anuncio.component';
 import { FormularioAnuncioComponent } from './components/anuncios/formulario-anuncio/formulario-anuncio.component';
 
 //Usuarios
@@ -27,6 +28,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-turnos.component';
 import { FormularioTurnoComponent } from './components/turnos/formulario-turno/formulario-turno.component';
+import { MascotasComponent } from './components/mascotas/mascotas.component';
+import { MascotaComponent } from './components/mascotas/mascota/mascota.component';
+import { FormularioMascotaComponent } from './components/mascotas/formulario-mascota/formulario-mascota.component';
+import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
+import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +41,7 @@ import { FormularioTurnoComponent } from './components/turnos/formulario-turno/f
     HomeComponent,
     NavComponent,
     AnunciosComponent,
+    PerfilAnuncioComponent,
     FormularioAnuncioComponent,
     UsuariosComponent,
     PerfilUsuarioComponent,
@@ -42,13 +49,18 @@ import { FormularioTurnoComponent } from './components/turnos/formulario-turno/f
     FooterComponent,
     TurnosComponent,
     ListaTurnosComponent,
-    FormularioTurnoComponent
+    FormularioTurnoComponent,
+    MascotasComponent,
+    MascotaComponent,
+    FormularioMascotaComponent,
+    FilterUsuarioPipe,
+    FilterMascotaPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-		FormsModule,
+    FormsModule,
     ReactiveFormsModule,
     NgbModule
   ],
