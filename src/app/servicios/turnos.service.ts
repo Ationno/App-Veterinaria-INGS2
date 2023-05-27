@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { getDB } from './get-db.service';
 
 @Injectable({
@@ -11,6 +12,13 @@ export class TurnosService extends getDB {
     http: HttpClient
   ) {
     super(http)
-    this.apiUrl += "turnos";
+  }
+
+  public agregarTurno(turno: any): Observable<any> {
+    return this.add(turno, "agregar_turno");
+  }
+
+  public obtenerTurnos(): Observable<any[]> {
+    return this.get("obtener_turnos");
   }
 }
