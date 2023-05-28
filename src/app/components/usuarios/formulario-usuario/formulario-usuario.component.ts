@@ -29,7 +29,8 @@ export class FormularioUsuarioComponent {
      		apellido: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
       		DNI: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
       		telefono: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-      		email: new FormControl('', {validators: [Validators.required, Validators.email], updateOn: "blur"})
+      		email: new FormControl('', {validators: [Validators.required, Validators.email], updateOn: "blur"}),
+			mascotas: new FormControl([])
 		})
 		this.sub = this.route.params.subscribe(params => {
 			this.edit = params['id'] != -1;
@@ -66,6 +67,7 @@ export class FormularioUsuarioComponent {
 
 	public onAdd(): void {
 		if (this.form.valid) {
+			console.log(this.form.getRawValue())
 			this.usuariosService.add(this.form.getRawValue()).subscribe(() => {});
 			this.form.reset()
 		} else {

@@ -30,7 +30,7 @@ export class FormularioMascotaComponent {
 			color: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 			tamano: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 			sexo: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-			usuarioId: new FormControl('')
+			usuario_id: new FormControl('')
 		})
 		this.sub = this.route.params.subscribe(params => {
 			this.usuarioId = params['usuarioId'];
@@ -73,6 +73,9 @@ export class FormularioMascotaComponent {
 
 	public onAdd(): void {
 		if (this.form.valid) {
+			this.form.patchValue({
+				"usuario_id": this.usuarioId
+			})
 			this.mascotaService.add(this.form.getRawValue()).subscribe(() => {});
 			this.form.reset()
 		} else {

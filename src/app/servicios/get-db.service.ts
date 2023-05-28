@@ -4,7 +4,8 @@ import { Observable, of } from 'rxjs';
 const httpOptions = {
 	headers: new HttpHeaders({
 		'Content-Type': 'application/json'
-	})
+	}),
+	responseType: 'text' as 'json'
 }
 
 @Injectable({
@@ -18,26 +19,26 @@ export abstract class getDB {
 		public http: HttpClient
 	) { }
 
-	public get(action: string): Observable<any[]> {
-		return this.http.get<any[]>(this.apiUrl + action);
-	}
-
-	public getById(id: number): Observable<any> {
-		const url = `${this.apiUrl}/${id}`
-		return this.http.get<any>(url)
+	public get(): Observable<any[]> {
+		return this.http.get<any[]>(this.apiUrl + "/get");
 	}
 
 	public delete(ele: any): Observable<any> {
-		const url = `${this.apiUrl}/${ele.id}`
+		const url = `${this.apiUrl}/delete/${ele.id}`
 		return this.http.delete<any>(url);
 	}
 
 	public edit(any: any): Observable<any> {
-		const url = `${this.apiUrl}/${any.id}`
+		const url = `${this.apiUrl}/put/${any.id}`
 		return this.http.put<any>(url, any, httpOptions);
 	}
 
-	public add(any: any, action: string): Observable<any> {
-		return this.http.post<any>(this.apiUrl + action, any, httpOptions);
+	public add(any: any): Observable<any> {
+		return this.http.post<any>(this.apiUrl + "/add", any, httpOptions);
+	}
+
+	public getById(id: number): Observable<any> {
+		const url = `${this.apiUrl}/getById/${id}`
+		return this.http.get<any>(url)
 	}
 }

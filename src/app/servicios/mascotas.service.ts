@@ -11,11 +11,11 @@ export class MascotasService extends getDB {
 		http:HttpClient
 	) { 
 		super(http)
-		this.apiUrl += "mascotas";
+		this.apiUrl += "mascota";
 	}
 
 	public getByUsuarioId(id: number): Observable<any> {
-		const url = `${this.apiUrl}/?usuarioId=${id}`
+		const url = `${this.apiUrl}/getByUsuarioId/${id}`
 		return this.http.get<any>(url)
 	}
 }
