@@ -53,7 +53,8 @@
         </ul>
     </div>
     <a href="">Donaciones</a>
-    <a routerLink="/usuarios" href="">Usuarios</a>
-    <a class="push"><i class='bx bxs-user'></i></a>
-    <a routerLink="/login"><i class='bx bx-log-in'></i></a>
+    <a *ngIf="isAdmin" routerLink="/usuarios" href="">Usuarios</a>
+    <a *ngIf="isLogged" [ngClass]="{'push': isLogged}" routerLink="/informacion"><i class='bx bxs-user'></i></a>
+    <a *ngIf="!isLogged" [ngClass]="{'push': !isLogged}" routerLink="/login"><i class='bx bx-log-in'></i></a>
+    <a *ngIf="isLogged" (click)="tokenService.logOut()"><i class='bx bx-log-out'></i></a>
 </nav>

@@ -18,4 +18,9 @@ export class UsuariosService extends getDB {
 		const url = `${this.apiUrl}/getByNombre/${nombre}`
 		return this.http.get<any>(url)
 	}
+
+	public editReducido(usuario: any): Observable<any> {
+		const url = `${this.apiUrl}/putReducido/${usuario.id}`
+		return this.http.put<any>(url, usuario)
+	}
 }

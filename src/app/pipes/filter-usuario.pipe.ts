@@ -6,10 +6,11 @@ import { Usuario } from '../interfaces/Usuario';
 })
 export class FilterUsuarioPipe implements PipeTransform {
 	transform(listaUser: Usuario[], nombre: string = "", DNI: string = "", email: string = ""):  Usuario[] {
-		if (listaUser) 
+		let nuevaLista = listaUser.filter((ele) => !ele.admin)
+		if (nuevaLista) 
 			if (nombre || DNI || email)
-				return listaUser.filter((ele) => ele.nombre.toLowerCase().includes(nombre.toLowerCase()) && ele.DNI.toLowerCase().includes(DNI.toLowerCase()) 
-				&& ele.email.toLowerCase().includes(email.toLowerCase()))
-		return listaUser;
+				return nuevaLista.filter((ele) => ele.nombre.toLowerCase().includes(nombre.toLowerCase()) && ele.DNI.toLowerCase().includes(DNI.toLowerCase()) 
+				&& ele.email.toLowerCase().includes(email.toLowerCase()) && !ele.admin)
+		return nuevaLista;
 	}
 }

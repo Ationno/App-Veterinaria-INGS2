@@ -33,6 +33,8 @@ import { MascotaComponent } from './components/mascotas/mascota/mascota.componen
 import { FormularioMascotaComponent } from './components/mascotas/formulario-mascota/formulario-mascota.component';
 import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
 import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
+import { InformacionComponent } from './components/informacion/informacion.component';
+import { FormularioInformacionComponent } from './components/informacion/formulario-informacion/formulario-informacion.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
     MascotaComponent,
     FormularioMascotaComponent,
     FilterUsuarioPipe,
-    FilterMascotaPipe
+    FilterMascotaPipe,
+    InformacionComponent,
+    FormularioInformacionComponent
   ],
   imports: [
     BrowserModule,

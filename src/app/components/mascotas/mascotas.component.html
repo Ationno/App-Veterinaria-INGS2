@@ -26,6 +26,7 @@
                     name="busquedaTamano"
                     [(ngModel)]="busquedaTamano"
                 >
+                    <option value=""></option>
                     <option value="Pequeño">Pequeño</option>
                     <option value="Mediano">Mediano</option>
                     <option value="Grande">Grande</option>
@@ -38,13 +39,14 @@
                     name="busquedaSexo"
                     [(ngModel)]="busquedaSexo"
                 >
+                    <option value=""></option>
                     <option value="Macho">Macho</option>
                     <option value="Hembra">Hembra</option>
             </select>
             </div>
         </div>
     </div>
-    <div class="usuarios">
+    <div class="mascotas">
         <app-mascota
             *ngFor="let mascota of mascotas | filterMascota: busquedaNombre:busquedaRaza:busquedaTamano:busquedaSexo" 
             [mascota] = "mascota"

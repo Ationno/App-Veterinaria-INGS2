@@ -8,5 +8,6 @@ export interface Usuario {
     email: string,
     telefono: string,
     password: string,
+    admin: boolean,
     mascotas: Mascota[]
 }

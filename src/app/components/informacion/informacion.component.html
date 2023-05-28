@@ -1,0 +1,68 @@
+<div>
+    <div class="usuario" *ngIf="usuario">
+        <h1 class="h1-delineado">Información de <b>{{usuario.nombre + " " + usuario.apellido}}</b></h1>
+        <h2>DNI: <b>{{usuario.DNI}}</b></h2>
+        <h2>Email: <b>{{usuario.email}}</b></h2>
+        <h2>Telefono: <b>{{usuario.telefono}}</b></h2>
+        <div style="display: flex;">
+            <button *ngIf="usuario.admin" [routerLink]="['/usuarios/formUsuarios', usuario.id]" class="button button-blue" value="editar">Editar</button>
+            <button *ngIf="!usuario.admin" [routerLink]="['/informacion/formInformacion' , usuario.id]" class="button button-blue" value="editar">Editar</button>
+        </div>
+    </div>
+    <div *ngIf="mascotas.length > 0" class="mascotas">
+        <h1 class="h1-delineado">Mascotas</h1>
+        <div class="busqueda">
+            <h2 for="search">Busqueda</h2>
+            <div class="busqueda_inputs">
+                <div>
+                    <label for="search">Nombre:</label>
+                    <input 
+                        type="text"  
+                        name="busquedaNombre"
+                        [(ngModel)]="busquedaNombre"
+                    >
+                </div>
+                <div>
+                    <label for="search">Raza:</label>
+                    <input 
+                        type="text"  
+                        name="busquedaDNI"
+                        [(ngModel)]="busquedaRaza"
+                    >
+                </div>
+                <div>
+                    <label for="search">Tamaño:</label>
+                    <select 
+                        type="text"  
+                        name="busquedaTamano"
+                        [(ngModel)]="busquedaTamano"
+                    >
+                        <option value=""></option>
+                        <option value="Pequeño">Pequeño</option>
+                        <option value="Mediano">Mediano</option>
+                        <option value="Grande">Grande</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="search">Sexo:</label>
+                    <select 
+                        type="text"  
+                        name="busquedaSexo"
+                        [(ngModel)]="busquedaSexo"
+                    >
+                        <option value=""></option>
+                        <option value="Macho">Macho</option>
+                        <option value="Hembra">Hembra</option>
+                </select>
+                </div>
+            </div>
+        </div>
+        <div class="lista_mascotas">
+            <app-mascota
+                *ngFor="let mascota of mascotas | filterMascota: busquedaNombre:busquedaRaza:busquedaTamano:busquedaSexo" 
+                [mascota] = "mascota"
+                (onDeleteMascota)="deleteMascota(mascota)"
+            ></app-mascota>
+        </div>
+    </div>
+</div>

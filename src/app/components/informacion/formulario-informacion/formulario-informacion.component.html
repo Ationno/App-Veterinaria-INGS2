@@ -1,0 +1,45 @@
+<h1 class="h1-delineado">Editar Información de usuario</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>  
+        <div class="form-column">
+            <div class="form-control">
+                <label for="email">Email:</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Agregar email"
+                    [value] = "Email"
+                    formControlName="email"
+                >
+                <div *ngIf="Email?.errors && Email?.touched" class="error">
+                    <p *ngIf="Email?.hasError('required')">
+                        El email es requerido
+                    </p>
+                    <p *ngIf="Email?.hasError('email')">
+                        El formato del email debe ser valido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="password">Password:</label>
+            <input 
+                type="text"  
+                name="password" 
+                placeholder="Agregar password"
+                formControlName="password"  
+            >
+            <div *ngIf="Password?.errors && Password?.touched" class="error">
+                <p *ngIf="Password?.hasError('required')">
+                    La password es requerida
+                </p>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input [routerLink]="'/informacion'" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="'/informacion'" class="button button-red" type="submit" value="Cancelar">
+        </div>
+    </form>
+</div>

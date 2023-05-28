@@ -24,6 +24,7 @@ a {
     color: #F1965B;
     font-size: 1.65em;
     align-self: center;
+    cursor: pointer;
 }
 
 .barra_navegacion .push {

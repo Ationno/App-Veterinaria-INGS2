@@ -1,15 +1,19 @@
-.mascotas {
+.lista_mascotas {
     display: flex;
     grid-template-columns: repeat(auto-fit, minmax(125px, 175px));
     column-gap: 1em;
 }
 
-.button {
-    margin-top: 1.5em;
+h1 {
+    margin-bottom: .5em;
 }
 
-h1 {
-    margin-bottom: .25em;
+h2 {
+    margin-bottom: .5em;
+}
+
+.button {
+    margin-bottom: 1em;
 }
 
 .busqueda {
