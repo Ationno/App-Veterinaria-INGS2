@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: 'anuncios/formAnuncios/:id', component: FormularioAnuncioComponent, pathMatch: 'full' },
   { path: 'turnos/formTurnos/:id', component: FormularioTurnoComponent, pathMatch: 'full' },
   { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full' },
-  { path: 'anuncios/formAnuncios/:id', component: FormularioAnuncioComponent, pathMatch: 'full' },
   { path: 'mascotas/:id', component: MascotasComponent, pathMatch: 'full' },
   { path: 'mascotas/formMascota/:usuarioId/:mascotaId', component: FormularioMascotaComponent, pathMatch: 'full' },
   { path: 'informacion', component: InformacionComponent, pathMatch: 'full' },
