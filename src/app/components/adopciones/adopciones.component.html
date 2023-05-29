@@ -1,1 +1,59 @@
-<p>adopciones works!</p>
+<div>
+    <h1 class="h1-delineado">Adopciones</h1>
+    <div class="busqueda">
+        <div class="busqueda_titulo">
+            <h2 for="search">Busqueda</h2>
+            <button [routerLink]="['/adopciones/formAdopcion', this.usuarioId, -1]" class="button button-green" > Agregar anuncio de adopcion </button>
+        </div>
+        <div class="busqueda_inputs">
+            <div>
+                <label for="search">Nombre:</label>
+                <input 
+                    type="text"  
+                    name="busquedaNombre"
+                    [(ngModel)]="busquedaNombre"
+                >
+            </div>
+            <div>
+                <label for="search">Raza:</label>
+                <input 
+                    type="text"  
+                    name="busquedaDNI"
+                    [(ngModel)]="busquedaRaza"
+                >
+            </div>
+            <div>
+                <label for="search">Tamaño:</label>
+                <select 
+                    type="text"  
+                    name="busquedaTamano"
+                    [(ngModel)]="busquedaTamano"
+                >
+                    <option value=""></option>
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div>
+                <label for="search">Sexo:</label>
+                <select 
+                    type="text"  
+                    name="busquedaSexo"
+                    [(ngModel)]="busquedaSexo"
+                >
+                    <option value=""></option>
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+            </select>
+            </div>
+        </div>
+    </div>
+    <div class="adopciones">
+        <app-adopcion
+            *ngFor="let adopcion of adopciones | filterAdopcion: busquedaNombre:busquedaRaza:busquedaTamano:busquedaSexo" 
+            [adopcion] = "adopcion"
+            (onDeleteAdopcion)="deleteAdopcion(adopcion)"
+        ></app-adopcion>
+    </div>
+</div>

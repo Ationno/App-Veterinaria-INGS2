@@ -41,6 +41,9 @@ import { FormularioVacunasComponent } from './components/vacunas/formulario-vacu
 import { VacunaComponent } from './components/vacunas/vacuna/vacuna.component';
 import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
 import { AdopcionesComponent } from './components/adopciones/adopciones.component';
+import { AdopcionComponent } from './components/adopciones/adopcion/adopcion.component';
+import { FilterAdopcionPipe } from './pipes/filter-adopcion.pipe';
+import { FormularioAdopcionComponent } from './components/adopciones/formulario-adopcion/formulario-adopcion.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +73,10 @@ import { AdopcionesComponent } from './components/adopciones/adopciones.componen
     FormularioVacunasComponent,
     VacunaComponent,
     FilterVacunaPipe,
-    AdopcionesComponent
+    AdopcionesComponent,
+    AdopcionComponent,
+    FilterAdopcionPipe,
+    FormularioAdopcionComponent
   ],
   imports: [
     BrowserModule,

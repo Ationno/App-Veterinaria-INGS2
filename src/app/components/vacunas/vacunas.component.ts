@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Vacuna } from 'src/app/interfaces/Anuncio copy';
+import { Vacuna } from 'src/app/interfaces/Vacuna';
 import { Mascota } from 'src/app/interfaces/Mascota';
 import { VacunasService } from 'src/app/servicios/vacunas.service';
 

@@ -23,7 +23,10 @@ export class AuthService {
 	}
 
 	public getMainUsuario(): Observable<any> {
-		const url = `${this.apiUrl}/usuario/mainUsuario/${sessionStorage.getItem(TOKEN_KEY)}`
-		return this.httpClient.get<any>(url)
+		if (sessionStorage.getItem(TOKEN_KEY)) {
+			const url = `${this.apiUrl}/usuario/mainUsuario/${sessionStorage.getItem(TOKEN_KEY)}`
+			return this.httpClient.get<any>(url)
+		}
+		return new Observable<any>();
 	}
 }

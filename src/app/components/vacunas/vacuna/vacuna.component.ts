@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Vacuna } from 'src/app/interfaces/Anuncio copy';
+import { Vacuna } from 'src/app/interfaces/Vacuna';
 
 @Component({
 	selector: 'app-vacuna',

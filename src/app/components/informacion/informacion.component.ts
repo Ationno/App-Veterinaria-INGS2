@@ -23,8 +23,8 @@ export class InformacionComponent {
 
 	ngOnInit() {
 		this.authService.getMainUsuario().subscribe(usuario => {
-			this.usuario = usuario[0];
-			this.mascotas = usuario[0].mascotas;
+			this.usuario = usuario;
+			this.mascotas = usuario.mascotas;
 		})
 	}
 

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Vacuna } from '../interfaces/Anuncio copy';
+import { Vacuna } from '../interfaces/Vacuna';
 
 @Pipe({
 	name: 'filterVacuna'

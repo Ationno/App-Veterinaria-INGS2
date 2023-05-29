@@ -15,6 +15,8 @@ import { FormularioInformacionComponent } from './components/informacion/formula
 import { FormularioInformacionAdminComponent } from './components/informacion/formulario-informacion-admin/formulario-informacion-admin.component';
 import { VacunasComponent } from './components/vacunas/vacunas.component';
 import { FormularioVacunasComponent } from './components/vacunas/formulario-vacunas/formulario-vacunas.component';
+import { AdopcionesComponent } from './components/adopciones/adopciones.component';
+import { FormularioAdopcionComponent } from './components/adopciones/formulario-adopcion/formulario-adopcion.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -33,7 +35,9 @@ const routes: Routes = [
   { path: 'informacion/formInformacionAdmin/:id', component: FormularioInformacionAdminComponent, pathMatch: 'full' },
   { path: 'vacunas', component: VacunasComponent, pathMatch: 'full' },
   { path: 'vacunas/:id', component: VacunasComponent, pathMatch: 'full' },
-  { path: 'vacunas/formVacuna/:mascotaId/:vacunaId', component: FormularioVacunasComponent, pathMatch: 'full' }
+  { path: 'vacunas/formVacuna/:mascotaId/:vacunaId', component: FormularioVacunasComponent, pathMatch: 'full' }, 
+  { path: 'adopciones', component: AdopcionesComponent, pathMatch: 'full' },
+  { path: 'adopciones/formAdopcion/:usuarioId/:adopcionId', component: FormularioAdopcionComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
