@@ -1,4 +1,4 @@
-<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Usuario</h1>
+<h1 class="h1-delineado">Editar Usuario</h1>
 <div class="centrar">
     <form *ngIf="true" [formGroup]="form">
         <h1>Cargue los datos</h1>  
@@ -47,7 +47,7 @@
                     </p>
                 </div>
             </div>
-            <div class="form-control" *ngIf="!this.edit">
+            <div class="form-control">
                 <label for="email">Email:</label>
                 <input 
                     type="email" 
@@ -67,30 +67,49 @@
                 </div>
             </div>
         </div>
-        <div class="form-control">
-            <label for="telefono">Telefono:</label>
-            <input 
-                type="text"  
-                name="telefono" 
-                placeholder="Agregar telefono"
-                formControlName="telefono"  
-            >
-            <div *ngIf="Telefono?.errors && Telefono?.touched" class="error">
-                <p *ngIf="Telefono?.hasError('required')">
-                    El telefono es requerido
-                </p>
-                <p *ngIf="Telefono?.hasError('pattern')">
-                    El telefono no es valido
-                </p>
-                <p *ngIf="!Telefono?.hasError('pattern') && Telefono?.hasError('minlength')">
-                    El telefono es muy corto
-                </p>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="telefono">Telefono:</label>
+                <input 
+                    type="text"  
+                    name="telefono" 
+                    placeholder="Agregar telefono"
+                    formControlName="telefono"  
+                >
+                <div *ngIf="Telefono?.errors && Telefono?.touched" class="error">
+                    <p *ngIf="Telefono?.hasError('required')">
+                        El telefono es requerido
+                    </p>
+                    <p *ngIf="Telefono?.hasError('pattern')">
+                        El telefono no es valido
+                    </p>
+                    <p *ngIf="!Telefono?.hasError('pattern') && Telefono?.hasError('minlength')">
+                        El telefono es muy corto
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="password">Password:</label>
+                <div class="password">
+                    <input 
+                        [type]="this.visibility ? 'text' : 'password'"  
+                        name="password" 
+                        placeholder="Agregar password"
+                        formControlName="password"  
+                    >
+                    <i class='bx bxs-hide' *ngIf="!this.visibility" (click)="changeVisibility()"></i>
+                    <i class='bx bxs-show' *ngIf="this.visibility" (click)="changeVisibility()"></i>
+                </div>
+                <div *ngIf="Password?.errors && Password?.touched" class="error">
+                    <p *ngIf="Password?.hasError('required')">
+                        La password es requerida
+                    </p>
+                </div>
             </div>
         </div>
         <div class="form-buttons">
-            <input [routerLink]="'/usuarios'" *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
-            <input [routerLink]="'/usuarios'" *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
-            <input [routerLink]="'/usuarios'" class="button button-red" type="submit" value="Cancelar">
+            <input class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="'/informacion'" class="button button-red" type="submit" value="Cancelar">
         </div>
     </form>
 </div>

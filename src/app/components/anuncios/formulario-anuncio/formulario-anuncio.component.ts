@@ -69,6 +69,7 @@ export class FormularioAnuncioComponent {
 	public onAdd(): void {
 		if (this.form.valid) {
 			this.anunciosService.add(this.form.getRawValue()).subscribe(() => {});
+			this.router.navigate(['/anuncios']);
 			this.form.reset()
 		} else {
 			console.log(this.form.errors)
@@ -79,6 +80,7 @@ export class FormularioAnuncioComponent {
 	public onEdit(): void {
 		if (this.form.valid) {
 			this.anunciosService.edit(this.form.getRawValue()).subscribe(() => {})
+			this.router.navigate(['/anuncios']);
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();

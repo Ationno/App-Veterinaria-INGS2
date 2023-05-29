@@ -1,4 +1,4 @@
-.usuarios {
+.vacunas {
     display: flex;
     grid-template-columns: repeat(auto-fit, minmax(125px, 175px));
     column-gap: 1em;
@@ -21,7 +21,7 @@ h1 {
     gap: 1em;
 }
 
-.busqueda_inputs input {
+.busqueda_inputs input, select {
     margin: .5em 0 0 .5em;
 	border: none;
 	border-bottom: 1px solid #d1d1d1;

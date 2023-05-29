@@ -1,7 +1,10 @@
 <div>
     <h1 class="h1-delineado">Mascotas</h1>
     <div class="busqueda">
-        <h2 for="search">Busqueda</h2>
+        <div class="busqueda_titulo">
+            <h2 for="search">Busqueda</h2>
+            <button [routerLink]="['/mascotas/formMascota', this.usuarioId, -1]" class="button button-green" > Agregar mascota </button>
+        </div>
         <div class="busqueda_inputs">
             <div>
                 <label for="search">Nombre:</label>
@@ -53,5 +56,4 @@
             (onDeleteMascota)="deleteMascota(mascota)"
         ></app-mascota>
     </div>
-    <button [routerLink]="['/mascotas/formMascota', this.usuarioId, -1]" class="button button-green" > Agregar mascota </button>
 </div>

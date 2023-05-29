@@ -11,6 +11,7 @@ export class FormularioInformacionComponent {
 	form: FormGroup;
 	sub: any;
 	edit: boolean = false;
+	visibility: boolean = false;
 
 	constructor(
 		private formBuilder: FormBuilder,
@@ -30,6 +31,10 @@ export class FormularioInformacionComponent {
 		});
 	}
 
+	public changeVisibility() {
+		this.visibility = !this.visibility;
+	}
+
 	get Email(){
 		return this.form.get("email");
 	}
@@ -41,6 +46,7 @@ export class FormularioInformacionComponent {
 	public onEdit(): void {
 		if (this.form.valid) {
 			this.usuarioService.editReducido(this.form.getRawValue()).subscribe(() => {})
+			this.router.navigate(['/informacion']);
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();

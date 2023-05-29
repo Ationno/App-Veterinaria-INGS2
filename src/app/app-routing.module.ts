@@ -12,6 +12,9 @@ import { MascotasComponent } from './components/mascotas/mascotas.component';
 import { FormularioMascotaComponent } from './components/mascotas/formulario-mascota/formulario-mascota.component';
 import { InformacionComponent } from './components/informacion/informacion.component';
 import { FormularioInformacionComponent } from './components/informacion/formulario-informacion/formulario-informacion.component';
+import { FormularioInformacionAdminComponent } from './components/informacion/formulario-informacion-admin/formulario-informacion-admin.component';
+import { VacunasComponent } from './components/vacunas/vacunas.component';
+import { FormularioVacunasComponent } from './components/vacunas/formulario-vacunas/formulario-vacunas.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -26,7 +29,11 @@ const routes: Routes = [
   { path: 'mascotas/:id', component: MascotasComponent, pathMatch: 'full' },
   { path: 'mascotas/formMascota/:usuarioId/:mascotaId', component: FormularioMascotaComponent, pathMatch: 'full' },
   { path: 'informacion', component: InformacionComponent, pathMatch: 'full' },
-  { path: 'informacion/formInformacion/:id', component: FormularioInformacionComponent, pathMatch: 'full' }
+  { path: 'informacion/formInformacion/:id', component: FormularioInformacionComponent, pathMatch: 'full' },
+  { path: 'informacion/formInformacionAdmin/:id', component: FormularioInformacionAdminComponent, pathMatch: 'full' },
+  { path: 'vacunas', component: VacunasComponent, pathMatch: 'full' },
+  { path: 'vacunas/:id', component: VacunasComponent, pathMatch: 'full' },
+  { path: 'vacunas/formVacuna/:mascotaId/:vacunaId', component: FormularioVacunasComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

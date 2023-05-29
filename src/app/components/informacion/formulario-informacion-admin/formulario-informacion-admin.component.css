@@ -40,7 +40,19 @@ form h1 {
 }
 
 .form-buttons {
-	margin-top: 1.5em;
+    margin-top: 1.5em;
 	display: flex;
 	justify-content:space-around;
+}
+
+.password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password i {
+    cursor: pointer;
+    padding: calc(20.5px - 8px);
+    border-bottom: 1px solid #d1d1d1;
 }

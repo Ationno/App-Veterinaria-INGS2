@@ -25,12 +25,16 @@
         </div>
         <div class="form-control">
             <label for="password">Password:</label>
-            <input 
-                type="text"  
-                name="password" 
-                placeholder="Agregar password"
-                formControlName="password"  
-            >
+            <div class="password">
+                <input 
+                    [type]="this.visibility ? 'text' : 'password'"  
+                    name="password" 
+                    placeholder="Agregar password"
+                    formControlName="password"  
+                >
+                <i class='bx bxs-hide' *ngIf="!this.visibility" (click)="changeVisibility()"></i>
+                <i class='bx bxs-show' *ngIf="this.visibility" (click)="changeVisibility()"></i>
+            </div>
             <div *ngIf="Password?.errors && Password?.touched" class="error">
                 <p *ngIf="Password?.hasError('required')">
                     La password es requerida
@@ -38,7 +42,7 @@
             </div>
         </div>
         <div class="form-buttons">
-            <input [routerLink]="'/informacion'" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input class="button button-green" type="submit" value="Editar" (click)="onEdit()">
             <input [routerLink]="'/informacion'" class="button button-red" type="submit" value="Cancelar">
         </div>
     </form>

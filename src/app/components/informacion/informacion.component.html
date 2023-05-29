@@ -5,7 +5,7 @@
         <h2>Email: <b>{{usuario.email}}</b></h2>
         <h2>Telefono: <b>{{usuario.telefono}}</b></h2>
         <div style="display: flex;">
-            <button *ngIf="usuario.admin" [routerLink]="['/usuarios/formUsuarios', usuario.id]" class="button button-blue" value="editar">Editar</button>
+            <button *ngIf="usuario.admin" [routerLink]="['/informacion/formInformacionAdmin', usuario.id]" class="button button-blue" value="editar">Editar</button>
             <button *ngIf="!usuario.admin" [routerLink]="['/informacion/formInformacion' , usuario.id]" class="button button-blue" value="editar">Editar</button>
         </div>
     </div>

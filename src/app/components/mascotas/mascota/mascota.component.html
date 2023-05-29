@@ -1,4 +1,4 @@
-<div class="usuario">
+<div class="mascota">
     <h1>{{mascota.nombre + " - " + mascota.edad + " años"}}  </h1>
     <h2>{{mascota.raza}}</h2>
     <p>{{"Color: " + mascota.color}}</p>
@@ -7,5 +7,6 @@
     <div style="display: flex;">
         <button [routerLink]="['/mascotas/formMascota', mascota.usuario_id, mascota.id]" class="button button-blue" value="editar">Editar</button>
         <button (click)="onDelete(mascota)" class="button button-red" value="borrar">Borrar</button>
+        <button [routerLink]="['/vacunas', mascota.id]" class="button button-purple" value="mascotas">Libreta</button>
     </div>
 </div>

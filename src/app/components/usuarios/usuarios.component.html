@@ -1,7 +1,10 @@
 <div>
     <h1 class="h1-delineado">Usuarios</h1>
     <div class="busqueda">
-        <h2 for="search">Busqueda</h2>
+        <div class="busqueda_titulo">
+            <h2 for="search">Busqueda</h2>
+            <button [routerLink]="'/usuarios/formUsuarios/-1'" class="button button-green" > Agregar usuario </button>
+        </div>
         <div class="busqueda_inputs">
             <div>
                 <label for="search">Nombre:</label>
@@ -36,5 +39,4 @@
             (onDeleteUsuario)="deleteUsuario(usuario)"
         ></app-perfil-usuario>
     </div>
-    <button [routerLink]="'/usuarios/formUsuarios/-1'" class="button button-green" > Agregar usuario </button>
 </div>

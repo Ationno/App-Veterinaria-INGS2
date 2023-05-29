@@ -56,6 +56,7 @@ export class FormularioTurnoComponent {
   public onAdd(): void {
     if (this.form.valid) {
       this.turnosService.add(this.form.getRawValue()).subscribe(() => { });
+      this.router.navigate(['/turnos']);
       this.form.reset()
     } else {
       console.log(this.form.errors)
@@ -66,6 +67,7 @@ export class FormularioTurnoComponent {
   public onEdit(): void {
     if (this.form.valid) {
       this.turnosService.edit(this.form.getRawValue()).subscribe(() => { })
+      this.router.navigate(['/turnos']);
     } else {
       console.log(this.form.errors)
       this.form.markAllAsTouched();

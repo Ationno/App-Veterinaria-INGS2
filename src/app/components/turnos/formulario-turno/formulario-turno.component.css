@@ -40,6 +40,7 @@ form h1 {
 }
 
 .form-buttons {
+    margin-top: 1.5em;
     display: flex;
     justify-content: space-around;
 }

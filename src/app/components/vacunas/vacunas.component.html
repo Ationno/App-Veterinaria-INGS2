@@ -1,0 +1,34 @@
+<div>
+    <h1 class="h1-delineado">Vacunas</h1>
+    <div class="busqueda">
+        <div class="busqueda_titulo"> 
+            <h2 for="search">Busqueda</h2>
+            <button [routerLink]="['/vacunas/formVacuna', this.mascotaId, -1]" class="button button-green" > Agregar Vacuna </button>
+        </div>
+        <div class="busqueda_inputs">
+            <div>
+                <label for="search">Nombre:</label>
+                <input 
+                    type="text"  
+                    name="busquedaNombre"
+                    [(ngModel)]="busquedaNombre"
+                >
+            </div>
+            <div>
+                <label for="search">Fecha:</label>
+                <input 
+                    type="date"  
+                    name="busquedaDNI"
+                    [(ngModel)]="busquedaFecha"
+                >
+            </div>
+        </div>
+    </div>
+    <div class="vacunas">
+        <app-vacuna
+            *ngFor="let vacuna of vacunas | filterVacuna: busquedaNombre:busquedaFecha" 
+            [vacuna] = "vacuna"
+            (onDeleteVacuna)="deleteVacuna(vacuna)"
+        ></app-vacuna>
+    </div>
+</div>

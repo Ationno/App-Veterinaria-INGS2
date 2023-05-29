@@ -26,3 +26,9 @@ h1 {
 	border: none;
 	border-bottom: 1px solid #d1d1d1;
 }
+
+.busqueda_titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

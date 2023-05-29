@@ -1,0 +1,41 @@
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Vacuna </h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>  
+        <div class="form-column">
+            <div class="form-control">
+                <label for="nombre">Nombre:</label>
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    placeholder="Agregar nombre"
+                    formControlName="nombre"
+                >
+                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
+                    <p *ngIf="Nombre?.hasError('required')">
+                        El nombre es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="fecha">Fecha:</label>
+                <input 
+                    type="date"  
+                    name="fecha" 
+                    placeholder="Agregar fecha"
+                    formControlName="fecha"  
+                >
+                <div *ngIf="Fecha?.errors && Fecha?.touched" class="error">
+                    <p *ngIf="Fecha?.hasError('required')">
+                        La edad es requerida
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="['/vacunas', this.mascotaId]" class="button button-red" type="submit" value="Cancelar">
+        </div>
+    </form>
+</div>

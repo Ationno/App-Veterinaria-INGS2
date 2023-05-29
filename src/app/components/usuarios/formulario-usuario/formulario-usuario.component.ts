@@ -28,8 +28,9 @@ export class FormularioUsuarioComponent {
 			nombre: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
      		apellido: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
       		DNI: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-      		telefono: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+      		telefono: new FormControl('', {validators: [Validators.required, Validators.pattern('[- +()0-9]+'), Validators.minLength(9)], updateOn: 'blur'}),
       		email: new FormControl('', {validators: [Validators.required, Validators.email], updateOn: "blur"}),
+			password: new FormControl(''),
 			mascotas: new FormControl([])
 		})
 		this.sub = this.route.params.subscribe(params => {
@@ -43,6 +44,15 @@ export class FormularioUsuarioComponent {
 				this.form.reset()
 			}
 		});
+	}
+
+	public makeRandom(lengthOfCode: number): string {
+		let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890,./;'[]\=-)(*&^%$#@!~`";
+		let text = "";
+		for (let i = 0; i < lengthOfCode; i++) {
+		  text += possible.charAt(Math.floor(Math.random() * possible.length));
+		}
+		return text;
 	}
 
 	get Nombre(){
@@ -67,8 +77,9 @@ export class FormularioUsuarioComponent {
 
 	public onAdd(): void {
 		if (this.form.valid) {
-			console.log(this.form.getRawValue())
+			this.form?.patchValue({password: this.makeRandom(8)});
 			this.usuariosService.add(this.form.getRawValue()).subscribe(() => {});
+			this.router.navigate(['/usuarios']);
 			this.form.reset()
 		} else {
 			console.log(this.form.errors)
@@ -79,6 +90,7 @@ export class FormularioUsuarioComponent {
 	public onEdit(): void {
 		if (this.form.valid) {
 			this.usuariosService.edit(this.form.getRawValue()).subscribe(() => {})
+			this.router.navigate(['/usuarios']);
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();

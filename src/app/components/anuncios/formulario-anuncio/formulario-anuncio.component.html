@@ -82,8 +82,8 @@
             </div>
         </div>
         <div class="form-buttons">
-            <input [routerLink]="'/anuncios'" *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
-            <input [routerLink]="'/anuncios'" *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
             <input [routerLink]="'/anuncios'" class="button button-red" type="submit" value="Cancelar">
         </div>
     </form>

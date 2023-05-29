@@ -35,6 +35,12 @@ import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
 import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
 import { InformacionComponent } from './components/informacion/informacion.component';
 import { FormularioInformacionComponent } from './components/informacion/formulario-informacion/formulario-informacion.component';
+import { FormularioInformacionAdminComponent } from './components/informacion/formulario-informacion-admin/formulario-informacion-admin.component';
+import { VacunasComponent } from './components/vacunas/vacunas.component';
+import { FormularioVacunasComponent } from './components/vacunas/formulario-vacunas/formulario-vacunas.component';
+import { VacunaComponent } from './components/vacunas/vacuna/vacuna.component';
+import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
+import { AdopcionesComponent } from './components/adopciones/adopciones.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,13 @@ import { FormularioInformacionComponent } from './components/informacion/formula
     FilterUsuarioPipe,
     FilterMascotaPipe,
     InformacionComponent,
-    FormularioInformacionComponent
+    FormularioInformacionComponent,
+    FormularioInformacionAdminComponent,
+    VacunasComponent,
+    FormularioVacunasComponent,
+    VacunaComponent,
+    FilterVacunaPipe,
+    AdopcionesComponent
   ],
   imports: [
     BrowserModule,

@@ -23,9 +23,9 @@
             </div>
         </div>
         <div class="form-buttons">
-            <input [routerLink]="'/turnos'" *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar"
+            <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar"
                 (click)="onAdd()">
-            <input [routerLink]="'/turnos'" *ngIf="this.edit" class="button button-green" type="submit" value="Editar"
+            <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar"
                 (click)="onEdit()">
             <input [routerLink]="'/turnos'" class="button button-red" type="submit" value="Cancelar">
         </div>
