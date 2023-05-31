@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Adopcion } from 'src/app/interfaces/Adopcion';
-import { Mascota } from 'src/app/interfaces/Mascota';
 import { AdopcionesService } from 'src/app/servicios/adopciones.service';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
 	selector: 'app-adopciones',
@@ -17,19 +17,20 @@ export class AdopcionesComponent {
 	busquedaRaza!: string;
 	busquedaTamano!: string;
 	busquedaSexo!: string;
+	isLogged!: boolean;
 
 	constructor(
 		private adopcionService: AdopcionesService,
-		private mascotaService: MascotasService
+		private tokenService: TokenService,
+		private authService: AuthService,
 	) {}
 
 	ngOnInit() {
+		this.isLogged = this.tokenService.isLogged()
+		this.authService.getMainUsuario().subscribe((usuario) => {
+			this.usuarioId = usuario.id
+		})
 		this.adopcionService.get().subscribe((adopciones) => {	
-			adopciones.forEach((adopcion) => { 
-				this.mascotaService.getById(adopcion.mascota_id).subscribe((mascota) => {
-					adopcion.mascota = mascota;
-				});
-			})
 			this.adopciones = adopciones
 		})
 	}

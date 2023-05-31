@@ -55,6 +55,7 @@ import { FilterAdopcionPipe } from './pipes/filter-adopcion.pipe';
 import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
 import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
 import { FilterAnuncioPipe } from './pipes/filter-anuncio.pipe';
+import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formulario-adoptar-anonimo/formulario-adoptar-anonimo.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { FilterAnuncioPipe } from './pipes/filter-anuncio.pipe';
     AdopcionComponent,
     FilterAdopcionPipe,
     FormularioAdopcionComponent,
-    FilterAnuncioPipe
+    FilterAnuncioPipe,
+    FormularioAdoptarAnonimoComponent
   ],
   imports: [
     BrowserModule,

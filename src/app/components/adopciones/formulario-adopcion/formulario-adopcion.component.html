@@ -1,4 +1,4 @@
-<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Mascota </h1>
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Adopcion </h1>
 <div class="centrar">
     <form *ngIf="true" [formGroup]="form">
         <h1>Cargue los datos</h1>
@@ -20,7 +20,8 @@
                 </p>
             </div>
         </div>
-        <div class="form-control">
+        <h3 *ngIf="this.eleccion == 'utilizar'">Elige una de tus mascotas</h3>
+        <div class="form-control" *ngIf="this.eleccion == 'utilizar'">
             <label for="mascota_id">Mascota:</label>
             <select type="text" name="mascota_id" placeholder="Agregar mascota" formControlName="mascota_id">
                 <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{mascota.nombre}}</option>
@@ -31,10 +32,116 @@
                 </p>
             </div>
         </div>
+        <h3 *ngIf="this.eleccion == 'agregar'">Nueva Mascota para la adopcion</h3>
+        <div class="form-column" *ngIf="this.eleccion == 'agregar'">
+            <div class="form-control">
+                <label for="nombre">Nombre:</label>
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    placeholder="Agregar nombre"
+                    formControlName="nombre"
+                >
+                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
+                    <p *ngIf="Nombre?.hasError('required')">
+                        El nombre es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="edad">Edad:</label>
+                <input 
+                    type="text"  
+                    name="edad" 
+                    placeholder="Agregar edad"
+                    formControlName="edad"  
+                >
+                <div *ngIf="Edad?.errors && Edad?.touched" class="error">
+                    <p *ngIf="Edad?.hasError('required')">
+                        La edad es requerida
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column" *ngIf="this.eleccion == 'agregar'">
+            <div class="form-control">
+                <label for="raza">Raza:</label>
+                <input 
+                    type="text"  
+                    name="raza" 
+                    placeholder="Agregar raza"
+                    formControlName="raza"  
+                >
+                <div *ngIf="Raza?.errors && Raza?.touched" class="error">
+                    <p *ngIf="Raza?.hasError('required')">
+                        La Raza es requerida
+                    </p>
+                </div>
+            </div>
+            <div class="form-control" *ngIf="this.eleccion == 'agregar'">
+                <label for="color">Color:</label>
+                <input 
+                    type="text" 
+                    name="color" 
+                    id="color" 
+                    placeholder="Agregar color"
+                    formControlName="color"
+                >
+                <div *ngIf="Color?.errors && Color?.touched" class="error">
+                    <p *ngIf="Color?.hasError('required')">
+                        El color es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column" *ngIf="this.eleccion == 'agregar'">
+            <div class="form-control">
+                <label for="tamano">Tamaño:</label>
+                <select 
+                    type="text"  
+                    name="tamano" 
+                    placeholder="Agregar tamaño"
+                    formControlName="tamano"  
+                >
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+                <div *ngIf="Tamano?.errors && Tamano?.touched" class="error">
+                    <p *ngIf="Tamano?.hasError('required')">
+                        El tamaño es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="sexo">Sexo:</label>
+                <select 
+                    type="sexo" 
+                    name="sexo" 
+                    id="sexo" 
+                    placeholder="Agregar sexo"
+                    formControlName="sexo"
+                >
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                </select>
+                <div *ngIf="Sexo?.errors && Sexo?.touched" class="error">
+                    <p *ngIf="Sexo?.hasError('required')">
+                        El sexo es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="this.edit" class="form-control">
+            <label for="finalizada">Adoptado:</label>
+            <input type="checkbox" name="finalizada" placeholder="false" formControlName="finalizada">
+        </div>
         <div class="form-buttons">
-            <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
-            <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
-            <input [routerLink]="['/adopciones', this.usuarioId]" class="button button-red" type="submit"
+            <input *ngIf="!this.edit && !this.eleccion" class="button button-green" type="submit" value="Agregar Mascota" (click)="agregarMascota()">
+            <input *ngIf="!this.edit && !this.eleccion" class="button button-green" type="submit" value="Mascotas Propias" (click)="utilizarMascota()">
+            <input *ngIf="!this.edit && this.eleccion" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input *ngIf="this.edit && this.eleccion" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="['/adopciones']" class="button button-red" type="submit"
                 value="Cancelar">
         </div>
     </form>

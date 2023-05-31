@@ -6,7 +6,7 @@ form {
 	display: flex;
 	flex-direction: column;
     margin-top: 1em;
-	min-width: 700px;
+	width: 100%;
 }
 
 form h1 {
@@ -16,9 +16,6 @@ form h1 {
 	margin-bottom: .5em;
 }
 
-form h3 {
-	margin-top: .5em;
-}
 
 .form-column {
 	display: flex;
@@ -35,7 +32,7 @@ form h3 {
 	font-size: 1em;
 }
 
-.form-control input, .form-control select {
+.form-control input {
 	padding: .5em;
 	width: 100%;
 	border: none;

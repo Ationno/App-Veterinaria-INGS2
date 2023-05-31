@@ -42,7 +42,7 @@ export class LoginComponent {
 					this.router.navigate([''], { skipLocationChange: false });
 				} else {
 					this.isLogged = false;
-					console.log(data.message);
+					alert(data.message)
 				}
 			})
 		} else {

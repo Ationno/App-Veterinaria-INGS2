@@ -6,5 +6,6 @@ export interface Adopcion {
     descripcion: string,
     mascota_id: number,
     usuario_id: number,
-    mascota: Mascota
+    mascota: Mascota,
+    finalizada: boolean
 }

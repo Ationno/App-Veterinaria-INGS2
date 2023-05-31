@@ -6,5 +6,6 @@ export interface Mascota {
     color: string,
     tamano: string,
     sexo: string,
-    usuario_id: number
+    usuario_id: number,
+    anonima: boolean
 }

@@ -1,0 +1,23 @@
+<h1 class="h1-delineado">Adoptar</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Ingrese su informacion de Contacto</h1>
+        <div class="form-control">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Agregar email" [value]="Email"
+                formControlName="email">
+            <div *ngIf="Email?.errors && Email?.touched" class="error">
+                <p *ngIf="Email?.hasError('required')">
+                    El email es requerido
+                </p>
+                <p *ngIf="Email?.hasError('email')">
+                    El formato del email debe ser valido
+                </p>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input class="button button-green" type="submit" value="Adoptar" (click)="onAdd()">
+            <input class="button button-red" routerLink="/adopciones" type="submit" value="Cancelar">
+        </div>
+    </form>
+</div>

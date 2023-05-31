@@ -30,7 +30,8 @@ export class FormularioMascotaComponent {
 			color: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 			tamano: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 			sexo: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-			usuario_id: new FormControl('')
+			usuario_id: new FormControl(''),
+			anoninma: new FormControl(false)
 		})
 		this.sub = this.route.params.subscribe(params => {
 			this.usuarioId = params['usuarioId'];
