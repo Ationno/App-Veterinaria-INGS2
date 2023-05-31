@@ -13,4 +13,10 @@ export class TurnosService extends getDB {
 		super(http)
 		this.apiUrl += "turno";
 	}
+
+	public cambiarEstado(turnoId: number, estado: string): Observable<any> {
+		const url = `${this.apiUrl}/cambiarEstado/${turnoId}`;
+		const body = { estado: estado };
+		return this.http.put<any>(url, body, this.getHttpOptions());
+	}
 }

@@ -2,8 +2,11 @@
     <h1>{{"Turno " + turno.id}} </h1>
     <p>{{turno.horario}}</p>
     <p>{{turno.motivo}}</p>
+    <p>{{turno.estado}}</p>
     <div style="display: flex;">
         <button [routerLink]="['/turnos/formTurnos', turno.id]" class="button button-blue"
             value="editar">Editar</button>
+        <button (click)="onAccept(turno)" class="button button-red" value="aceptar">Aceptar</button>
+        <button (click)="onReject(turno)" class="button button-green" value="rechazar">Rechazar</button>
     </div>
 </div>

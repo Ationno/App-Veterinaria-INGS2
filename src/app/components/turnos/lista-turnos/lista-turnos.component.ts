@@ -9,10 +9,16 @@ import { Turno } from '../../../interfaces/Turno'
 export class ListaTurnosComponent {
   @Input() turno!: Turno;
   @Output() onModifyTurno: EventEmitter<Turno> = new EventEmitter();
+  @Output() onAcceptTurno: EventEmitter<Turno> = new EventEmitter();
+  @Output() onRejectTurno: EventEmitter<Turno> = new EventEmitter();
 
   ngOnInit(): void { }
 
-  public onModify(turno: Turno) {
+  public onAccept(turno: Turno) {
+    this.onAcceptTurno.emit(turno)
+  }
 
+  public onReject(turno: Turno) {
+    this.onRejectTurno.emit(turno)
   }
 }
