@@ -28,22 +28,33 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { ListaTurnosComponent } from './components/turnos/lista-turnos/lista-turnos.component';
 import { FormularioTurnoComponent } from './components/turnos/formulario-turno/formulario-turno.component';
+
+//Mascotas
 import { MascotasComponent } from './components/mascotas/mascotas.component';
 import { MascotaComponent } from './components/mascotas/mascota/mascota.component';
 import { FormularioMascotaComponent } from './components/mascotas/formulario-mascota/formulario-mascota.component';
-import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
-import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
+
+//informacionAdmin
 import { InformacionComponent } from './components/informacion/informacion.component';
 import { FormularioInformacionComponent } from './components/informacion/formulario-informacion/formulario-informacion.component';
 import { FormularioInformacionAdminComponent } from './components/informacion/formulario-informacion-admin/formulario-informacion-admin.component';
+
+//Vacunas
 import { VacunasComponent } from './components/vacunas/vacunas.component';
 import { FormularioVacunasComponent } from './components/vacunas/formulario-vacunas/formulario-vacunas.component';
 import { VacunaComponent } from './components/vacunas/vacuna/vacuna.component';
-import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
+
+//Adopcion
 import { AdopcionesComponent } from './components/adopciones/adopciones.component';
 import { AdopcionComponent } from './components/adopciones/adopcion/adopcion.component';
-import { FilterAdopcionPipe } from './pipes/filter-adopcion.pipe';
 import { FormularioAdopcionComponent } from './components/adopciones/formulario-adopcion/formulario-adopcion.component';
+
+//Pipes
+import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
+import { FilterAdopcionPipe } from './pipes/filter-adopcion.pipe';
+import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
+import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
+import { FilterAnuncioPipe } from './pipes/filter-anuncio.pipe';
 
 @NgModule({
   declarations: [
@@ -76,7 +87,8 @@ import { FormularioAdopcionComponent } from './components/adopciones/formulario-
     AdopcionesComponent,
     AdopcionComponent,
     FilterAdopcionPipe,
-    FormularioAdopcionComponent
+    FormularioAdopcionComponent,
+    FilterAnuncioPipe
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,27 @@
 <div>
     <h1 class="h1-delineado">Anuncios</h1>
+    <div class="busqueda">
+      <div class="busqueda_titulo">
+        <h2 for="search">Busqueda</h2>
+      </div>
+      <div class="busqueda_inputs">
+        <div>
+          <label for="search">Zona:</label>
+            <input 
+              type="text"  
+              name="busquedaZona"
+              [(ngModel)]="busquedaZona"
+            >
+        </div>
+      </div>
+    </div>
     <div class="anuncios">
       <app-perfil-anuncio
-          *ngFor="let anuncio of anuncios" 
+          *ngFor="let anuncio of anuncios | filterAnuncio: busquedaZona" 
           [anuncio] = "anuncio"
           (onDeleteAnuncio)="deleteAnuncio(anuncio)"
       ></app-perfil-anuncio>
     </div>
-    <button [routerLink]="'/anuncios/formAnuncios/-1'" class="button button-green" > Agregar Anuncios </button>
+    <button [routerLink]="'/anuncios/formAnuncios/-1'" *ngIf="isLogged && isAdmin" class="button button-green" > Agregar Anuncios </button>
 </div>
 

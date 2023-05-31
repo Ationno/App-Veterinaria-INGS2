@@ -5,7 +5,7 @@
     <p>Disponibilidad: {{ anuncio.disponibilidad }}</p>
     <p><i class='bx bx-mail-send' ></i> {{anuncio.email}}</p>
     <div style="display: flex;">
-        <button [routerLink]="['/anuncios/formAnuncios', anuncio.id]" class="button button-blue" value="editar">Editar</button>
-        <button (click)="onDelete(anuncio)" class="button button-red" value="borrar">Borrar</button>
+        <button [routerLink]="['/anuncios/formAnuncios', anuncio.id]" *ngIf="isLogged && isAdmin" class="button button-blue" value="editar">Editar</button>
+        <button (click)="onDelete(anuncio)" *ngIf="isLogged && isAdmin" class="button button-red" value="borrar">Borrar</button>
     </div>
 </div>
