@@ -38,6 +38,7 @@ export class AdopcionesComponent {
 	public deleteAdopcion(adopcion: Adopcion) {
 		this.adopcionService.delete(adopcion).subscribe(() => {
 			this.adopciones = this.adopciones.filter( ele => ele.id !== adopcion.id )
+			alert("Mascota eliminada exitosamente")
 		})
 	}
 }

@@ -23,7 +23,7 @@ export class FormularioInformacionComponent {
 	) {
 		this.form = this.formBuilder.group({
 			id: [],
-			email: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+			email: new FormControl('', {validators: [Validators.required, Validators.email], updateOn: 'blur'}),
 		 	password: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 		})
 		this.sub = this.route.params.subscribe(params => {

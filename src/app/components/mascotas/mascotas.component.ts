@@ -37,6 +37,7 @@ export class MascotasComponent {
 
 	public deleteMascota(mascota: Mascota) {
 		this.mascotasService.delete(mascota).subscribe(() => {
+			alert("Mascota eliminada exitosamente")
 			this.mascotas = this.mascotas.filter( ele => ele.id !== mascota.id )
 		})
 	}

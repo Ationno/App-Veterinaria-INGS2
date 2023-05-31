@@ -1,5 +1,5 @@
 <div class="mascota">
-    <h1>{{mascota.nombre + " - " + mascota.edad + " años"}}  </h1>
+    <h1>{{mascota.nombre + " - " + ( this.fechaHoy.getFullYear() - this.fecha.getFullYear()) + " años"}}  </h1>
     <h2>{{mascota.raza}}</h2>
     <p>{{"Color: " + mascota.color}}</p>
     <p>{{"Tamaño: " + mascota.tamano}}</p>

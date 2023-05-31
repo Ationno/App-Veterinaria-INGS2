@@ -9,8 +9,14 @@ import { Mascota } from 'src/app/interfaces/Mascota';
 export class MascotaComponent {
 	@Input() mascota!: Mascota;
 	@Output() onDeleteMascota: EventEmitter<Mascota> = new EventEmitter();
+	fecha!: Date;
+	fechaHoy!: Date;
 
-	ngOnInit() : void {}
+	ngOnInit() : void {
+		this.fecha = new Date(this.mascota.fechaN);
+		this.fecha.setMinutes(this.fecha.getMinutes() + this.fecha.getTimezoneOffset());
+		this.fechaHoy = new Date();
+	}
 
 	public onDelete(mascota: Mascota) {
 		this.onDeleteMascota.emit(mascota);

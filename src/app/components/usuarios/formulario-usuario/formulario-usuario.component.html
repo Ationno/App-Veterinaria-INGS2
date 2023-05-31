@@ -27,7 +27,7 @@
                 >
                 <div *ngIf="Apellido?.errors && Apellido?.touched" class="error">
                     <p *ngIf="Apellido?.hasError('required')">
-                        Eñ apellido es requerido
+                        El apellido es requerido
                     </p>
                 </div>
             </div>
@@ -88,8 +88,8 @@
             </div>
         </div>
         <div class="form-buttons">
-            <input [routerLink]="'/usuarios'" *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
-            <input [routerLink]="'/usuarios'" *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
             <input [routerLink]="'/usuarios'" class="button button-red" type="submit" value="Cancelar">
         </div>
     </form>

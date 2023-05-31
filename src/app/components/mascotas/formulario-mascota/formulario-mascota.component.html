@@ -18,16 +18,16 @@
                 </div>
             </div>
             <div class="form-control">
-                <label for="edad">Edad:</label>
+                <label for="fechaN">Fecha de Nacimiento:</label>
                 <input 
-                    type="text"  
-                    name="edad" 
-                    placeholder="Agregar edad"
-                    formControlName="edad"  
+                    type="date"  
+                    name="fechaN" 
+                    placeholder="Agregar fecha de nacimiento"
+                    formControlName="fechaN"  
                 >
-                <div *ngIf="Edad?.errors && Edad?.touched" class="error">
-                    <p *ngIf="Edad?.hasError('required')">
-                        La edad es requerida
+                <div *ngIf="FechaN?.errors && FechaN?.touched" class="error">
+                    <p *ngIf="FechaN?.hasError('required')">
+                        La fecha de nacimiento es requerida
                     </p>
                 </div>
             </div>

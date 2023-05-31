@@ -33,10 +33,7 @@ export class FormularioAdoptarAnonimoComponent {
 	}
 
 	public onAdd(): void {
-		console.log(this.form.getRawValue())
 		if (this.form.valid) {
-			console.log(this.form.getRawValue())
-			console.log(this.idUser)
 			this.adopcionService.enviarMail({ "usuario_id": this.idUser, "email": this.form.get("email")!.value}).subscribe((res) => {
 				alert(res.message)
 				if (res.message == "Mensaje enviado!") this.router.navigate(['/adopciones']);

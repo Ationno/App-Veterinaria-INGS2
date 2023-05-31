@@ -78,9 +78,15 @@ export class FormularioUsuarioComponent {
 	public onAdd(): void {
 		if (this.form.valid) {
 			this.form?.patchValue({password: this.makeRandom(8)});
-			this.usuariosService.add(this.form.getRawValue()).subscribe(() => {});
-			this.router.navigate(['/usuarios']);
-			this.form.reset()
+			this.usuariosService.add(this.form.getRawValue()).subscribe((message) => {
+				if (message.error) {
+					alert(message.error)
+				} else {
+					alert(message.success)
+					this.router.navigate(['/usuarios']);
+					this.form.reset()
+				}
+			});
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();
@@ -89,8 +95,14 @@ export class FormularioUsuarioComponent {
 
 	public onEdit(): void {
 		if (this.form.valid) {
-			this.usuariosService.edit(this.form.getRawValue()).subscribe(() => {})
-			this.router.navigate(['/usuarios']);
+			this.usuariosService.edit(this.form.getRawValue()).subscribe((message) => {
+				if (message.error) {
+					alert(message.error)
+				} else {
+					alert(message.success)
+					this.router.navigate(['/usuarios']);
+				}
+			})
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();

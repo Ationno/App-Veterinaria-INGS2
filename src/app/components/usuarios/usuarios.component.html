@@ -7,11 +7,11 @@
         </div>
         <div class="busqueda_inputs">
             <div>
-                <label for="search">Nombre:</label>
+                <label for="search">Apellido:</label>
                 <input 
                     type="text"  
-                    name="busquedaNombre"
-                    [(ngModel)]="busquedaNombre"
+                    name="busquedaApellido"
+                    [(ngModel)]="busquedaApellido"
                 >
             </div>
             <div>
@@ -34,7 +34,7 @@
     </div>
     <div class="usuarios">
         <app-perfil-usuario
-            *ngFor="let usuario of usuarios | filterUsuario: busquedaNombre:busquedaDNI:busquedaEmail" 
+            *ngFor="let usuario of usuarios | filterUsuario: busquedaApellido:busquedaDNI:busquedaEmail" 
             [usuario] = "usuario"
             (onDeleteUsuario)="deleteUsuario(usuario)"
         ></app-perfil-usuario>

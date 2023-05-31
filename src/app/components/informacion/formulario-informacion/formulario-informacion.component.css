@@ -48,3 +48,15 @@ form h1 {
 .form-buttons > * {
     width: 130px;
 }
+
+.password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.password i {
+    cursor: pointer;
+    padding: calc(20.5px - 8px);
+    border-bottom: 1px solid #d1d1d1;
+}

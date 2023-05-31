@@ -25,7 +25,7 @@ export class FormularioMascotaComponent {
 		this.form = this.formBuilder.group({
 			id: [],
 			nombre: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
-		 	edad: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+			fechaN: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 			raza: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 			color: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 			tamano: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
@@ -40,6 +40,7 @@ export class FormularioMascotaComponent {
 				this.edit = true;
 				this.mascotaService.getById(params['mascotaId']).subscribe((mascota) => {	
 					this.form?.patchValue(mascota)
+					this.form?.patchValue({fechaN: this.formatDate(new Date(mascota.fechaN))})
 				})
 			} else {
 				this.form.reset()
@@ -48,12 +49,23 @@ export class FormularioMascotaComponent {
 		});
 	}
 
+	private formatDate(date: Date) {
+		date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+		const d = new Date(date);
+		let month = '' + (d.getMonth() + 1);
+		let day = '' + d.getDate();
+		const year = d.getFullYear();
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day;
+		return [year, month, day].join('-');
+	}
+
 	get Nombre(){
 		return this.form.get("nombre");
 	}
 
-	get Edad(){
-		return this.form.get("edad");
+	get FechaN(){
+		return this.form.get("fechaN");
 	}
 
 	get Raza(){
@@ -76,6 +88,7 @@ export class FormularioMascotaComponent {
 		if (this.form.valid) {
 			this.form.patchValue({"usuario_id": this.usuarioId})
 			this.mascotaService.add(this.form.getRawValue()).subscribe(() => {});
+			alert("Mascota añadida exitosamente")
 			this.router.navigate(['/mascotas', this.usuarioId]);
 			this.form.reset()
 		} else {
@@ -87,6 +100,7 @@ export class FormularioMascotaComponent {
 	public onEdit(): void {
 		if (this.form.valid) {
 			this.mascotaService.edit(this.form.getRawValue()).subscribe(() => {})
+			alert("Mascota modificada exitosamente")
 			this.router.navigate(['/mascotas', this.usuarioId]);
 		} else {
 			console.log(this.form.errors)

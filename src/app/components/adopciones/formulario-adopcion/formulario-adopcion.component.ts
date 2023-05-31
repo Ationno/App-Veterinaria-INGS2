@@ -37,7 +37,7 @@ export class FormularioAdopcionComponent {
 			finalizada: new FormControl(false),
 			usuario_id: new FormControl(''),
 			nombre: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
-			edad: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
+			fechaN: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			raza: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			color: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			tamano: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
@@ -54,12 +54,25 @@ export class FormularioAdopcionComponent {
 				this.edit = true;
 				this.adopcionService.getById(params['adopcionId']).subscribe((adopcion) => {
 					this.form?.patchValue(adopcion)
+					this.form?.patchValue({fechaN: this.formatDate(new Date(adopcion.mascota.fechaN))})
+					console.log(adopcion)
 				})
 			} else {
 				this.form.reset()
 			}
 			this.form.patchValue({ "usuario_id": this.usuarioId });
 		});
+	}
+
+	private formatDate(date: Date) {
+		date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+		const d = new Date(date);
+		let month = '' + (d.getMonth() + 1);
+		let day = '' + d.getDate();
+		const year = d.getFullYear();
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day;
+		return [year, month, day].join('-');
 	}
 
 	get Titulo() {
@@ -74,8 +87,8 @@ export class FormularioAdopcionComponent {
 		return this.form.get("nombre");
 	}
 
-	get Edad() {
-		return this.form.get("edad");
+	get FechaN() {
+		return this.form.get("fechaN");
 	}
 
 	get Raza() {
@@ -106,11 +119,12 @@ export class FormularioAdopcionComponent {
 	public utilizarMascota() {
 		this.eleccion = "utilizar";
 		this.form.removeControl("nombre");
-		this.form.removeControl("edad");
+		this.form.removeControl("fechaN");
 		this.form.removeControl("raza");
 		this.form.removeControl("color");
 		this.form.removeControl("tamano");
 		this.form.removeControl("sexo");
+		this.form.removeControl("anonima");
 	}
 
 	public onAdd(): void {
@@ -145,13 +159,19 @@ export class FormularioAdopcionComponent {
 	}
 
 	public onEdit(): void {
+		this.form.removeControl("nombre");
+		this.form.removeControl("fechaN");
+		this.form.removeControl("raza");
+		this.form.removeControl("color");
+		this.form.removeControl("tamano");
+		this.form.removeControl("sexo");
+		this.form.removeControl("anonima");
 		if (this.form.valid) {
 			this.adopcionService.edit(this.form.getRawValue()).subscribe((message) => {
 				alert(message.message)
 				this.router.navigate(['/adopciones']);
 			})
 		} else {
-			console.log(this.form.errors)
 			this.form.markAllAsTouched();
 		}
 	}

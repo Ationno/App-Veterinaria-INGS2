@@ -13,7 +13,7 @@ export class UsuariosComponent {
   	usuarios : Usuario[] = [];
 	subscription?: Subscription;
 	usuario!: Usuario;
-	busquedaNombre!: string; 
+	busquedaApellido!: string; 
 	busquedaDNI!: string;
 	busquedaEmail!: string;
 
@@ -30,6 +30,7 @@ export class UsuariosComponent {
 	public deleteUsuario(usuario: Usuario) {
 		this.usuariosService.delete(usuario).subscribe(() => {
 			this.usuarios = this.usuarios.filter( ele => ele.id !== usuario.id )
+			alert("Usuario eliminado")
 		})
 	}
 }

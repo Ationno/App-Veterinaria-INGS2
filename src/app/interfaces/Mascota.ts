@@ -1,7 +1,7 @@
 export interface Mascota {
     id?: number,
     nombre: string,
-    edad: number,
+    fechaN: Date,
     raza: string,
     color: string,
     tamano: string,

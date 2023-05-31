@@ -17,6 +17,8 @@ export class AdopcionComponent {
 	mascota!: Mascota;
 	mainUser!: Usuario;
 	isLogged!: boolean;
+	fecha!: Date;
+	fechaHoy!: Date;
 
 	constructor(private authService: AuthService, private adopcionService: AdopcionesService, private tokenService: TokenService) {}
 
@@ -25,6 +27,9 @@ export class AdopcionComponent {
 			this.mainUser = usuario;
 		});
 		this.isLogged = this.tokenService.isLogged();
+		this.fecha = new Date(this.adopcion.mascota.fechaN);
+		this.fecha.setMinutes(this.fecha.getMinutes() + this.fecha.getTimezoneOffset());
+		this.fechaHoy = new Date();
 	}
 
 	public onDelete(adopcion: Adopcion) {
