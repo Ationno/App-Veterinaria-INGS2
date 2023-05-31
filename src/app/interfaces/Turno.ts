@@ -1,5 +1,7 @@
 export interface Turno {
-    id: number,
+    id?: number,
     horario: string,
-    motivo: string
+    motivo: string,
+    usuario_id: number,
+    mascota_id: number
 }

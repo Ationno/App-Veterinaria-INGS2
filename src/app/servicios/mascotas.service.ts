@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class MascotasService extends getDB {
 	constructor(
-		http:HttpClient
-	) { 
+		http: HttpClient
+	) {
 		super(http)
 		this.apiUrl += "mascota";
 	}
@@ -18,4 +18,10 @@ export class MascotasService extends getDB {
 		const url = `${this.apiUrl}/getByUsuarioId/${id}`
 		return this.http.get<any>(url)
 	}
+
+	public getByNombre(nombre: string, usuario_id: number): Observable<any> {
+		const url = `${this.apiUrl}/getByUsuarioId/${nombre}/${usuario_id}`
+		return this.http.get<any>(url)
+	}
+
 }
