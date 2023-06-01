@@ -40,6 +40,10 @@ a {
     display: inline-block;
 }
 
+.dropdown ul {
+    cursor: pointer;
+}
+
 .dropdown-title {
     display: flex;
 }
@@ -90,6 +94,7 @@ a {
 }
 
 .anuncios-link{
+    cursor: pointer;
     display: flex;
     align-items: center;
     font-family: 'Mulish', sans-serif;

@@ -7,8 +7,6 @@ form {
 	flex-direction: column;
     margin-top: 1em;
 	width: 100%;
-	height: 100%;
-	margin-bottom: 2em;
 }
 
 form h1 {
@@ -34,7 +32,7 @@ form h1 {
 	font-size: 1em;
 }
 
-.form-control input, .form-control select {
+.form-control input {
 	padding: .5em;
 	width: 100%;
 	border: none;

@@ -13,6 +13,6 @@
         <button *ngIf="!isCreator() && !adopcion.finalizada && this.isLogged" class="button button-green" (click)="onAdoptarRegistrado(adopcion.usuario_id)" value="mascotas">Adoptar</button>
         <button *ngIf="isCreator() && !adopcion.finalizada" [routerLink]="['/adopciones/formAdopcion', adopcion.usuario_id, adopcion.id]" class="button button-blue"
             value="editar">Editar</button>
-        <button *ngIf="isCreator() && !adopcion.finalizada" (click)="onDelete(adopcion)" class="button button-red" value="borrar">Borrar</button>
+        <h3 *ngIf="adopcion.finalizada" style="margin-bottom: .5em;">(Adoptado)</h3>
     </div>
 </div>

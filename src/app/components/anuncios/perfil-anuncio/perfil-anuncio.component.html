@@ -3,8 +3,9 @@
     <p>Servicio: {{ anuncio.servicio }}</p>
     <p>Zona: {{ anuncio.zona }}</p>
     <p>Disponibilidad: {{ anuncio.disponibilidad }}</p>
-    <p><i class='bx bx-mail-send' ></i> {{anuncio.email}}</p>
     <div style="display: flex;">
+        <button *ngIf="!this.isAdmin && !this.isLogged" class="button button-green" [routerLink]="['/anuncios/formAnuncioComunicacion', anuncio.email]" value="mascotas">Comunicarse</button>
+        <button *ngIf="!this.isAdmin && this.isLogged" class="button button-green" (click)="onAdoptarRegistrado(anuncio.email)" value="mascotas">Comunicarse</button>
         <button [routerLink]="['/anuncios/formAnuncios', anuncio.id]" *ngIf="isLogged && isAdmin" class="button button-blue" value="editar">Editar</button>
         <button (click)="onDelete(anuncio)" *ngIf="isLogged && isAdmin" class="button button-red" value="borrar">Borrar</button>
     </div>

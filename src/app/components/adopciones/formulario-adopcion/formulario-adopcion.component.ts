@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Mascota } from 'src/app/interfaces/Mascota';
 import { AdopcionesService } from 'src/app/servicios/adopciones.service';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
+import { TokenService } from 'src/app/servicios/token.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
@@ -27,6 +28,7 @@ export class FormularioAdopcionComponent {
 		private usuarioService: UsuariosService,
 		private mascotaService: MascotasService,
 		private route: ActivatedRoute,
+		public tokenService: TokenService,
 		public router: Router
 	) {
 		this.form = this.formBuilder.group({
@@ -134,12 +136,17 @@ export class FormularioAdopcionComponent {
 				this.form.addControl("mascota_id", new FormControl('', [Validators.required]))
 				this.form.patchValue({ "anonima": true })
 				this.mascotaService.add(this.form.getRawValue()).subscribe((message) => {
-					this.form.patchValue({ "mascota_id": message.mascota_id })
-					this.adopcionService.add(this.form.getRawValue()).subscribe((message) => {
-						alert(message.success)
-						this.router.navigate(['/adopciones']);
-						this.form.reset()
-					});
+					if (message.error) {
+						alert(message.error)
+						this.form.removeControl("mascota_id");
+					} else {
+						this.form.patchValue({ "mascota_id": message.mascota_id })
+						this.adopcionService.add(this.form.getRawValue()).subscribe((message) => {
+							alert(message.success)
+							this.router.navigate(['/adopciones']);
+							this.form.reset()
+						});
+					}
 				})
 			} else {
 				this.adopcionService.add(this.form.getRawValue()).subscribe((message) => {
@@ -153,6 +160,7 @@ export class FormularioAdopcionComponent {
 				});
 			}
 		} else {
+			console.log(this.form.getRawValue())
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();
 		}

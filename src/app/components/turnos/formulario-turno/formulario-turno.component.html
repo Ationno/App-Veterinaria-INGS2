@@ -27,7 +27,7 @@
         <div class="form-column">
             <div class="form-control">
                 <label for="horario">Horario:</label>
-                <input type="text" name="horario" placeholder="Agregar horario" formControlName="horario">
+                <input type="time" name="horario" placeholder="Agregar horario" formControlName="horario">
                 <div *ngIf="Horario?.errors && Horario?.touched" class="error">
                     <p *ngIf="Horario?.hasError('required')">
                         El horario es requerido

@@ -34,6 +34,7 @@ export class AnunciosComponent {
 
     public deleteAnuncio(anuncio: Anuncio) {
 		this.anunciosService.delete(anuncio).subscribe(() => {
+            alert("Anuncio eliminado exitosamente!")
 			this.anuncios = this.anuncios.filter( ele => ele.id !== anuncio.id )
 		})
 	}

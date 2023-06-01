@@ -77,6 +77,7 @@ export class FormularioTurnoComponent {
           }
 
           const turno: Turno = {
+            estado: "",
             horario: this.form.get('horario')?.value,
             motivo: this.form.get('motivo')?.value,
             usuario_id: usuario_id,

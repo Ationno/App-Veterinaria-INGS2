@@ -3,7 +3,7 @@
     <div class="busqueda">
         <div class="busqueda_titulo"> 
             <h2 for="search">Busqueda</h2>
-            <button [routerLink]="['/vacunas/formVacuna', this.mascotaId, -1]" class="button button-green" > Agregar Vacuna </button>
+            <button *ngIf="this.tokenService.isAdmin()" [routerLink]="['/vacunas/formVacuna', this.mascotaId, -1]" class="button button-green" > Agregar Vacuna </button>
         </div>
         <div class="busqueda_inputs">
             <div>

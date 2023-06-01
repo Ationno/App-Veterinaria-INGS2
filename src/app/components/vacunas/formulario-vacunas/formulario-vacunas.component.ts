@@ -66,9 +66,15 @@ export class FormularioVacunasComponent {
 	public onAdd(): void {
 		if (this.form.valid) {
 			this.form.patchValue({"mascota_id": this.mascotaId})
-			this.vacunaService.add(this.form.getRawValue()).subscribe(() => {});
-			this.router.navigate(['/vacunas', this.mascotaId]);
-			this.form.reset()
+			this.vacunaService.add(this.form.getRawValue()).subscribe((message) => {
+				if (message.error) {
+					alert(message.error)
+				} else {
+					alert("Vacuna añadida exitosamente")
+					this.router.navigate(['/vacunas', this.mascotaId]);
+					this.form.reset()
+				}
+			});
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();
@@ -77,8 +83,15 @@ export class FormularioVacunasComponent {
 
 	public onEdit(): void {
 		if (this.form.valid) {
-			this.vacunaService.edit(this.form.getRawValue()).subscribe(() => {})
-			this.router.navigate(['/vacunas', this.mascotaId]);
+			this.vacunaService.edit(this.form.getRawValue()).subscribe((message) => {
+				if (message.error) {
+					alert(message.error)
+				} else {
+					alert("Vacuna editada exitosamente")
+					this.router.navigate(['/vacunas', this.mascotaId]);
+					this.form.reset()
+				}
+			})
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();

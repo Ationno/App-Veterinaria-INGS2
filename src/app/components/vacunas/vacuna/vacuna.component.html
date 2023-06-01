@@ -3,6 +3,5 @@
     <h2>{{this.fecha | date:'dd/MM/yyyy'}}</h2>
     <div style="display: flex;">
         <button [routerLink]="['/vacunas/formVacuna', vacuna.mascota_id, vacuna.id]" class="button button-blue" value="editar">Editar</button>
-        <button (click)="onDelete(vacuna)" class="button button-red" value="borrar">Borrar</button>
     </div>
 </div>

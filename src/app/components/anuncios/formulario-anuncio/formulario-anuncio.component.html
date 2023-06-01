@@ -19,12 +19,15 @@
             </div>
             <div class="form-control">
                 <label for="servicio">Servicio:</label>
-                <input 
+                <select 
                     type="text"  
                     name="servicio" 
                     placeholder="Agregar servicio"
                     formControlName="servicio"  
                 >
+                    <option value="Paseador">Paseador</option>
+                    <option value="Cuidador">Cuidador</option>
+                </select>
                 <div *ngIf="Servicio?.errors && Servicio?.touched" class="error">
                     <p *ngIf="Servicio?.hasError('required')">
                         El servicio es requerido

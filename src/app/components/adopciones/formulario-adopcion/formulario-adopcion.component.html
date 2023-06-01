@@ -138,7 +138,7 @@
         </div>
         <div class="form-buttons">
             <input *ngIf="!this.edit && !this.eleccion" class="button button-green" type="submit" value="Agregar Mascota" (click)="agregarMascota()">
-            <input *ngIf="!this.edit && !this.eleccion" class="button button-green" type="submit" value="Mascotas Propias" (click)="utilizarMascota()">
+            <input *ngIf="!this.edit && !this.eleccion && !this.tokenService.isAdmin" class="button button-green" type="submit" value="Mascotas Propias" (click)="utilizarMascota()">
             <input *ngIf="!this.edit && this.eleccion" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
             <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
             <input [routerLink]="['/adopciones']" class="button button-red" type="submit"

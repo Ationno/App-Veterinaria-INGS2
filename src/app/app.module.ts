@@ -56,6 +56,7 @@ import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
 import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
 import { FilterAnuncioPipe } from './pipes/filter-anuncio.pipe';
 import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formulario-adoptar-anonimo/formulario-adoptar-anonimo.component';
+import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncios/formulario-anuncio-comunicar-anonimo/formulario-anuncio-comunicar-anonimo.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formu
     FilterAdopcionPipe,
     FormularioAdopcionComponent,
     FilterAnuncioPipe,
-    FormularioAdoptarAnonimoComponent
+    FormularioAdoptarAnonimoComponent,
+    FormularioAnuncioComunicarAnonimoComponent
   ],
   imports: [
     BrowserModule,

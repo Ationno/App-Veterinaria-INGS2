@@ -87,10 +87,15 @@ export class FormularioMascotaComponent {
 	public onAdd(): void {
 		if (this.form.valid) {
 			this.form.patchValue({"usuario_id": this.usuarioId})
-			this.mascotaService.add(this.form.getRawValue()).subscribe(() => {});
-			alert("Mascota añadida exitosamente")
-			this.router.navigate(['/mascotas', this.usuarioId]);
-			this.form.reset()
+			this.mascotaService.add(this.form.getRawValue()).subscribe((message) => {
+				if (message.error) {
+					alert(message.error)
+				} else {
+					alert("Mascota añadida exitosamente")
+					this.router.navigate(['/mascotas', this.usuarioId]);
+					this.form.reset()
+				}
+			});
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();
@@ -99,9 +104,15 @@ export class FormularioMascotaComponent {
 
 	public onEdit(): void {
 		if (this.form.valid) {
-			this.mascotaService.edit(this.form.getRawValue()).subscribe(() => {})
-			alert("Mascota modificada exitosamente")
-			this.router.navigate(['/mascotas', this.usuarioId]);
+			this.mascotaService.edit(this.form.getRawValue()).subscribe((message) => {
+				if (message.error) {
+					alert(message.error)
+				} else {
+					alert("Mascota modificada exitosamente")
+					this.router.navigate(['/mascotas', this.usuarioId]);
+					this.form.reset()
+				}
+			})
 		} else {
 			console.log(this.form.errors)
 			this.form.markAllAsTouched();
