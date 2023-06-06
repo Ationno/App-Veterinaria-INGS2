@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Turno } from '../../interfaces/Turno'
 import { TurnosService } from 'src/app/servicios/turnos.service';
+import { TokenService } from 'src/app/servicios/token.service';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { Subscription } from 'rxjs';
 
 
@@ -12,15 +14,20 @@ import { Subscription } from 'rxjs';
 export class TurnosComponent implements OnInit {
   turnos: Turno[] = [];
   subscription?: Subscription;
-  turno!: Turno
+  turno!: Turno;
+  isLogged!: boolean;
 
   constructor(
-    private turnosService: TurnosService
+    private turnosService: TurnosService,
+    private tokenService: TokenService,
+    private authService: AuthService
   ) {
 
   }
 
   ngOnInit() {
+    this.isLogged = this.tokenService.isLogged()
+    this.authService.getMainUsuario().subscribe((u))
     this.turnosService.get().subscribe((turnos) => {
       this.turnos = turnos;
     })
