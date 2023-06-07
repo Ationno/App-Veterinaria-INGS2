@@ -55,6 +55,7 @@ import { FilterAdopcionPipe } from './pipes/filter-adopcion.pipe';
 import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
 import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
 import { FilterAnuncioPipe } from './pipes/filter-anuncio.pipe';
+import { FilterTurnoPipe } from './pipes/filter-turno.pipe';
 import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formulario-adoptar-anonimo/formulario-adoptar-anonimo.component';
 import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncios/formulario-anuncio-comunicar-anonimo/formulario-anuncio-comunicar-anonimo.component';
 
@@ -92,7 +93,8 @@ import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncio
     FormularioAdopcionComponent,
     FilterAnuncioPipe,
     FormularioAdoptarAnonimoComponent,
-    FormularioAnuncioComunicarAnonimoComponent
+    FormularioAnuncioComunicarAnonimoComponent,
+    FilterTurnoPipe
   ],
   imports: [
     BrowserModule,

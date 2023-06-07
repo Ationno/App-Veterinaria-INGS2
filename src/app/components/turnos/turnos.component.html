@@ -1,9 +1,30 @@
 <div>
     <h1 class="h1-delineado">Turnos</h1>
+    <div class="busqueda">
+        <div class="busqueda_titulo">
+            <h2 for="search">Busqueda</h2>
+            <button *ngIf="isLogged" [routerLink]="'/turnos/formTurnos/-1'" class="button button-green"> Agregar turno
+            </button>
+        </div>
+        <div class="busqueda_inputs">
+            <div>
+                <label for="search">Motivo:</label>
+                <input type="text" name="busquedaMotivo" [(ngModel)]="busquedaMotivo">
+            </div>
+            <div>
+                <label for="search">Horario:</label>
+                <select type="text" name="busquedaHorario" [(ngModel)]="busquedaHorario">
+                    <option value=""></option>
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
     <div class="turnos">
-        <app-lista-turnos *ngFor="let turno of turnos" [turno]="turno">
+        <app-lista-turnos *ngFor="let turno of turnos | filterTurno busquedaMotivo:busquedaHorario" [turno]="turno">
 
         </app-lista-turnos>
     </div>
-    <button [routerLink]="'/turnos/formTurnos/-1'" class="button button-green"> Agregar turno </button>
 </div>

@@ -4,22 +4,13 @@
         <h1>Cargue los datos</h1>
         <div class="form-column">
             <div class="form-control">
-                <label for="documento">Documento del usuario:</label>
-                <input type="text" name="documento" placeholder="Ingresar documento del usuario"
-                    formControlName="documento">
-                <div *ngIf="form.get('documento')?.errors && form.get('documento')?.touched" class="error">
-                    <p *ngIf="form.get('documento')?.hasError('required')">
-                        El documento del usuario es requerido
-                    </p>
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="nombrePerro">Nombre del perro:</label>
-                <input type="text" name="nombrePerro" placeholder="Ingresar nombre del perro"
-                    formControlName="nombrePerro">
-                <div *ngIf="form.get('nombrePerro')?.errors && form.get('nombrePerro')?.touched" class="error">
-                    <p *ngIf="form.get('nombrePerro')?.hasError('required')">
-                        El nombre del perro es requerido
+                <label for="mascota">Mascota:</label>
+                <select type="text" name="mascota" placeholder="Elija mascota" formControlName="tamano">
+                    <option *ngFor="let mascota of mascotas" value="{{mascota.nombre}}">{{mascota.nombre}}</option>
+                </select>
+                <div *ngIf="Mascota?.errors && Mascota?.touched" class="error">
+                    <p *ngIf="Mascota?.hasError('required')">
+                        La mascota es requerida
                     </p>
                 </div>
             </div>
@@ -27,7 +18,10 @@
         <div class="form-column">
             <div class="form-control">
                 <label for="horario">Horario:</label>
-                <input type="time" name="horario" placeholder="Agregar horario" formControlName="horario">
+                <select type="text" name="horario" placeholder="Elija horario" formControlName="tamano">
+                    <option value="Manana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                </select>
                 <div *ngIf="Horario?.errors && Horario?.touched" class="error">
                     <p *ngIf="Horario?.hasError('required')">
                         El horario es requerido

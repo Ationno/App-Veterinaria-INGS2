@@ -1,5 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Turno } from '../../../interfaces/Turno'
+import { Usuario } from 'src/app/interfaces/Usuario';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { TokenService } from 'src/app/servicios/token.service';
+import { TurnosService } from 'src/app/servicios/turnos.service';
 
 @Component({
   selector: 'app-lista-turnos',
@@ -8,17 +12,25 @@ import { Turno } from '../../../interfaces/Turno'
 })
 export class ListaTurnosComponent {
   @Input() turno!: Turno;
-  @Output() onModifyTurno: EventEmitter<Turno> = new EventEmitter();
-  @Output() onAcceptTurno: EventEmitter<Turno> = new EventEmitter();
-  @Output() onRejectTurno: EventEmitter<Turno> = new EventEmitter();
+  mainUser!: Usuario;
+  isLogged!: boolean;
 
-  ngOnInit(): void { }
+  constructor(private authService: AuthService, private turnosService: TurnosService, private tokenService: TokenService) { }
+
+  ngOnInit(): void {
+    this.authService.getMainUsuario().subscribe((usuario) => {
+      this.mainUser = usuario;
+    });
+    this.isLogged = this.tokenService.isLogged();
+  }
 
   public onAccept(turno: Turno) {
-    this.onAcceptTurno.emit(turno)
+    if (turno.id)
+      this.turnosService.cambiarEstado(turno.id, "Aceptado").subscribe({})
   }
 
   public onReject(turno: Turno) {
-    this.onRejectTurno.emit(turno)
+    if (turno.id)
+      this.turnosService.cambiarEstado(turno.id, "Rechazado").subscribe({})
   }
 }
