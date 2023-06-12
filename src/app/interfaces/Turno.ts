@@ -3,6 +3,7 @@ export interface Turno {
     horario: string,
     motivo: string,
     estado: string,
+    fecha: Date,
     usuario_id: number,
     mascota_id: number
 }

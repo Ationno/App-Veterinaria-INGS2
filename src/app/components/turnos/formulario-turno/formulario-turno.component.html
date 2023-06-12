@@ -37,6 +37,15 @@
                     </p>
                 </div>
             </div>
+            <div class="form-control">
+                <label for="fecha">Fecha:</label>
+                <input type="date" name="fecha" placeholder="Agregar fecha" formControlName="fecha">
+                <div *ngIf="Fecha?.errors && Fecha?.touched" class="error">
+                    <p *ngIf="Fecha?.hasError('required')">
+                        La edad es requerida
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="form-buttons">
             <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">

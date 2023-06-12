@@ -54,12 +54,24 @@ export class FormularioTurnoComponent {
         this.edit = true;
         this.turnosService.getById(params['id']).subscribe((turno) => {
           this.form?.patchValue(turno)
+          this.form?.patchValue({ fecha: this.formatDate(new Date(turno.fecha)) })
         })
       } else {
         this.form.reset()
       }
       this.form.patchValue({ "usuario_id": this.usuarioId });
     });
+  }
+
+  private formatDate(date: Date) {
+    date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    const d = new Date(date);
+    let month = '' + (d.getMonth() + 1);
+    let day = '' + d.getDate();
+    const year = d.getFullYear();
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return [year, month, day].join('-');
   }
 
   get Horario() {
@@ -72,6 +84,10 @@ export class FormularioTurnoComponent {
 
   get Mascota() {
     return this.form.get("mascota");
+  }
+
+  get Fecha() {
+    return this.form.get("fecha");
   }
 
   public onAdd(): void {
