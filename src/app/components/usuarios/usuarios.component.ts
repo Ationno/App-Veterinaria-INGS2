@@ -26,11 +26,4 @@ export class UsuariosComponent {
 			this.usuarios = usuarios
 		})
 	}
-
-	public deleteUsuario(usuario: Usuario) {
-		this.usuariosService.delete(usuario).subscribe(() => {
-			this.usuarios = this.usuarios.filter( ele => ele.id !== usuario.id )
-			alert("Usuario eliminado")
-		})
-	}
 }

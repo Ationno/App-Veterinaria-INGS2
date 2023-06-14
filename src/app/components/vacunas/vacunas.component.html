@@ -1,5 +1,5 @@
 <div>
-    <h1 class="h1-delineado">Vacunas</h1>
+    <h1 *ngIf="this.mascota" class="h1-delineado">Vacunas de {{this.mascota.nombre}}</h1>
     <div class="busqueda">
         <div class="busqueda_titulo"> 
             <h2 for="search">Busqueda</h2>

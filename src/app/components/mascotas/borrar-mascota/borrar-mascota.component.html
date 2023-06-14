@@ -1,0 +1,19 @@
+<div class="eliminar_mascota" *ngIf="this.mascota">
+    <h1 class="h1-delineado">Eliminar a {{this.mascota.nombre}}</h1>
+    <h2>¿Estas seguro de eliminar a {{this.mascota.nombre}}?</h2>
+    <h3>Se eliminara:</h3>
+    <div *ngIf="this.mascota.adopcion" class="eliminar_elemento">
+        <h1>Adopcion</h1>
+        <p>Titulo: {{this.mascota.adopcion.titulo}}</p>
+        <p>Descripcion: {{this.mascota.adopcion.descripcion}}</p>
+    </div>
+    <div class="eliminar_elemento" *ngFor="let turno of this.mascota.turnos">
+        <h1>Turno</h1>
+        <p>Motivo: {{turno.motivo}}</p>
+        <p>Fecha: {{turno.fecha.toLocaleDateString()}}</p>
+    </div>
+    <div class="buttons">
+        <input class="button button-green" type="submit" value="Si" (click)="onDelete(this.mascota)">
+        <input [routerLink]="['/mascotas', this.mascota.usuario_id]" class="button button-red" type="submit" value="No">
+    </div>
+</div>

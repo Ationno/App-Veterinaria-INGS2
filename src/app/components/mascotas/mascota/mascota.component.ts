@@ -17,8 +17,4 @@ export class MascotaComponent {
 		this.fecha.setMinutes(this.fecha.getMinutes() + this.fecha.getTimezoneOffset());
 		this.fechaHoy = new Date();
 	}
-
-	public onDelete(mascota: Mascota) {
-		this.onDeleteMascota.emit(mascota);
-	}
 }

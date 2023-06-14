@@ -62,6 +62,8 @@ import { FilterAnuncioPipe } from './pipes/filter-anuncio.pipe';
 import { FilterTurnoPipe } from './pipes/filter-turno.pipe';
 import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formulario-adoptar-anonimo/formulario-adoptar-anonimo.component';
 import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncios/formulario-anuncio-comunicar-anonimo/formulario-anuncio-comunicar-anonimo.component';
+import { BorrarMascotaComponent } from './components/mascotas/borrar-mascota/borrar-mascota.component';
+import { BorrarUsuarioComponent } from './components/usuarios/borrar-usuario/borrar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +102,9 @@ import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncio
     FilterAnuncioPipe,
     FormularioAdoptarAnonimoComponent,
     FormularioAnuncioComunicarAnonimoComponent,
-    FilterTurnoPipe
+    FilterTurnoPipe,
+    BorrarMascotaComponent,
+    BorrarUsuarioComponent
   ],
   imports: [
     BrowserModule,

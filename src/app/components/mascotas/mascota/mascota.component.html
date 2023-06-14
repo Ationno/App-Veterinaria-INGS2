@@ -6,7 +6,7 @@
     <p>{{"Sexo: " + mascota.sexo}}</p>
     <div style="display: flex;">
         <button [routerLink]="['/mascotas/formMascota', mascota.usuario_id, mascota.id]" class="button button-blue" value="editar">Editar</button>
-        <button (click)="onDelete(mascota)" class="button button-red" value="borrar">Borrar</button>
+        <button [routerLink]="['/mascotas/eliminarMascota', mascota.id]" class="button button-red" value="borrar">Borrar</button>
         <button [routerLink]="['/vacunas', mascota.id]" class="button button-purple" value="mascotas">Libreta</button>
     </div>
 </div>

@@ -27,6 +27,12 @@ a {
     cursor: pointer;
 }
 
+.barra_navegacion p {
+    color: #F1965B;
+    font-size: 1.65em;
+    align-self: center;
+}
+
 .barra_navegacion .push {
     margin-left: auto;
 }

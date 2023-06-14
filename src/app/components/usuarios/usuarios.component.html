@@ -36,7 +36,6 @@
         <app-perfil-usuario
             *ngFor="let usuario of usuarios | filterUsuario: busquedaApellido:busquedaDNI:busquedaEmail" 
             [usuario] = "usuario"
-            (onDeleteUsuario)="deleteUsuario(usuario)"
         ></app-perfil-usuario>
     </div>
 </div>

@@ -20,6 +20,8 @@ import { AdopcionesComponent } from './components/adopciones/adopciones.componen
 import { FormularioAdopcionComponent } from './components/adopciones/formulario-adopcion/formulario-adopcion.component';
 import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formulario-adoptar-anonimo/formulario-adoptar-anonimo.component';
 import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncios/formulario-anuncio-comunicar-anonimo/formulario-anuncio-comunicar-anonimo.component';
+import { BorrarMascotaComponent } from './components/mascotas/borrar-mascota/borrar-mascota.component';
+import { BorrarUsuarioComponent } from './components/usuarios/borrar-usuario/borrar-usuario.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -43,7 +45,9 @@ const routes: Routes = [
   { path: 'adopciones', component: AdopcionesComponent, pathMatch: 'full' },
   { path: 'adopciones/formAdopcion/:usuarioId/:adopcionId', component: FormularioAdopcionComponent, pathMatch: 'full' },
   { path: 'adopciones/formAdoptar/:adopcionId', component: FormularioAdoptarAnonimoComponent, pathMatch: 'full' },
-  { path: 'anuncios/formAnuncioComunicacion/:email_anunciante', component: FormularioAnuncioComunicarAnonimoComponent, pathMatch: 'full' }
+  { path: 'anuncios/formAnuncioComunicacion/:email_anunciante', component: FormularioAnuncioComunicarAnonimoComponent, pathMatch: 'full' },
+  { path: 'mascotas/eliminarMascota/:mascotaId', component: BorrarMascotaComponent, pathMatch: 'full' },
+  { path: 'usuarios/eliminarUsuario/:usuarioId', component: BorrarUsuarioComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

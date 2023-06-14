@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Mascota } from 'src/app/interfaces/Mascota';
+import { Usuario } from 'src/app/interfaces/Usuario';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
 	selector: 'app-mascotas',
@@ -11,6 +13,7 @@ import { MascotasService } from 'src/app/servicios/mascotas.service';
 })
 export class MascotasComponent {
 	mascotas : Mascota[] = [];
+	usuario!: Usuario;
 	subscription?: Subscription;
 	mascota!: Mascota;
 	sub: any;
@@ -22,6 +25,7 @@ export class MascotasComponent {
 
 	constructor(
 		private mascotasService: MascotasService,
+		private usuarioService: UsuariosService,
 		private route: ActivatedRoute,
 		public router: Router
 	) {}
@@ -29,16 +33,12 @@ export class MascotasComponent {
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => {
 			this.usuarioId = params['id'];
+			this.usuarioService.getById(this.usuarioId).subscribe((usuario) => {
+				this.usuario = usuario;
+			})
 			this.mascotasService.getByUsuarioId(this.usuarioId).subscribe((mascotas) => {	
 				this.mascotas = mascotas
 			})
 		});
-	}
-
-	public deleteMascota(mascota: Mascota) {
-		this.mascotasService.delete(mascota).subscribe(() => {
-			alert("Mascota eliminada exitosamente")
-			this.mascotas = this.mascotas.filter( ele => ele.id !== mascota.id )
-		})
 	}
 }

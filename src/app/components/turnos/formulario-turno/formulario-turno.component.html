@@ -6,7 +6,7 @@
             <div class="form-control">
                 <label for="mascota">Mascota:</label>
                 <select type="text" name="mascota" placeholder="Elija mascota" formControlName="tamano">
-                    <option *ngFor="let mascota of mascotas" value="{{mascota.nombre}}">{{mascota.nombre}}</option>
+                    <option *ngFor="let mascota of mascotas" [value]="mascota.nombre">{{mascota.nombre}}</option>
                 </select>
                 <div *ngIf="Mascota?.errors && Mascota?.touched" class="error">
                     <p *ngIf="Mascota?.hasError('required')">

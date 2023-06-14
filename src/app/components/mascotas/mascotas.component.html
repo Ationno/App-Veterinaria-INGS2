@@ -1,5 +1,5 @@
 <div>
-    <h1 class="h1-delineado">Mascotas</h1>
+    <h1 *ngIf="this.usuario" class="h1-delineado">Mascotas de {{this.usuario.nombre}}</h1>
     <div class="busqueda">
         <div class="busqueda_titulo">
             <h2 for="search">Busqueda</h2>
@@ -53,7 +53,6 @@
         <app-mascota
             *ngFor="let mascota of mascotas | filterMascota: busquedaNombre:busquedaRaza:busquedaTamano:busquedaSexo" 
             [mascota] = "mascota"
-            (onDeleteMascota)="deleteMascota(mascota)"
         ></app-mascota>
     </div>
 </div>

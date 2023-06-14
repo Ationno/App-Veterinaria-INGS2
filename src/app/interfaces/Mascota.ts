@@ -1,3 +1,6 @@
+import { Adopcion } from "./Adopcion";
+import { Turno } from "./Turno";
+
 export interface Mascota {
     id?: number,
     nombre: string,
@@ -7,5 +10,7 @@ export interface Mascota {
     tamano: string,
     sexo: string,
     usuario_id: number,
-    anonima: boolean
+    anonima: boolean,
+    adopcion: Adopcion,
+    turnos: Turno[]
 }

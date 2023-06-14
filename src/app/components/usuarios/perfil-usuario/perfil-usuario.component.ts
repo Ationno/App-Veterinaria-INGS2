@@ -10,8 +10,4 @@ export class PerfilUsuarioComponent {
 	@Output() onDeleteUsuario: EventEmitter<Usuario> = new EventEmitter();
 
 	ngOnInit() : void {}
-
-	public onDelete(usuario: Usuario) {
-		this.onDeleteUsuario.emit(usuario);
-	}
 }
