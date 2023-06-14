@@ -1,0 +1,11 @@
+<div>
+    <h1 class="h1-delineado">Campañas</h1>
+    <div class="campania">
+      <app-perfil-campania
+          *ngFor="let campania of campanias" 
+          [campania] = "campania"
+          (onDeleteCampania)="deleteCampania(campania)"
+      ></app-perfil-campania>
+    </div>
+</div>
+

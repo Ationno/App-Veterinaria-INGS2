@@ -49,6 +49,10 @@ import { AdopcionesComponent } from './components/adopciones/adopciones.componen
 import { AdopcionComponent } from './components/adopciones/adopcion/adopcion.component';
 import { FormularioAdopcionComponent } from './components/adopciones/formulario-adopcion/formulario-adopcion.component';
 
+//Campañas
+import { CampaniasComponent } from './components/campanias/campanias.component';
+import { PerfilCampaniaComponent } from './components/campanias/perfil-campania/perfil-campania.component';
+
 //Pipes
 import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
 import { FilterAdopcionPipe } from './pipes/filter-adopcion.pipe';
@@ -89,6 +93,8 @@ import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncio
     FilterVacunaPipe,
     AdopcionesComponent,
     AdopcionComponent,
+    CampaniasComponent,
+    PerfilCampaniaComponent,
     FilterAdopcionPipe,
     FormularioAdopcionComponent,
     FilterAnuncioPipe,
