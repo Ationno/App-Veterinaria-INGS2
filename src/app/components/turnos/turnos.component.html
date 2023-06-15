@@ -3,7 +3,9 @@
     <div class="busqueda">
         <div class="busqueda_titulo">
             <h2 for="search">Busqueda</h2>
-            <button *ngIf="isLogged" [routerLink]="'/turnos/formTurnos/-1'" class="button button-green"> Agregar turno
+            <button *ngIf="isLogged && !isAdmin" [routerLink]="['/turnos/formTurnos/', this.usuarioId]"
+                class="button button-green">
+                Solicitar turno
             </button>
         </div>
         <div class="busqueda_inputs">
@@ -23,8 +25,7 @@
 
     </div>
     <div class="turnos">
-        <app-lista-turnos *ngFor="let turno of turnos | filterTurno busquedaMotivo:busquedaHorario" [turno]="turno">
-
+        <app-lista-turnos *ngFor="let turno of turnos | filterTurno: busquedaMotivo:busquedaHorario" [turno]="turno">
         </app-lista-turnos>
     </div>
 </div>

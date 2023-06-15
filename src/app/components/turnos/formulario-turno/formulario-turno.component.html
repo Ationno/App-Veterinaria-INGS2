@@ -1,11 +1,11 @@
-<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Turno</h1>
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Turno </h1>
 <div class="centrar">
     <form *ngIf="true" [formGroup]="form">
         <h1>Cargue los datos</h1>
         <div class="form-column">
             <div class="form-control">
                 <label for="mascota">Mascota:</label>
-                <select type="text" name="mascota" placeholder="Elija mascota" formControlName="tamano">
+                <select type="text" name="mascota" placeholder="Elija mascota" formControlName="mascota">
                     <option *ngFor="let mascota of mascotas" [value]="mascota.nombre">{{mascota.nombre}}</option>
                 </select>
                 <div *ngIf="Mascota?.errors && Mascota?.touched" class="error">
@@ -18,7 +18,7 @@
         <div class="form-column">
             <div class="form-control">
                 <label for="horario">Horario:</label>
-                <select type="text" name="horario" placeholder="Elija horario" formControlName="tamano">
+                <select type="text" name="horario" placeholder="Elija horario" formControlName="horario">
                     <option value="Manana">Mañana</option>
                     <option value="Tarde">Tarde</option>
                 </select>

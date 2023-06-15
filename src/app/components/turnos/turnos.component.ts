@@ -19,6 +19,7 @@ export class TurnosComponent implements OnInit {
   busquedaHorario!: string;
   usuarioId!: number;
   isLogged!: boolean;
+  isAdmin!: boolean;
 
   constructor(
     private turnosService: TurnosService,
@@ -30,6 +31,7 @@ export class TurnosComponent implements OnInit {
 
   ngOnInit() {
     this.isLogged = this.tokenService.isLogged()
+    this.isAdmin = this.tokenService.isAdmin()
     this.authService.getMainUsuario().subscribe((usuario) => {
       this.usuarioId = usuario.id
     })

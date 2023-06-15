@@ -40,12 +40,14 @@ export class FormularioTurnoComponent {
       id: [],
       horario: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       motivo: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
+      fecha: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       mascotaId: new FormControl('', { validators: Validators.required }),
       usuarioId: new FormControl('', { validators: Validators.required }),
       mascota: new FormControl('', { validators: Validators.required })
     })
     this.sub = this.route.params.subscribe(params => {
       this.usuarioId = params['usuarioId'];
+      console.log(this.usuarioId)
       this.usuariosService.getById(this.usuarioId).subscribe((usuario) => {
         this.mascotas = usuario.mascotas;
       })
