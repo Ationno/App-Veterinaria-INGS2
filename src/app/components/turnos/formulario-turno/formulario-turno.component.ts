@@ -51,10 +51,10 @@ export class FormularioTurnoComponent {
       this.usuariosService.getById(this.usuarioId).subscribe((usuario) => {
         this.mascotas = usuario.mascotas;
       })
-      this.edit = params['id'] != -1;
+      this.edit = params['turnoId'] != -1;
       if (this.edit) {
         this.edit = true;
-        this.turnosService.getById(params['id']).subscribe((turno) => {
+        this.turnosService.getById(params['turnoId']).subscribe((turno) => {
           this.form?.patchValue(turno)
           this.form?.patchValue({ fecha: this.formatDate(new Date(turno.fecha)) })
         })

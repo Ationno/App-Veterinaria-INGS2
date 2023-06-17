@@ -3,7 +3,7 @@
     <div class="busqueda">
         <div class="busqueda_titulo">
             <h2 for="search">Busqueda</h2>
-            <button *ngIf="isLogged && !isAdmin" [routerLink]="['/turnos/formTurnos/', this.usuarioId]"
+            <button *ngIf="isLogged && !isAdmin" [routerLink]="['/turnos/formTurnos/', this.usuarioId, -1]"
                 class="button button-green">
                 Solicitar turno
             </button>

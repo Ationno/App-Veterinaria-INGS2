@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'turnos', component: TurnosComponent, pathMatch: 'full' },
   { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full' },
   { path: 'anuncios/formAnuncios/:id', component: FormularioAnuncioComponent, pathMatch: 'full' },
-  { path: 'turnos/formTurnos/:usuarioId', component: FormularioTurnoComponent, pathMatch: 'full' },
+  { path: 'turnos/formTurnos/:usuarioId/:turnoId', component: FormularioTurnoComponent, pathMatch: 'full' },
   { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full' },
   { path: 'mascotas/:id', component: MascotasComponent, pathMatch: 'full' },
   { path: 'mascotas/formMascota/:usuarioId/:mascotaId', component: FormularioMascotaComponent, pathMatch: 'full' },
