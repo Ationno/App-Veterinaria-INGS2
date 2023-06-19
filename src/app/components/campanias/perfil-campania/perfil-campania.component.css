@@ -2,36 +2,38 @@
     border: 1px solid #d1d1d1;
     border-radius: 5px;
     padding: 1em;
-    min-width:  275px;
-}
-
-.button {
+    min-width: 275px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .button {
     font-size: 1em;
     padding: .25em .5em;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-weight: 700;
     font-size: 1.75rem;
     margin-bottom: .25em;
-}
-
-h1 .borrar {
+  }
+  
+  h1 .borrar {
     margin-left: 0.25em;
     font-size: 1.25rem;
     color: red;
     cursor: pointer;
-}
-
-.campania p {
-    margin: 5px 0;
-    font-size: 14px;
   }
-    
-.campania p:first-of-type {
-    font-weight: bold;
-}
-    
-.campania p:last-of-type {
-    margin-bottom: 0;
-}
+  
+  .campania p {
+    margin: 5px 0;
+    font-size: 17px;
+  }
+  
+  .campania p:last-of-type {
+    padding-bottom: 20px;
+    padding-top: 10px;
+    max-width: 500px;
+    width: 100%;
+    overflow-wrap: break-word;
+  }

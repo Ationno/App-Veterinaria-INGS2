@@ -1,9 +1,10 @@
 .campanias {
   display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 175px));
-  gap: 1em;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2em;
   padding-bottom: 1rem;
+  padding-top: 1rem;
+  inline-size: fit-content;
 }
 
 .button {
