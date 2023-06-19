@@ -15,6 +15,7 @@ export class CampaniasComponent {
     campanias : Campania[] = [];
     subscription?: Subscription;
     campania!: Campania;
+    busquedaTitulo!: string; 
     isLogged: boolean = false;
 	isAdmin: boolean = false;
 	

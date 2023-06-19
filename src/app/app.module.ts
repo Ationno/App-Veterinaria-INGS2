@@ -52,6 +52,7 @@ import { FormularioAdopcionComponent } from './components/adopciones/formulario-
 //Campañas
 import { CampaniasComponent } from './components/campanias/campanias.component';
 import { PerfilCampaniaComponent } from './components/campanias/perfil-campania/perfil-campania.component';
+import { FormularioCampaniaComponent } from './components/campanias/formulario-campania/formulario-campania.component';
 
 //Pipes
 import { FilterUsuarioPipe } from './pipes/filter-usuario.pipe';
@@ -59,6 +60,7 @@ import { FilterAdopcionPipe } from './pipes/filter-adopcion.pipe';
 import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
 import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
 import { FilterAnuncioPipe } from './pipes/filter-anuncio.pipe';
+import { FilterCampaniaPipe } from './pipes/filter-campania.pipe';
 import { FilterTurnoPipe } from './pipes/filter-turno.pipe';
 import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formulario-adoptar-anonimo/formulario-adoptar-anonimo.component';
 import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncios/formulario-anuncio-comunicar-anonimo/formulario-anuncio-comunicar-anonimo.component';
@@ -96,6 +98,8 @@ import { BorrarUsuarioComponent } from './components/usuarios/borrar-usuario/bor
     AdopcionesComponent,
     AdopcionComponent,
     CampaniasComponent,
+    FilterCampaniaPipe,
+    FormularioCampaniaComponent,
     PerfilCampaniaComponent,
     FilterAdopcionPipe,
     FormularioAdopcionComponent,

@@ -20,8 +20,8 @@ export class CampaniasService extends getDB {
 		this.apiUrl += "campania";
 	}
 
-	public editReducido(campania: any): Observable<any> {
-		const url = `${this.apiUrl}/putReducido/${campania.id}`
-		return this.http.put<any>(url, campania)
+	public getByTitulo(titulo: string): Observable<any> {
+		const url = `${this.apiUrl}/getByTitulo/${titulo}`
+		return this.http.get<any>(url)
 	}
 }

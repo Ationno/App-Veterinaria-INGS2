@@ -1,8 +1,24 @@
 <div>
     <h1 class="h1-delineado">Campañas</h1>
-    <div class="campania">
+    <div class="busqueda">
+      <div class="busqueda_titulo">
+        <h2 for="search">Busqueda</h2>
+        <button [routerLink]="'/campanias/formCampanias/-1'" *ngIf="isLogged && isAdmin" class="button button-green" > Agregar Campaña </button>
+      </div>
+      <div class="busqueda_inputs">
+        <div>
+          <label for="search">Titulo:</label>
+            <input 
+              type="text"  
+              name="busquedaTitulo"
+              [(ngModel)]="busquedaTitulo"
+            >
+        </div>
+      </div>
+    </div>
+    <div class="campanias">
       <app-perfil-campania
-          *ngFor="let campania of campanias" 
+          *ngFor="let campania of campanias | filterCampania: busquedaTitulo" 
           [campania] = "campania"
           (onDeleteCampania)="deleteCampania(campania)"
       ></app-perfil-campania>

@@ -10,14 +10,14 @@
             <li>
                 <i class='bx bxs-dog' routerLink="/adopciones" ></i>
                 <div>
-                    <a class="anuncios-link" routerLink="/adopciones" href="">Adopciones</a>
+                    <a class="nav-link" routerLink="/adopciones" href="">Adopciones</a>
                     <span>Descubre la mascota de tus sueños</span>
                 </div>
             </li>
             <li>
                 <i class='bx bxs-baby-carriage'></i>
                 <div>
-                    <p>Cruza de Animales</p>
+                    <a class="nav-link" routerLink="/" href="">Cruza de Animales</a>
                     <span>Encuentra la pareja ideal de tu mascota</span>
                 </div>
             </li>
@@ -32,23 +32,23 @@
             <li>
                 <i class='bx bxs-briefcase-alt' routerLink="/anuncios"></i>
                 <div>
-                    <a class="anuncios-link" routerLink="/anuncios" href="">Anuncios de Trabajo</a>
+                    <a class="nav-link" routerLink="/anuncios" href="">Anuncios de Trabajo</a>
                     <span>Contrata a profesionales certificados</span>
                 </div>
             </li>
             <li>
                 <i class='bx bx-search-alt-2'></i>
                 <div>
-                    <p>Busqueda de Mascotas</p>
+                    <a class="nav-link" routerLink="/" href="">Busqueda de Mascotas</a>
                     <span>Descubre la mascota de tus sueños</span>
                 </div>
             </li>
         </ul>
     </div>
-    <a href="">Donaciones</a>
+    <a routerLink="/donaciones" href="">Donaciones</a>
     <a routerLink="/campanias" href="">Campañas</a>
     <a *ngIf="isAdmin" routerLink="/usuarios" href="">Usuarios</a>
-    <p *ngIf="isAdmin" [ngClass]="{'push': isLogged}" >(Admin)</p>
+    <p *ngIf="isAdmin" [ngClass]="{'push': isLogged}">(Admin)</p>
     <a *ngIf="isLogged" [ngClass]="{'push': (isLogged && !isAdmin) }" routerLink="/informacion"><i class='bx bxs-user'></i></a>
     <a *ngIf="!isLogged" [ngClass]="{'push': !isLogged}" routerLink="/login"><i class='bx bx-log-in'></i></a>
     <a *ngIf="isLogged" (click)="tokenService.logOut()"><i class='bx bx-log-out'></i></a>

@@ -28,10 +28,11 @@ a {
 }
 
 .barra_navegacion p {
-    color: #F1965B;
+    color: #75B5C7;
     font-size: 1.65em;
     align-self: center;
 }
+
 
 .barra_navegacion .push {
     margin-left: auto;
@@ -99,7 +100,7 @@ a {
     display: block;
 }
 
-.anuncios-link{
+.nav-link{
     cursor: pointer;
     display: flex;
     align-items: center;
