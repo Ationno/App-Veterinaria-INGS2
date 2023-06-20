@@ -1,10 +1,9 @@
 <div class="campania">
-    <h1>{{campania.titulo}} </h1>
+    <h1>{{campania.titulo}} <b *ngIf="campania.seleccionada" style="color: #2ea44f; font-size: .75em;">(Seleccionada)</b></h1>
     <p>{{ campania.descripcion }}</p>
     <div style="display: flex;">
         <button [routerLink]="['/campanias/formCampanias', campania.id]" *ngIf="isLogged && isAdmin" class="button button-blue" value="editar">Editar</button>
         <button (click)="onDelete(campania)" *ngIf="isLogged && isAdmin" class="button button-red" value="borrar">Borrar</button>
-        <button *ngIf="!this.isAdmin && this.isLogged" class="button button-green" [routerLink]="'/'">Donar</button>
-        <button *ngIf="!this.isAdmin && !this.isLogged" class="button button-green" [routerLink]="'/'">Donar</button>
+        <button (click)="onSelect(campania)" *ngIf="isLogged && isAdmin && !campania.seleccionada" class="button button-green" value="seleccionar">Seleccionar</button>
     </div>
 </div>
