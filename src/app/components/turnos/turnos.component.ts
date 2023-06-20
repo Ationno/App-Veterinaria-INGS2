@@ -40,4 +40,11 @@ export class TurnosComponent implements OnInit {
     })
   }
 
+  getFilteredTurnos(): Turno[] {
+    if (this.isAdmin) {
+      return this.turnos;
+    } else {
+      return this.turnos.filter((turno => turno.usuario_id == this.usuarioId))
+    }
+  }
 }

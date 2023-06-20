@@ -32,7 +32,6 @@ export class FormularioTurnoComponent {
     private formBuilder: FormBuilder,
     private turnosService: TurnosService,
     private usuariosService: UsuariosService,
-    private mascotasService: MascotasService,
     private route: ActivatedRoute,
     public router: Router
   ) {
@@ -41,13 +40,12 @@ export class FormularioTurnoComponent {
       horario: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       motivo: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       fecha: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
-      mascotaId: new FormControl('', { validators: Validators.required }),
-      usuarioId: new FormControl('', { validators: Validators.required }),
-      mascota: new FormControl('', { validators: Validators.required })
+      mascota: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
+      mascota_id: new FormControl(''),
+      usuario_id: new FormControl('')
     })
     this.sub = this.route.params.subscribe(params => {
       this.usuarioId = params['usuarioId'];
-      console.log(this.usuarioId)
       this.usuariosService.getById(this.usuarioId).subscribe((usuario) => {
         this.mascotas = usuario.mascotas;
       })
@@ -95,18 +93,25 @@ export class FormularioTurnoComponent {
   public onAdd(): void {
     if (this.form.valid) {
       this.form.patchValue({ "usuario_id": this.usuarioId })
-      this.form.patchValue({ "mascota_id": this.mascotaId })
-      this.turnosService.add(this.form.getRawValue()).subscribe((message) => {
-        if (message.error) {
-          alert(message.error)
-        } else {
-          alert(message.success)
-          this.router.navigate(['/turnos']);
-          this.form.reset()
-        }
-      });
+      const mascotaSeleccionada = this.form.get('mascota')?.value
+      const mascota = this.mascotas.find(m => m.nombre === mascotaSeleccionada)
+      if (mascota) {
+        this.form.patchValue({ "mascota_id": mascota.id })
+        this.turnosService.add(this.form.getRawValue()).subscribe((message) => {
+          if (message.error) {
+            alert(message.error)
+          } else {
+            alert(message.success)
+            this.router.navigate(['/turnos']);
+            this.form.reset()
+          }
+        });
+      } else {
+        alert('No se encontro la mascota seleccionada')
+      }
     } else {
       console.log(this.form.errors)
+      console.log('Probando...' + this.form.getRawValue())
       this.form.markAllAsTouched();
     }
 

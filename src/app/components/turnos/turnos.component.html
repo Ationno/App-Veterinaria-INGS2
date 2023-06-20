@@ -25,7 +25,8 @@
 
     </div>
     <div class="turnos">
-        <app-lista-turnos *ngFor="let turno of turnos | filterTurno: busquedaMotivo:busquedaHorario" [turno]="turno">
+        <app-lista-turnos *ngFor="let turno of getFilteredTurnos() | filterTurno: busquedaMotivo:busquedaHorario"
+            [turno]="turno">
         </app-lista-turnos>
     </div>
 </div>
