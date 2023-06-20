@@ -23,6 +23,8 @@ import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formu
 import { FormularioAnuncioComunicarAnonimoComponent } from './components/anuncios/formulario-anuncio-comunicar-anonimo/formulario-anuncio-comunicar-anonimo.component';
 import { BorrarMascotaComponent } from './components/mascotas/borrar-mascota/borrar-mascota.component';
 import { BorrarUsuarioComponent } from './components/usuarios/borrar-usuario/borrar-usuario.component';
+import { DonacionesComponent } from './components/donaciones/donaciones.component';
+import { FormularioDonacionComponent } from './components/donaciones/formulario-donacion/formulario-donacion.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -50,6 +52,8 @@ const routes: Routes = [
   { path: 'anuncios/formAnuncioComunicacion/:email_anunciante', component: FormularioAnuncioComunicarAnonimoComponent, pathMatch: 'full' },
   { path: 'mascotas/eliminarMascota/:mascotaId', component: BorrarMascotaComponent, pathMatch: 'full' },
   { path: 'usuarios/eliminarUsuario/:usuarioId', component: BorrarUsuarioComponent, pathMatch: 'full' },
+  { path: 'donaciones', component: DonacionesComponent, pathMatch: 'full' },
+  { path: 'donaciones/formDonacion/:campaniaId', component: FormularioDonacionComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 export interface Campania {
     id: number,
     titulo: string,
-    descripcion: string
+    descripcion: string,
+    seleccionada: boolean
 }

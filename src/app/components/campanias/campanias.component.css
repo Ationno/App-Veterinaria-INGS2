@@ -1,6 +1,8 @@
 .campanias {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  width: 100%;
   gap: 2em;
   padding-bottom: 1rem;
   padding-top: 1rem;

@@ -29,8 +29,9 @@ a {
 
 .barra_navegacion p {
     color: #75B5C7;
-    font-size: 1.65em;
+    font-size: 1.25em;
     align-self: center;
+    margin-right: .1em;
 }
 
 

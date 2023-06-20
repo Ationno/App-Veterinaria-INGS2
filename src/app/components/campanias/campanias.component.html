@@ -21,6 +21,7 @@
           *ngFor="let campania of campanias | filterCampania: busquedaTitulo" 
           [campania] = "campania"
           (onDeleteCampania)="deleteCampania(campania)"
+          (onSelectCampania)="selectCampania(campania)"
       ></app-perfil-campania>
     </div>
 </div>

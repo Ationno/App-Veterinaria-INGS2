@@ -16,6 +16,7 @@ export class PerfilCampaniaComponent {
 	isAdmin: boolean = false;
     @Input() campania!: Campania;
 	@Output() onDeleteCampania: EventEmitter<Campania> = new EventEmitter();
+	@Output() onSelectCampania: EventEmitter<Campania> = new EventEmitter();
 	mainUser!: Usuario;
 
 	constructor(public tokenService: TokenService, private router: Router, private authService: AuthService, private campaniaService: CampaniasService) {
@@ -31,5 +32,9 @@ export class PerfilCampaniaComponent {
 
 	public onDelete(campania: Campania) {
 		this.onDeleteCampania.emit(campania);
+	}
+
+	public onSelect(campania: Campania) {
+		this.onSelectCampania.emit(campania);
 	}
 }

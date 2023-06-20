@@ -39,4 +39,11 @@ export class CampaniasComponent {
 		})
 	}
 
+    public selectCampania(campania: Campania) {
+		this.campaniasService.selectCampania(campania).subscribe((campanias) => {
+            alert("Campania seleccionada exitosamente!")
+            this.campanias = campanias
+		})
+	}
+
 }
