@@ -37,7 +37,7 @@ export class FormularioDonacionComponent {
 			apellido: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			DNI: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			campania_id: new FormControl(''),
-			titular: new FormControl('', { validators: [Validators.required, Validators.pattern('^[a-zA-Z]*$')], updateOn: 'blur' }),
+			titular: new FormControl('', { validators: [Validators.required, Validators.pattern('^[a-zA-Z ]*$')], updateOn: 'blur' }),
 			nroTarjeta: new FormControl('', { validators: [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern('^[0-9]*$')], updateOn: 'blur' }),
 			codigo: new FormControl('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(3), Validators.pattern('^[0-9]*$')], updateOn: 'blur' }),
 			fechaVencimiento: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
@@ -94,13 +94,14 @@ export class FormularioDonacionComponent {
 	public elegirDarDatos() {
 		this.eleccion = "darDatos";
 		if (this.isLogged) {
+			this.eleccion = "darDatosYaLoggeado";
 			let usuario!: Usuario;
 			this.authService.getMainUsuario().subscribe(usuarioGet => {
 				usuario = usuarioGet;
+				this.form.patchValue({ "nombre": usuario.nombre })
+				this.form.patchValue({ "apellido": usuario.apellido })
+				this.form.patchValue({ "DNI": usuario.DNI })
 			});
-			this.form.patchValue({ "nombre": usuario.nombre })
-			this.form.patchValue({ "apellido": usuario.apellido })
-			this.form.patchValue({ "DNI": usuario.DNI })
 		}
 	}
 

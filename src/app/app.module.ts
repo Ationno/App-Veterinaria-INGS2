@@ -68,6 +68,8 @@ import { BorrarMascotaComponent } from './components/mascotas/borrar-mascota/bor
 import { BorrarUsuarioComponent } from './components/usuarios/borrar-usuario/borrar-usuario.component';
 import { DonacionesComponent } from './components/donaciones/donaciones.component';
 import { FormularioDonacionComponent } from './components/donaciones/formulario-donacion/formulario-donacion.component';
+import { FilterTurnoEstadoPipe } from './pipes/filter-turno-estado.pipe';
+import { HistorialDonacionesComponent } from './components/donaciones/historial-donaciones/historial-donaciones.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +114,9 @@ import { FormularioDonacionComponent } from './components/donaciones/formulario-
     BorrarMascotaComponent,
     BorrarUsuarioComponent,
     DonacionesComponent,
-    FormularioDonacionComponent
+    FormularioDonacionComponent,
+    FilterTurnoEstadoPipe,
+    HistorialDonacionesComponent
   ],
   imports: [
     BrowserModule,

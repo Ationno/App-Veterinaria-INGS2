@@ -1,0 +1,32 @@
+<div class="eliminar_usuario">
+    <h1 class="h1-delineado">Historial de donaciones</h1>
+    <div *ngFor="let campania of this.campanias">
+        <h1 class="titulo_mascota">Campaña: {{campania.titulo}}</h1>
+        <h4 style="margin-bottom: .5em;">Dinero recaudado: {{montoRecaudado(campania.donaciones)}}</h4>
+        <div class="donacion" *ngFor="let donacion of campania.donaciones">
+            <h1>Donacion</h1>
+            <p>Monto: {{donacion.monto}}</p>
+            <p *ngIf="donacion.nombre == 'Anonimo'">El usuario ha decidido que la donacion sea anonima.</p>
+            <div *ngIf="donacion.nombre != 'Anonimo'">
+                <p>Nombre: {{donacion.nombre}}</p>
+                <p>Apellido: {{donacion.apellido}}</p>
+                <p>DNI: {{donacion.DNI}}</p>
+            </div>
+        </div>
+    </div>
+    <h3>Donaciones sin Campaña:</h3>
+    <h4 style="margin-bottom: .5em;">Dinero recaudado: {{montoRecaudado(this.donacionesAnonimas)}}</h4>
+    <div class="donacion" *ngFor="let donacion of this.donacionesAnonimas">
+        <h1>Donacion</h1>
+        <p>Monto: {{donacion.monto}}</p>
+        <p *ngIf="donacion.nombre == 'Anonimo'">El usuario ha decidido que la donacion sea anonima.</p>
+        <div *ngIf="donacion.nombre != 'Anonimo'">
+            <p>Nombre: {{donacion.nombre}}</p>
+            <p>Apellido: {{donacion.apellido}}</p>
+            <p>DNI: {{donacion.DNI}}</p>
+        </div>
+    </div>
+    <div class="buttons">
+        <input [routerLink]="['/donaciones']" class="button button-green" type="button" value="Volver">
+    </div>
+</div>
