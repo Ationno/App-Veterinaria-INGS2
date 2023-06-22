@@ -47,6 +47,9 @@ export class FormularioDonacionComponent {
 			if (params['campaniaId'] != -1) {
 				this.form.patchValue({ "campania_id": params['campaniaId'] })
 			}
+			else{
+				this.form.patchValue({ "campania_id": 0})
+			}
 		});
 	}
 
