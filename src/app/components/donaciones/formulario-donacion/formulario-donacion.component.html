@@ -137,6 +137,9 @@
                     <p *ngIf="DNI?.hasError('required')">
                         El DNI es requerido
                     </p>
+                    <p *ngIf="DNI?.hasError('pattern') || DNI?.hasError('minlength') || DNI?.hasError('maxlength')">
+                        El DNI debe ser valido
+                    </p>
                 </div>
             </div>
         </div>

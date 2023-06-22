@@ -35,10 +35,10 @@ export class FormularioDonacionComponent {
 			monto: new FormControl('', { validators: [Validators.required, Validators.min(10)], updateOn: 'blur' }),
 			nombre: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			apellido: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
-			DNI: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
+			DNI: new FormControl('', { validators: [Validators.required, Validators.minLength(8), Validators.maxLength(8), Validators.pattern('^[0-9]*$')], updateOn: 'blur' }),
 			campania_id: new FormControl(''),
 			titular: new FormControl('', { validators: [Validators.required, Validators.pattern('^[a-zA-Z ]*$')], updateOn: 'blur' }),
-			nroTarjeta: new FormControl('', { validators: [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern('^[0-9]*$')], updateOn: 'blur' }),
+			nroTarjeta: new FormControl('', { validators: [Validators.required, Validators.minLength(7), Validators.maxLength(16), Validators.pattern('^[0-9]*$')], updateOn: 'blur' }),
 			codigo: new FormControl('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(3), Validators.pattern('^[0-9]*$')], updateOn: 'blur' }),
 			fechaVencimiento: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 		})
