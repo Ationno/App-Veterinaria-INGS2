@@ -16,6 +16,7 @@ export class ListaTurnosComponent {
   mainUser!: Usuario;
   isLogged!: boolean;
   isAdmin!: boolean;
+  fecha!: Date;
 
   constructor(
     private authService: AuthService,
@@ -24,6 +25,8 @@ export class ListaTurnosComponent {
     public router: Router) { }
 
   ngOnInit(): void {
+    this.fecha = new Date(this.turno.fecha)
+    this.fecha.setMinutes(this.fecha.getMinutes() + this.fecha.getTimezoneOffset());
     this.authService.getMainUsuario().subscribe((usuario) => {
       this.mainUser = usuario;
       console.log(this.mainUser.email);

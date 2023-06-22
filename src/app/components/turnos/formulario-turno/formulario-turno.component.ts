@@ -40,7 +40,6 @@ export class FormularioTurnoComponent {
       horario: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       motivo: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       fecha: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
-      mascota: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       mascota_id: new FormControl(''),
       usuario_id: new FormControl('')
     })
@@ -53,6 +52,7 @@ export class FormularioTurnoComponent {
       if (this.edit) {
         this.edit = true;
         this.turnosService.getById(params['turnoId']).subscribe((turno) => {
+          console.log(turno)
           this.form?.patchValue(turno)
           this.form?.patchValue({ fecha: this.formatDate(new Date(turno.fecha)) })
         })
@@ -93,24 +93,19 @@ export class FormularioTurnoComponent {
   public onAdd(): void {
     if (this.form.valid) {
       this.form.patchValue({ "usuario_id": this.usuarioId })
-      const mascotaSeleccionada = this.form.get('mascota')?.value
-      const mascota = this.mascotas.find(m => m.nombre === mascotaSeleccionada)
-      if (mascota) {
-        this.form.patchValue({ "mascota_id": mascota.id })
-        this.turnosService.add(this.form.getRawValue()).subscribe((message) => {
-          if (message.error) {
-            alert(message.error)
-            console.log(2)
-          } else {
-            alert(message.success)
+
+      this.turnosService.add(this.form.getRawValue()).subscribe((message) => {
+        if (message.error) {
+          alert(message.error)
+          console.log(2)
+        } else {
+            alert(message.message)
             console.log(1)
             this.router.navigate(['/turnos']);
             this.form.reset()
           }
         });
-      } else {
-        alert('No se encontro la mascota seleccionada')
-      }
+     
     } else {
       console.log(this.form.errors)
       console.log('Probando...' + this.form.getRawValue())
@@ -126,7 +121,7 @@ export class FormularioTurnoComponent {
         if (message.error) {
           alert(message.error)
         } else {
-          alert(message.success)
+          alert(message.message)
           this.router.navigate(['/turnos']);
         }
       })
