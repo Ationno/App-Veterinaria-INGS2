@@ -1,9 +1,10 @@
 <div class="turno">
-    <h1>{{turno.fecha + " - " + turno.horario}}</h1>
+    <h1>{{turno.fecha | date:'dd/MM/yyyy' }}</h1>
+    <h2>{{turno.horario}}</h2>
     <h2>{{turno.motivo}}</h2>
     <p>{{turno.estado}}</p>
     <div style="display: flex;">
-        <button *ngIf="turno.estado=='Pendiente'" [routerLink]="['/turnos/formTurnos', turno.id]"
+        <button *ngIf="turno.estado=='Pendiente'" [routerLink]="['/turnos/formTurnos', turno.usuario_id, turno.id]"
             class="button button-blue" value="editar">Editar </button>
         <button *ngIf="turno.estado=='Pendiente'" (click)="onAccept(turno)" class="button button-green"
             value="aceptar">Aceptar</button>
