@@ -2,7 +2,7 @@
 <div class="centrar">
     <form *ngIf="true" [formGroup]="form">
         <h1>Cargue los datos</h1>
-        <div class="form-column">
+        <div *ngIf="!this.edit" class="form-column">
             <div class="form-control">
                 <label for="mascota">Mascota:</label>
                 <select type="text" name="mascota" placeholder="Elija mascota" formControlName="mascota_id">
@@ -37,7 +37,7 @@
                     </p>
                 </div>
             </div>
-            <div class="form-control">
+            <div *ngIf="!this.edit" class="form-control">
                 <label for="fecha">Fecha:</label>
                 <input type="date" name="fecha" placeholder="Agregar fecha" formControlName="fecha">
                 <div *ngIf="Fecha?.errors && Fecha?.touched" class="error">

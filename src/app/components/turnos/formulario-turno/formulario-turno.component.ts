@@ -99,13 +99,13 @@ export class FormularioTurnoComponent {
           alert(message.error)
           console.log(2)
         } else {
-            alert(message.message)
-            console.log(1)
-            this.router.navigate(['/turnos']);
-            this.form.reset()
-          }
-        });
-     
+          alert(message.message)
+          console.log(1)
+          this.router.navigate(['/turnos']);
+          this.form.reset()
+        }
+      });
+
     } else {
       console.log(this.form.errors)
       console.log('Probando...' + this.form.getRawValue())
@@ -116,6 +116,7 @@ export class FormularioTurnoComponent {
 
 
   public onEdit(): void {
+    this.form.removeControl("fecha")
     if (this.form.valid) {
       this.turnosService.edit(this.form.getRawValue()).subscribe((message) => {
         if (message.error) {
