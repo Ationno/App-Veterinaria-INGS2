@@ -70,6 +70,8 @@ import { DonacionesComponent } from './components/donaciones/donaciones.componen
 import { FormularioDonacionComponent } from './components/donaciones/formulario-donacion/formulario-donacion.component';
 import { FilterTurnoEstadoPipe } from './pipes/filter-turno-estado.pipe';
 import { HistorialDonacionesComponent } from './components/donaciones/historial-donaciones/historial-donaciones.component';
+import { ServiviosComponent } from './components/home/servivios/servivios.component';
+import { MapaComponent } from './components/home/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +118,9 @@ import { HistorialDonacionesComponent } from './components/donaciones/historial-
     DonacionesComponent,
     FormularioDonacionComponent,
     FilterTurnoEstadoPipe,
-    HistorialDonacionesComponent
+    HistorialDonacionesComponent,
+    ServiviosComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,

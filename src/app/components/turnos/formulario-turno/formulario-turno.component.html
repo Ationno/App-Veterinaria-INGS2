@@ -14,20 +14,6 @@
                     </p>
                 </div>
             </div>
-        </div>
-        <div class="form-column">
-            <div class="form-control">
-                <label for="horario">Horario:</label>
-                <select type="text" name="horario" placeholder="Elija horario" formControlName="horario">
-                    <option value="Mañana">Mañana</option>
-                    <option value="Tarde">Tarde</option>
-                </select>
-                <div *ngIf="Horario?.errors && Horario?.touched" class="error">
-                    <p *ngIf="Horario?.hasError('required')">
-                        El horario es requerido
-                    </p>
-                </div>
-            </div>
             <div class="form-control">
                 <label for="motivo">Motivo:</label>
                 <input type="text" name="motivo" placeholder="Agregar motivo" formControlName="motivo">
@@ -37,12 +23,26 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="form-column">
             <div *ngIf="!this.edit" class="form-control">
                 <label for="fecha">Fecha:</label>
                 <input type="date" name="fecha" placeholder="Agregar fecha" formControlName="fecha">
                 <div *ngIf="Fecha?.errors && Fecha?.touched" class="error">
                     <p *ngIf="Fecha?.hasError('required')">
                         La edad es requerida
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="horario">Horario:</label>
+                <select type="text" name="horario" placeholder="Elija horario" formControlName="horario">
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                </select>
+                <div *ngIf="Horario?.errors && Horario?.touched" class="error">
+                    <p *ngIf="Horario?.hasError('required')">
+                        El horario es requerido
                     </p>
                 </div>
             </div>
