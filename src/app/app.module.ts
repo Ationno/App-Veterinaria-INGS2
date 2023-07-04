@@ -16,6 +16,10 @@ import { AnunciosComponent } from './components/anuncios/anuncios.component';
 import { PerfilAnuncioComponent } from './components/anuncios/perfil-anuncio/perfil-anuncio.component';
 import { FormularioAnuncioComponent } from './components/anuncios/formulario-anuncio/formulario-anuncio.component';
 
+//Perdidos
+import { PerdidosComponent } from './components/perdidos/perdidos.component';
+import { PerfilPerdidoComponent } from './components/perdidos/perfil-perdido/perfil-perdido.component';
+
 //Usuarios
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { PerfilUsuarioComponent } from './components/usuarios/perfil-usuario/perfil-usuario.component';
@@ -80,6 +84,8 @@ import { MapaComponent } from './components/home/mapa/mapa.component';
     HomeComponent,
     NavComponent,
     AnunciosComponent,
+    PerdidosComponent,
+    PerfilPerdidoComponent,
     PerfilAnuncioComponent,
     FormularioAnuncioComponent,
     UsuariosComponent,

@@ -1,0 +1,10 @@
+<div>
+    <h1 class="h1-delineado">Perros Perdidos</h1>
+    <div class="perdidos">
+      <app-perfil-perdido
+          *ngFor="let perdido of perdidos" 
+          [perdido] = "perdido"
+          (onDeletePerdido)="deletePerdido(perdido)"
+      ></app-perfil-perdido>
+    </div>
+</div>
