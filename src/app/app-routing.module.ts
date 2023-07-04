@@ -27,6 +27,7 @@ import { BorrarUsuarioComponent } from './components/usuarios/borrar-usuario/bor
 import { DonacionesComponent } from './components/donaciones/donaciones.component';
 import { FormularioDonacionComponent } from './components/donaciones/formulario-donacion/formulario-donacion.component';
 import { HistorialDonacionesComponent } from './components/donaciones/historial-donaciones/historial-donaciones.component';
+import { FormularioCoordenadaComponent } from './components/home/mapa/formulario-coordenada/formulario-coordenada.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -58,6 +59,7 @@ const routes: Routes = [
   { path: 'donaciones', component: DonacionesComponent, pathMatch: 'full' },
   { path: 'donaciones/historial', component: HistorialDonacionesComponent, pathMatch: 'full' },
   { path: 'donaciones/formDonacion/:campaniaId', component: FormularioDonacionComponent, pathMatch: 'full' },
+  { path: 'mapa/formCoordenada/:coordenadaId', component: FormularioCoordenadaComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

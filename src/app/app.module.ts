@@ -76,6 +76,7 @@ import { FilterTurnoEstadoPipe } from './pipes/filter-turno-estado.pipe';
 import { HistorialDonacionesComponent } from './components/donaciones/historial-donaciones/historial-donaciones.component';
 import { ServiviosComponent } from './components/home/servivios/servivios.component';
 import { MapaComponent } from './components/home/mapa/mapa.component';
+import { FormularioCoordenadaComponent } from './components/home/mapa/formulario-coordenada/formulario-coordenada.component';
 
 @NgModule({
   declarations: [
@@ -126,7 +127,8 @@ import { MapaComponent } from './components/home/mapa/mapa.component';
     FilterTurnoEstadoPipe,
     HistorialDonacionesComponent,
     ServiviosComponent,
-    MapaComponent
+    MapaComponent,
+    FormularioCoordenadaComponent
   ],
   imports: [
     BrowserModule,

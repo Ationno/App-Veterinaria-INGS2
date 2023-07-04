@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
 import * as L from "leaflet";
 import { icon, Marker } from 'leaflet';
+import { TokenService } from 'src/app/servicios/token.service';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -24,6 +25,11 @@ Marker.prototype.options.icon = iconDefault;
 export class MapaComponent implements AfterViewInit {
 
 	private map!: L.Map;
+	public isAdmin: boolean = false;
+
+	constructor(private tokenService: TokenService) {
+		this.isAdmin = this.tokenService.isAdmin();
+	}
 
 	private initMap(): void {
 		this.map = L.map('map', {

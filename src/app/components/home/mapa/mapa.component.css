@@ -1,6 +1,6 @@
 h1 {
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: .5em;
   font-weight: 1000;
 }
 
@@ -16,4 +16,8 @@ h1 {
 
 #map {
   height: 100%;
+}
+
+.button-map {
+ margin: 0 1em 0 calc(100% - 239.717px - 1em);
 }

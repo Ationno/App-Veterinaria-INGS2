@@ -1,0 +1,57 @@
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Coordenada</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>
+        <div class="map-container" id="visitanos">
+            <div class="map-frame">
+                <div id="map"></div>
+            </div>
+        </div>
+        <h3>Cliquea el mapa para conseguir las coordenadas</h3>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="coordenadaX">Coordenada X:</label>
+                <input [readonly]="true" type="text" name="coordenadaX" placeholder="Agregar coordenada X" formControlName="coordenadaX">
+                <div *ngIf="CoordenadaX?.errors && CoordenadaX?.touched" class="error">
+                    <p *ngIf="CoordenadaX?.hasError('required')">
+                        La coordenada X es requerida
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="coordenadaY">Coordenada Y:</label>
+                <input [readonly]="true" type="text" name="coordenadaY" placeholder="Agregar coordenada Y" formControlName="coordenadaY">
+                <div *ngIf="CoordenadaY?.errors && CoordenadaY?.touched" class="error">
+                    <p *ngIf="CoordenadaY?.hasError('required')">
+                        La coordenada Y es requerida
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="titulo">Titulo:</label>
+                <input type="text" name="titulo" placeholder="Agregar titulo" formControlName="titulo">
+                <div *ngIf="Titulo?.errors && Titulo?.touched" class="error">
+                    <p *ngIf="Titulo?.hasError('required')">
+                        El titulo es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="parrafo">Parrafo:</label>
+                <input type="text" name="parrafo" placeholder="Agregar parrafo" formControlName="parrafo">
+                <div *ngIf="Parrafo?.errors && Parrafo?.touched" class="error">
+                    <p *ngIf="Parrafo?.hasError('required')">
+                        El parrafo es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="'/campanias'" class="button button-red" type="submit" value="Cancelar">
+        </div>
+    </form>
+</div>

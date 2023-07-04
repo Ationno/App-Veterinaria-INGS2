@@ -48,7 +48,7 @@
     <a routerLink="/donaciones" href="">Donaciones</a>
     <a *ngIf="isAdmin" routerLink="/campanias" href="">Campañas</a>
     <a *ngIf="isAdmin" routerLink="/usuarios" href="">Usuarios</a>
-    <p *ngIf="isAdmin" [ngClass]="{'push': isLogged}">(Admin: {{this.usuario.nombre}})</p>
+    <p *ngIf="isAdmin && this.usuario" [ngClass]="{'push': isLogged}">(Admin: {{this.usuario.nombre}})</p>
     <p *ngIf="isLogged && !isAdmin && this.usuario" [ngClass]="{'push': isLogged}">(User: {{this.usuario.nombre}})</p>
     <a *ngIf="isLogged" routerLink="/informacion"><i
             class='bx bxs-user'></i></a>
