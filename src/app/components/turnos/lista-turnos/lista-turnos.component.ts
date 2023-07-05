@@ -37,14 +37,14 @@ export class ListaTurnosComponent {
 
   public onAccept(turno: Turno) {
     if (turno.id)
-      this.turnosService.cambiarEstado(turno.id, "Aceptado", this.mainUser.email).subscribe(() => {
+      this.turnosService.cambiarEstado(turno.id, "Aceptado", this.mainUser).subscribe(() => {
         alert("Turno aceptado exitosamente")
       })
   }
 
   public onReject(turno: Turno) {
     if (turno.id)
-      this.turnosService.cambiarEstado(turno.id, "Rechazado", this.mainUser.email).subscribe(() => {
+      this.turnosService.cambiarEstado(turno.id, "Rechazado", this.mainUser).subscribe(() => {
         alert("Turno rechazado exitosamente")
       })
   }

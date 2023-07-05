@@ -97,10 +97,8 @@ export class FormularioTurnoComponent {
       this.turnosService.add(this.form.getRawValue()).subscribe((message) => {
         if (message.error) {
           alert(message.error)
-          console.log(2)
         } else {
           alert(message.message)
-          console.log(1)
           this.router.navigate(['/turnos']);
           this.form.reset()
         }

@@ -4,11 +4,11 @@
     <h2>{{turno.motivo}}</h2>
     <p>{{turno.estado}}</p>
     <div style="display: flex;">
-        <button *ngIf="turno.estado=='Pendiente'" [routerLink]="['/turnos/formTurnos', turno.usuario_id, turno.id]"
-            class="button button-blue" value="editar">Editar </button>
-        <button *ngIf="turno.estado=='Pendiente'" (click)="onAccept(turno)" class="button button-green"
+        <button *ngIf="isAdmin && turno.estado=='Pendiente'" [routerLink]="['/turnos/formTurnos', turno.usuario_id, turno.id]"
+            class="button button-blue" value="editar">Editar</button>
+        <button *ngIf="(isAdmin && turno.estado=='Pendiente') || (!isAdmin && turno.estado == 'Modificado')" (click)="onAccept(turno)" class="button button-green"
             value="aceptar">Aceptar</button>
-        <button *ngIf="turno.estado=='Pendiente'" (click)="onReject(turno)" class="button button-red"
+        <button *ngIf="(isAdmin && turno.estado=='Pendiente') || (!isAdmin && turno.estado == 'Modificado')" (click)="onReject(turno)" class="button button-red"
             value="rechazar">Rechazar</button>
         <button *ngIf="turno.estado=='Aceptado' && isAdmin" (click)="onAccept(turno)" class="button button-green"
             value="aceptar">Asistió</button>
