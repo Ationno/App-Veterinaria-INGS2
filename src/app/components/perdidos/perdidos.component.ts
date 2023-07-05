@@ -15,6 +15,7 @@ export class PerdidosComponent {
     perdidos : Perdido[] = [];
     subscription?: Subscription;
     perdido!: Perdido;
+    busquedaNombre!: string; 
     isLogged: boolean = false;
 	isAdmin: boolean = false;
 	

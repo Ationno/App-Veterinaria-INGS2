@@ -9,6 +9,7 @@ import { CampaniasComponent } from './components/campanias/campanias.component';
 import { TurnosComponent } from './components/turnos/turnos.component';
 import { FormularioUsuarioComponent } from './components/usuarios/formulario-usuario/formulario-usuario.component';
 import { FormularioAnuncioComponent } from './components/anuncios/formulario-anuncio/formulario-anuncio.component';
+import { FormularioPerdidoComponent } from './components/perdidos/formulario-perdido/formulario-perdido.component';
 import { FormularioCampaniaComponent } from './components/campanias/formulario-campania/formulario-campania.component';
 import { FormularioTurnoComponent } from './components/turnos/formulario-turno/formulario-turno.component';
 import { MascotasComponent } from './components/mascotas/mascotas.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'campanias/formCampanias/:id', component: FormularioCampaniaComponent, pathMatch: 'full' },
   { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full' },
   { path: 'anuncios/formAnuncios/:id', component: FormularioAnuncioComponent, pathMatch: 'full' },
+  { path: 'perdidos/formPerdidos/:id', component: FormularioPerdidoComponent, pathMatch: 'full' },
   { path: 'turnos/formTurnos/:usuarioId/:turnoId', component: FormularioTurnoComponent, pathMatch: 'full' },
   { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full' },
   { path: 'mascotas/:id', component: MascotasComponent, pathMatch: 'full' },

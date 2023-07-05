@@ -1,10 +1,27 @@
 <div>
-    <h1 class="h1-delineado">Perros Perdidos</h1>
-    <div class="perdidos">
-      <app-perfil-perdido
-          *ngFor="let perdido of perdidos" 
-          [perdido] = "perdido"
-          (onDeletePerdido)="deletePerdido(perdido)"
-      ></app-perfil-perdido>
+  <h1 class="h1-delineado">Perdidos</h1>
+  <div class="busqueda">
+    <div class="busqueda_nombre">
+      <h2 for="search">Buscar</h2>
+      <button [routerLink]="'/perdidos/formPerdidos/-1'" *ngIf="isLogged" class="button button-green" > Agregar Anuncio </button>
     </div>
+    <div class="busqueda_inputs">
+      <div>
+        <label for="search">Nombre:</label>
+          <input 
+            type="text"  
+            name="busquedaNombre"
+            [(ngModel)]="busquedaNombre"
+          >
+      </div>
+    </div>
+  </div>
+  <div class="perdidos">
+    <app-perfil-perdido
+        *ngFor="let perdido of perdidos | filterPerdido: busquedaNombre" 
+        [perdido] = "perdido"
+        (onDeletePerdido)="deletePerdido(perdido)"
+    ></app-perfil-perdido>
+  </div>
 </div>
+

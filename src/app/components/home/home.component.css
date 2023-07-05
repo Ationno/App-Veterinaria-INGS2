@@ -61,7 +61,7 @@
 
 	.container_image h1 {
 		font-size: 4em;
-		margin-top: 2.5em;
+		margin-top: 0.8em;
 		padding: 80px 20px 20px 20px;
 		color: #75B5C7;
 		font-weight: 1000;
@@ -75,7 +75,7 @@
 
 	.container_button {
 		text-align:right;
-		margin: 2em 7em 0 0;
+		margin: 1em 7em 0 0;
 	}
 
 	button a {

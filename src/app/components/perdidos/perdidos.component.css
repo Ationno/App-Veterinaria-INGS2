@@ -10,23 +10,22 @@
     margin-top: 1.5em;
   }
   
-  
   .busqueda {
     margin-bottom: 1.5em;
   }
   
   .busqueda_inputs {
-    display: flex;
+    display: inline-block;
     gap: 1em;
   }
   
   .busqueda_inputs input {
     margin: .5em 0 0 .5em;
-  border: none;
-  border-bottom: 1px solid #d1d1d1;
+    border: none;
+    border-bottom: 1px solid #d1d1d1;
   }
   
-  .busqueda_titulo {
+  .busqueda_nombre {
     display: flex;
     justify-content: space-between;
     align-items: center;

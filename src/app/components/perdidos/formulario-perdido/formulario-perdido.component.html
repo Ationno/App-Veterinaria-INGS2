@@ -1,0 +1,76 @@
+<h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Perdido</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>  
+        <div class="form-column">
+            <div class="form-control">
+                <label for="nombre">Nombre del perro:</label>
+                <input 
+                    type="text" 
+                    name="nombre" 
+                    placeholder="Agregar nombre"
+                    formControlName="nombre"
+                >
+                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
+                    <p *ngIf="Nombre?.hasError('required')">
+                        El nombre es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="titulo">titulo del anuncio:</label>
+                <input 
+                    type="text" 
+                    name="titulo" 
+                    placeholder="Agregar titulo"
+                    formControlName="titulo"
+                >
+                <div *ngIf="Titulo?.errors && Titulo?.touched" class="error">
+                    <p *ngIf="Titulo?.hasError('required')">
+                        El titulo es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="Descripcion">Descripcion:</label>
+                <input 
+                    type="text"  
+                    name="descripcion" 
+                    placeholder="Agregar Descripcion"
+                    formControlName="descripcion"  
+                >
+                <div *ngIf="Descripcion?.errors && Descripcion?.touched" class="error">
+                    <p *ngIf="Descripcion?.hasError('required')">
+                        La descripcion es requerida
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="email">Email:</label>
+            <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                placeholder="Agregar email"
+                [value] = "Email"
+                formControlName="email"
+            >
+            <div *ngIf="Email?.errors && Email?.touched" class="error">
+                <p *ngIf="Email?.hasError('required')">
+                    El email es requerido
+                </p>
+                <p *ngIf="Email?.hasError('email')">
+                    El formato del email debe ser valido
+                </p>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
+            <input [routerLink]="'/perdidos'" class="button button-red" type="submit" value="Cancelar">
+        </div>
+    </form>
+</div>

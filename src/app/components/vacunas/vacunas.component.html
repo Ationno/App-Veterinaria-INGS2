@@ -2,7 +2,7 @@
     <h1 *ngIf="this.mascota" class="h1-delineado">Vacunas de {{this.mascota.nombre}}</h1>
     <div class="busqueda">
         <div class="busqueda_titulo"> 
-            <h2 for="search">Busqueda</h2>
+            <h2 for="search">Buscar</h2>
             <button *ngIf="this.tokenService.isAdmin()" [routerLink]="['/vacunas/formVacuna', this.mascotaId, -1]" class="button button-green" > Agregar Vacuna </button>
         </div>
         <div class="busqueda_inputs">

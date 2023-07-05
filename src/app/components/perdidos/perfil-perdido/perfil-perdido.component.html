@@ -1,0 +1,10 @@
+<div class="perdido">
+    <h1>{{ perdido.titulo }} </h1>
+    <p>{{ perdido.descripcion }}</p>
+    <p>Nombre: {{perdido.nombre}} </p>
+    <p>contacto: {{ perdido.email }}</p>
+    <div style="display: flex;">
+        <button [routerLink]="['/perdidos/formPerdidos', perdido.id]" *ngIf="isLogged && isAdmin" class="button button-blue" value="editar">Editar</button>
+        <button (click)="onDelete(perdido)" *ngIf="isLogged && isAdmin" class="button button-red" value="borrar">Borrar</button>
+    </div>
+</div>

@@ -19,6 +19,7 @@ import { FormularioAnuncioComponent } from './components/anuncios/formulario-anu
 //Perdidos
 import { PerdidosComponent } from './components/perdidos/perdidos.component';
 import { PerfilPerdidoComponent } from './components/perdidos/perfil-perdido/perfil-perdido.component';
+import { FormularioPerdidoComponent } from './components/perdidos/formulario-perdido/formulario-perdido.component';
 
 //Usuarios
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -64,6 +65,7 @@ import { FilterAdopcionPipe } from './pipes/filter-adopcion.pipe';
 import { FilterMascotaPipe } from './pipes/filter-mascota.pipe';
 import { FilterVacunaPipe } from './pipes/filter-vacuna.pipe';
 import { FilterAnuncioPipe } from './pipes/filter-anuncio.pipe';
+import { FilterPerdidoPipe } from './pipes/filter-perdido.pipe';
 import { FilterCampaniaPipe } from './pipes/filter-campania.pipe';
 import { FilterTurnoPipe } from './pipes/filter-turno.pipe';
 import { FormularioAdoptarAnonimoComponent } from './components/adopciones/formulario-adoptar-anonimo/formulario-adoptar-anonimo.component';
@@ -87,6 +89,7 @@ import { FormularioCoordenadaComponent } from './components/home/mapa/formulario
     AnunciosComponent,
     PerdidosComponent,
     PerfilPerdidoComponent,
+    FormularioPerdidoComponent,
     PerfilAnuncioComponent,
     FormularioAnuncioComponent,
     UsuariosComponent,
@@ -117,6 +120,7 @@ import { FormularioCoordenadaComponent } from './components/home/mapa/formulario
     FilterAdopcionPipe,
     FormularioAdopcionComponent,
     FilterAnuncioPipe,
+    FilterPerdidoPipe,
     FormularioAdoptarAnonimoComponent,
     FormularioAnuncioComunicarAnonimoComponent,
     FilterTurnoPipe,
