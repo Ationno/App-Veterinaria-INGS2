@@ -2,10 +2,10 @@ import { AfterViewInit, Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CoordenadasService } from 'src/app/servicios/coordenadas.service';
 import * as L from "leaflet";
 import { icon, Marker } from 'leaflet';
 import { HttpClient } from '@angular/common/http';
+import { VeterinariasService } from 'src/app/servicios/veterinarias.service';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -22,22 +22,23 @@ const iconDefault = icon({
 Marker.prototype.options.icon = iconDefault;
 
 @Component({
-	selector: 'app-formulario-coordenada',
-	templateUrl: './formulario-coordenada.component.html',
-	styleUrls: ['./formulario-coordenada.component.css']
+	selector: 'app-formulario-veterinaria',
+	templateUrl: './formulario-veterinaria.component.html',
+	styleUrls: ['./formulario-veterinaria.component.css']
 })
 
-export class FormularioCoordenadaComponent implements AfterViewInit {
+export class FormularioVeterinariaComponent implements AfterViewInit {
 	subscription?: Subscription;
 	form: FormGroup;
 	sub: any;
 	marker: any;
+	direccion: string = " Clikea el mapa para conseguir una direccion";
 	edit: boolean = false;
 	private map!: L.Map;
 
 	constructor(
 		private formBuilder: FormBuilder,
-		private coordenadaService: CoordenadasService,
+		private veterinariaService: VeterinariasService,
 		private route: ActivatedRoute,
 		public router: Router,
 		private httpClient: HttpClient
@@ -50,11 +51,18 @@ export class FormularioCoordenadaComponent implements AfterViewInit {
 			parrafo: new FormControl('', { validators: Validators.required, updateOn: 'blur' })
 		})
 		this.sub = this.route.params.subscribe(params => {
-			this.edit = params['coordenadaId'] != -1;
+			this.edit = params['veterinariaId'] != -1;
 			if (this.edit) {
 				this.edit = true;
-				this.coordenadaService.getById(params['coordenadaId']).subscribe((coordenada) => {
-					this.form?.patchValue(coordenada)
+				this.veterinariaService.getById(params['veterinariaId']).subscribe((veterinaria) => {
+					this.form?.patchValue(veterinaria)
+					if (this.edit) {
+						this.marker = L.marker([veterinaria.coordenadaX, veterinaria.coordenadaY]).addTo(this.map);
+						this.map.panTo(new L.LatLng(veterinaria.coordenadaX, veterinaria.coordenadaY))
+						this.httpClient.get<any>(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${veterinaria.coordenadaX}&lon=${veterinaria.coordenadaY}`).subscribe((data) => {
+							this.direccion = `${data.address.road} n°: ${data.address.house_number} ${data.address.city}, ${data.address.state}, ${data.address.country}`;
+						})
+					}
 				})
 			} else {
 				this.form.reset()
@@ -83,10 +91,8 @@ export class FormularioCoordenadaComponent implements AfterViewInit {
 			};
 
 			this.marker = L.marker(ev.latlng).addTo(this.map);
-			this.marker.bindPopup("<b>Coordenada a agregar</b>").openPopup(); // ev is an event object (MouseEvent in this case)
 			this.httpClient.get<any>(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${ev.latlng.lat}&lon=${ev.latlng.lng}`).subscribe((data) => {
-				console.log(data.address.road, data.address.house_number, data.address.city, data.address.state, data.address.country)
-				console.log(data)
+				this.direccion = `${data.address.road} n°: ${data.address.house_number} ${data.address.city}, ${data.address.state}, ${data.address.country}`;
 			})
 			this.form.patchValue({
 				coordenadaX: ev.latlng.lat,
@@ -118,12 +124,12 @@ export class FormularioCoordenadaComponent implements AfterViewInit {
 
 	public onAdd(): void {
 		if (this.form.valid) {
-			this.coordenadaService.add(this.form.getRawValue()).subscribe((message) => {
+			this.veterinariaService.add(this.form.getRawValue()).subscribe((message) => {
 				if (message.error) {
 					alert(message.error)
 				} else {
-					alert("Coordenada agregada exitosamente!")
-					this.router.navigate(['/#visitanos']);
+					alert("Veterinaria agregada exitosamente!")
+					this.router.navigate(['/']);
 					this.form.reset()
 				}
 			});
@@ -135,12 +141,12 @@ export class FormularioCoordenadaComponent implements AfterViewInit {
 
 	public onEdit(): void {
 		if (this.form.valid) {
-			this.coordenadaService.edit(this.form.getRawValue()).subscribe((message) => {
+			this.veterinariaService.edit(this.form.getRawValue()).subscribe((message) => {
 				if (message.error) {
 					alert(message.error)
 				} else {
-					alert("Coordenada editada exitosamente!")
-					this.router.navigate(['/#visitanos']);
+					alert("Veterinaria editada exitosamente!")
+					this.router.navigate(['/']);
 					this.form.reset()
 				}
 			})

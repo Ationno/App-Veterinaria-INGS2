@@ -78,8 +78,10 @@ import { FilterTurnoEstadoPipe } from './pipes/filter-turno-estado.pipe';
 import { HistorialDonacionesComponent } from './components/donaciones/historial-donaciones/historial-donaciones.component';
 import { ServiviosComponent } from './components/home/servivios/servivios.component';
 import { MapaComponent } from './components/home/mapa/mapa.component';
-import { FormularioCoordenadaComponent } from './components/home/mapa/formulario-coordenada/formulario-coordenada.component';
 import { FormularioPagoComponent } from './components/turnos/formulario-pago/formulario-pago.component';
+import { VeterinariaComponent } from './components/home/mapa/veterinaria/veterinaria.component';
+import { FormularioVeterinariaComponent } from './components/home/mapa/formulario-veterinaria/formulario-veterinaria.component';
+import { CampaniaActualComponent } from './components/home/campania-actual/campania-actual.component';
 
 @NgModule({
   declarations: [
@@ -133,8 +135,10 @@ import { FormularioPagoComponent } from './components/turnos/formulario-pago/for
     HistorialDonacionesComponent,
     ServiviosComponent,
     MapaComponent,
-    FormularioCoordenadaComponent,
-    FormularioPagoComponent
+    FormularioPagoComponent,
+    VeterinariaComponent,
+    FormularioVeterinariaComponent,
+    CampaniaActualComponent
   ],
   imports: [
     BrowserModule,

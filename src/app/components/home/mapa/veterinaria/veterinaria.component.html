@@ -1,0 +1,9 @@
+<div class="veterinaria">
+    <h1>{{veterinaria.titulo}} </h1>
+    <p>{{veterinaria.parrafo}}</p>
+    <p>{{this.direccion}}</p>
+    <div style="display: flex;">
+        <button [routerLink]="['/mapa/formVeterinaria', veterinaria.id]" *ngIf="isLogged && isAdmin" class="button button-blue" value="editar">Editar</button>
+        <button (click)="onDelete(veterinaria)" *ngIf="isLogged && isAdmin" class="button button-red" value="borrar">Borrar</button>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <div>
     <h1>Visitanos!</h1>
-    <button [routerLink]="'/mapa/formCoordenada/-1'" *ngIf="isAdmin" class="button button-green button-map"> Agregar Coordenada
+    <button [routerLink]="'/mapa/formVeterinaria/-1'" *ngIf="isAdmin" class="button button-green button-map"> Agregar Veterinaria
     </button>
 </div>
 <div class="map-container" id="visitanos">
@@ -8,3 +8,11 @@
         <div id="map"></div>
     </div>
 </div>
+<div class="veterinarias">
+    <h2>Veterinarias</h2>
+    <app-veterinaria
+        *ngFor="let veterinaria of veterinarias" 
+        [veterinaria] = "veterinaria"
+        (onDeleteVeterinaria)="deleteVeterinaria(veterinaria)"
+    ></app-veterinaria>
+  </div>

@@ -7,26 +7,14 @@
                 <div id="map"></div>
             </div>
         </div>
-        <h3>Cliquea el mapa para conseguir las coordenadas</h3>
-        <div class="form-column">
-            <div class="form-control">
-                <label for="coordenadaX">Coordenada X:</label>
-                <input [readonly]="true" type="text" name="coordenadaX" placeholder="Agregar coordenada X" formControlName="coordenadaX">
-                <div *ngIf="CoordenadaX?.errors && CoordenadaX?.touched" class="error">
-                    <p *ngIf="CoordenadaX?.hasError('required')">
-                        La coordenada X es requerida
-                    </p>
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="coordenadaY">Coordenada Y:</label>
-                <input [readonly]="true" type="text" name="coordenadaY" placeholder="Agregar coordenada Y" formControlName="coordenadaY">
-                <div *ngIf="CoordenadaY?.errors && CoordenadaY?.touched" class="error">
-                    <p *ngIf="CoordenadaY?.hasError('required')">
-                        La coordenada Y es requerida
-                    </p>
-                </div>
-            </div>
+        <div class="dataAPI">
+            <h3>Direccion de la ubicación:</h3>
+            <p>{{this.direccion}}</p>
+        </div>
+        <div *ngIf="CoordenadaX?.errors && CoordenadaX?.touched" class="error">
+            <p *ngIf="CoordenadaX?.hasError('required')">
+                Por favor ingresa una direccion
+            </p>
         </div>
         <div class="form-column">
             <div class="form-control">
@@ -51,7 +39,7 @@
         <div class="form-buttons">
             <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
             <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
-            <input [routerLink]="'/campanias'" class="button button-red" type="submit" value="Cancelar">
+            <input [routerLink]="'/'" class="button button-red" type="submit" value="Cancelar">
         </div>
     </form>
 </div>

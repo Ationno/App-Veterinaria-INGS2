@@ -20,6 +20,9 @@ export class NavComponent {
 			if (e instanceof NavigationEnd) {
 				this.isLogged = this.tokenService.isLogged();
 				this.isAdmin = this.tokenService.isAdmin();
+				this.authService.getMainUsuario().subscribe(usuario => {
+					this.usuario = usuario;
+				});
 			}
 		});
 
@@ -30,6 +33,7 @@ export class NavComponent {
 
 	ngOnInit() {
 		this.isLogged = this.tokenService.isLogged();
+		this.isAdmin = this.tokenService.isAdmin();
 	}
 
 }

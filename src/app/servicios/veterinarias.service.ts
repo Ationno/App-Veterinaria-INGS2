@@ -6,11 +6,12 @@ import { getDB } from './get-db.service';
 	providedIn: 'root'
 })
 
-export class CoordenadasService extends getDB {
+export class VeterinariasService extends getDB {
 	constructor(
 		http:HttpClient
 	) { 
 		super(http)
-		this.apiUrl += "coordenada";
+		this.apiUrl += "veterinaria";
 	}
 }
+

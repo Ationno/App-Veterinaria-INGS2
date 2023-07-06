@@ -1,0 +1,36 @@
+.veterinaria {
+    border-bottom: 1px solid #d1d1d1;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+  
+  .button {
+    font-size: 1em;
+    padding: .25em .5em;
+  }
+  
+  h1 {
+    font-weight: 300;
+    font-size: 1.75rem;
+    margin-bottom: .25em;
+  }
+  
+  h1 .borrar {
+    margin-left: 0.25em;
+    font-size: 1.25rem;
+    color: red;
+    cursor: pointer;
+  }
+  
+  .campania p {
+    margin: 5px 0;
+    font-size: 17px;
+  }
+  
+  .campania p:last-of-type {
+    padding-bottom: 20px;
+    padding-top: 10px;
+    max-width: 500px;
+    width: 100%;
+    overflow-wrap: break-word;
+  }

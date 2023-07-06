@@ -1,7 +1,9 @@
 import { AfterViewInit, Component } from '@angular/core';
 import * as L from "leaflet";
 import { icon, Marker } from 'leaflet';
+import { Veterinaria } from 'src/app/interfaces/Veterinaria';
 import { TokenService } from 'src/app/servicios/token.service';
+import { VeterinariasService } from 'src/app/servicios/veterinarias.service';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';
@@ -25,9 +27,11 @@ Marker.prototype.options.icon = iconDefault;
 export class MapaComponent implements AfterViewInit {
 
 	private map!: L.Map;
+	private markers: any = {};
 	public isAdmin: boolean = false;
+	public veterinarias!: Veterinaria[];
 
-	constructor(private tokenService: TokenService) {
+	constructor(private tokenService: TokenService, private veterinariaService: VeterinariasService) {
 		this.isAdmin = this.tokenService.isAdmin();
 	}
 
@@ -37,19 +41,33 @@ export class MapaComponent implements AfterViewInit {
 			zoom: 17
 		});
 
+		this.veterinariaService.get().subscribe((veterinarias) => {
+			this.veterinarias = veterinarias;
+			this.veterinarias.forEach((veterinaria) => {
+				let id = veterinaria.id;
+				this.markers[id] = L.marker([veterinaria.coordenadaX, veterinaria.coordenadaY]).addTo(this.map);
+				this.markers[id].bindPopup(`<b>${veterinaria.titulo}</b><br>${veterinaria.parrafo}`).openPopup();
+			})
+		})
+
 		const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 18,
 			minZoom: 3,
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 		});
 
-		var marker = L.marker([-34.91199624780837, -57.94274023303688]).addTo(this.map);
-		marker.bindPopup("<b>Nuestra Veterinaria</b><br>Trae a tus mascotas!").openPopup();
-
 		tiles.addTo(this.map);
 	}
 
 	ngAfterViewInit(): void {
 		this.initMap();
+	}
+
+	public deleteVeterinaria(veterinaria: Veterinaria) {
+		this.veterinariaService.delete(veterinaria).subscribe(() => {
+            alert("Veterinaria eliminada exitosamente!")
+			this.veterinarias = this.veterinarias.filter( ele => ele.id !== veterinaria.id )
+			this.map.removeLayer(this.markers[veterinaria.id]);
+		})
 	}
 }

@@ -4,13 +4,17 @@ h1 {
   font-weight: 1000;
 }
 
+h2 {
+  font-weight: 700;
+}
+
 .map-container {
   height: 500px;
   margin: 30px;
 }
 
 .map-frame {
-  border: 2px solid black;
+  border: 2px solid #d1d1d1;
   height: 100%;
 }
 
@@ -20,4 +24,8 @@ h1 {
 
 .button-map {
  margin: 0 1em 0 calc(100% - 239.717px - 1em);
+}
+
+.veterinarias {
+  margin: 0 30px;
 }
