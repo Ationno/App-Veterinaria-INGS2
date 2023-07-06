@@ -1,0 +1,109 @@
+<h1 class="h1-delineado">Pagar turno</h1>
+<div class="centrar">
+    <form *ngIf="true" [formGroup]="form">
+        <h1>Cargue los datos</h1>
+        <div class="form-control">
+            <label for="monto">Monto:</label>
+            <input type="number" name="monto" placeholder="Agregar monto" formControlName="monto">
+            <div *ngIf="Monto?.errors && Monto?.touched" class="error">
+                <p *ngIf="!Monto?.invalid && Monto?.hasError('required')">
+                    El monto es requerido
+                </p>
+                <p *ngIf="Monto?.hasError('min')">
+                    El monto debe ser mayor a 0
+                </p>
+                <p *ngIf="Monto?.invalid && !Monto?.hasError('min')">
+                    El monto debe ser valido
+                </p>
+            </div>
+        </div>
+        <div class="form-control">
+            <label for="montoTotal">Monto a pagar en total:</label>
+            <input type="text" name="montoTotal" [value]="montoTotal" readonly>
+        </div>
+        <h3 *ngIf="eleccion == 'Tarjeta'">Los Datos de la Tarjeta</h3>
+        <div class="form-column" *ngIf="this.eleccion == 'Tarjeta'">
+            <div class="form-control">
+                <label for="titular">Titular:</label>
+                <input 
+                    type="text" 
+                    name="titular" 
+                    placeholder="Agregar titular"
+                    formControlName="titular"
+                >
+                <div *ngIf="Titular?.errors && Titular?.touched" class="error">
+                    <p *ngIf="Titular?.hasError('required')">
+                        El titular es requerido
+                    </p>
+                    <p *ngIf="Titular?.hasError('pattern')">
+                        El titular debe ser valido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="nroTarjeta">Número:</label>
+                <input 
+                    type="text"  
+                    name="nroTarjeta" 
+                    placeholder="Agregar numero de tarjeta"
+                    formControlName="nroTarjeta"  
+                >
+                <div *ngIf="NroTarjeta?.errors && NroTarjeta?.touched" class="error">
+                    <p *ngIf="NroTarjeta?.hasError('required')">
+                        El numero de tarjeta es requerido
+                    </p>
+                    <p *ngIf="NroTarjeta?.hasError('pattern')">
+                        El numero debe ser valido
+                    </p>
+                    <p *ngIf="!(NroTarjeta?.hasError('pattern')) && (NroTarjeta?.hasError('minlength') || NroTarjeta?.hasError('maxlength'))">
+                        El numero debe tener 16 digitos
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column" *ngIf="eleccion == 'Tarjeta'">
+            <div class="form-control">
+                <label for="codigo">Codigo:</label>
+                <input 
+                    type="text" 
+                    name="codigo" 
+                    placeholder="Agregar codigo"
+                    formControlName="codigo"
+                >
+                <div *ngIf="Codigo?.errors && Codigo?.touched" class="error">
+                    <p *ngIf="Codigo?.hasError('required')">
+                        El codigo es requerido
+                    </p>
+                    <p *ngIf="Codigo?.hasError('pattern')">
+                        El codigo debe ser valido
+                    </p>
+                    <p *ngIf="!(Codigo?.hasError('pattern')) && (Codigo?.hasError('minlength') || Codigo?.hasError('maxlength'))">
+                        El codigo debe tener 3 digitos
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="fechaVencimiento">Fecha de Vencimiento:</label>
+                <input 
+                    type="month"  
+                    name="fechaVencimiento" 
+                    placeholder="Agregar fecha de vencimiento"
+                    formControlName="fechaVencimiento"  
+                >
+                <div *ngIf="FechaVencimiento?.errors && FechaVencimiento?.touched" class="error">
+                    <p *ngIf="FechaVencimiento?.hasError('required')">
+                        La fecha de vencimiento es requerida
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <input *ngIf="!this.eleccion" class="button button-green" type="button" value="Pagar con tarjeta" (click)="elegirPago('Tarjeta')">
+            <input *ngIf="!this.eleccion" class="button button-red" type="button" value="Pagar en efectivo" (click)="elegirPago('Efectivo')">
+        </div>
+        <div class="form-buttons">
+            <input *ngIf="this.eleccion" class="button button-green" type="button" value="Pagar" (click)="onPay()">
+            <input [routerLink]="['/turnos']" class="button button-red" type="button" value="Cancelar">
+        </div>
+    </form>
+</div>

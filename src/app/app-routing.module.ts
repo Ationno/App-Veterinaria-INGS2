@@ -29,6 +29,7 @@ import { DonacionesComponent } from './components/donaciones/donaciones.componen
 import { FormularioDonacionComponent } from './components/donaciones/formulario-donacion/formulario-donacion.component';
 import { HistorialDonacionesComponent } from './components/donaciones/historial-donaciones/historial-donaciones.component';
 import { FormularioCoordenadaComponent } from './components/home/mapa/formulario-coordenada/formulario-coordenada.component';
+import { FormularioPagoComponent } from './components/turnos/formulario-pago/formulario-pago.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'anuncios/formAnuncios/:id', component: FormularioAnuncioComponent, pathMatch: 'full' },
   { path: 'perdidos/formPerdidos/:id', component: FormularioPerdidoComponent, pathMatch: 'full' },
   { path: 'turnos/formTurnos/:usuarioId/:turnoId', component: FormularioTurnoComponent, pathMatch: 'full' },
+  { path: 'turnos/formPagoTurno/:turnoId', component: FormularioPagoComponent, pathMatch: 'full' },
   { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full' },
   { path: 'mascotas/:id', component: MascotasComponent, pathMatch: 'full' },
   { path: 'mascotas/formMascota/:usuarioId/:mascotaId', component: FormularioMascotaComponent, pathMatch: 'full' },

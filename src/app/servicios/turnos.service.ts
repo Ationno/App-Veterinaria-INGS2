@@ -26,4 +26,14 @@ export class TurnosService extends getDB {
 		const body = { estado: estado, usuario_actual: usuario_actual };
 		return this.http.put<any>(url, body, httpOptions);
 	}
+
+	public obtenerMontoDescuentoUsuario(any: any): Observable<any> {
+		const url = `${this.apiUrl}/obtenerMontoDescuentoUsuario/${any.turno_id}`;
+		return this.http.get<any>(url)
+	}
+
+	public confirmarAsistencia(any: any): Observable<any> {
+		const url = `${this.apiUrl}/confirmarAsistencia/${any.turno_id}`
+		return this.http.put<any>(url, any, httpOptions);
+	}
 }

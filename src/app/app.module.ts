@@ -79,6 +79,7 @@ import { HistorialDonacionesComponent } from './components/donaciones/historial-
 import { ServiviosComponent } from './components/home/servivios/servivios.component';
 import { MapaComponent } from './components/home/mapa/mapa.component';
 import { FormularioCoordenadaComponent } from './components/home/mapa/formulario-coordenada/formulario-coordenada.component';
+import { FormularioPagoComponent } from './components/turnos/formulario-pago/formulario-pago.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,8 @@ import { FormularioCoordenadaComponent } from './components/home/mapa/formulario
     HistorialDonacionesComponent,
     ServiviosComponent,
     MapaComponent,
-    FormularioCoordenadaComponent
+    FormularioCoordenadaComponent,
+    FormularioPagoComponent
   ],
   imports: [
     BrowserModule,

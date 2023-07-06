@@ -10,7 +10,7 @@
             value="aceptar">Aceptar</button>
         <button *ngIf="(isAdmin && turno.estado=='Pendiente') || (!isAdmin && turno.estado == 'Modificado')" (click)="onReject(turno)" class="button button-red"
             value="rechazar">Rechazar</button>
-        <button *ngIf="turno.estado=='Aceptado' && isAdmin" (click)="onAccept(turno)" class="button button-green"
+        <button *ngIf="turno.estado=='Aceptado' && isAdmin" [routerLink]="['/turnos/formPagoTurno', turno.id]" class="button button-green"
             value="aceptar">Asistió</button>
         <button *ngIf="turno.estado=='Aceptado' && isAdmin" (click)="onAccept(turno)" class="button button-red"
             value="aceptar">No asistió</button>
