@@ -48,4 +48,12 @@ export class ListaTurnosComponent {
         alert("Turno rechazado exitosamente")
       })
   }
+
+  public confirmarAsistencia(turno: Turno, estado: string){
+    console.log(estado)
+    if(turno.id)
+        this.turnosService.confirmarAsistencia(turno.id, estado).subscribe((message) => {
+          alert(message.message)
+        })
+  }
 }

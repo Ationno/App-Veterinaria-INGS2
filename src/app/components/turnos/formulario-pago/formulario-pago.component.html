@@ -97,12 +97,13 @@
                 </div>
             </div>
         </div>
-        <div class="form-buttons">
-            <input *ngIf="!this.eleccion" class="button button-green" type="button" value="Pagar con tarjeta" (click)="elegirPago('Tarjeta')">
-            <input *ngIf="!this.eleccion" class="button button-red" type="button" value="Pagar en efectivo" (click)="elegirPago('Efectivo')">
+        <div class="form-buttons" *ngIf="!this.eleccion">
+            <input class="button button-green" type="button" value="Pagar con tarjeta" (click)="elegirPago('Tarjeta')">
+            <input class="button button-blue" type="button" value="Pagar en efectivo" (click)="elegirPago('Efectivo')">
+            <input [routerLink]="['/turnos']" class="button button-red" type="button" value="Cancelar">
         </div>
-        <div class="form-buttons">
-            <input *ngIf="this.eleccion" class="button button-green" type="button" value="Pagar" (click)="onPay()">
+        <div class="form-buttons" *ngIf="this.eleccion">
+            <input class="button button-green" type="button" value="Pagar" (click)="onPay()">
             <input [routerLink]="['/turnos']" class="button button-red" type="button" value="Cancelar">
         </div>
     </form>

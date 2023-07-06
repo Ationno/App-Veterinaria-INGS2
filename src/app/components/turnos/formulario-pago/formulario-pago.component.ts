@@ -70,6 +70,12 @@ export class FormularioPagoComponent {
 
     elegirPago(opcion: String){
       this.eleccion = opcion;
+      if(this.eleccion == 'Efectivo'){
+          this.form.removeControl('titular');
+          this.form.removeControl('nroTarjeta');
+          this.form.removeControl('codigo');
+          this.form.removeControl('fechaVencimiento');
+      }
     }
 
     get montoTotal(){
@@ -84,11 +90,11 @@ export class FormularioPagoComponent {
     onPay(){
       if (this.form.valid) {
         console.log(this.form.getRawValue())
-        this.turnosService.confirmarAsistencia(this.form.getRawValue()).subscribe((message) => {
+        this.turnosService.confirmarPago(this.form.getRawValue()).subscribe((message) => {
           if (message.error) {
             alert(message.error)
           } else {
-            alert("Pago realizado exitosamente!")
+            alert(message.message)
             this.router.navigate(['/turnos']);
             this.form.reset()
           }
