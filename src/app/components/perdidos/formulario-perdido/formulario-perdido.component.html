@@ -1,30 +1,31 @@
 <h1 class="h1-delineado">{{this.edit ? 'Editar' : 'Agregar'}} Perdido</h1>
 <div class="centrar">
     <form *ngIf="true" [formGroup]="form">
-        <h1>Cargue los datos</h1>  
+        <h1>Cargue los datos</h1>
         <div class="form-column">
-            <div class="form-control">
+            <div *ngIf="!this.edit && !this.mainUsuario" class="form-control">
                 <label for="nombre">Nombre del perro:</label>
-                <input 
-                    type="text" 
-                    name="nombre" 
-                    placeholder="Agregar nombre"
-                    formControlName="nombre"
-                >
+                <input type="text" name="nombre" placeholder="Agregar nombre" formControlName="nombre">
                 <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
                     <p *ngIf="Nombre?.hasError('required')">
                         El nombre es requerido
                     </p>
                 </div>
             </div>
+            <div *ngIf="!this.edit && this.mainUsuario" class="form-control">
+                <label for="nombre">Mascota:</label>
+                <select type="text" name="nombre" placeholder="Agregar mascota" formControlName="nombre">
+                    <option *ngFor="let mascota of this.mainUsuario.mascotas" [value]="mascota.nombre">{{mascota.nombre}}</option>
+                </select>
+                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
+                    <p *ngIf="Nombre?.hasError('required')">
+                        La mascota es requerida
+                    </p>
+                </div>
+            </div>
             <div class="form-control">
-                <label for="titulo">titulo del anuncio:</label>
-                <input 
-                    type="text" 
-                    name="titulo" 
-                    placeholder="Agregar titulo"
-                    formControlName="titulo"
-                >
+                <label for="titulo">Titulo del anuncio:</label>
+                <input type="text" name="titulo" placeholder="Agregar titulo" formControlName="titulo">
                 <div *ngIf="Titulo?.errors && Titulo?.touched" class="error">
                     <p *ngIf="Titulo?.hasError('required')">
                         El titulo es requerido
@@ -35,37 +36,46 @@
         <div class="form-column">
             <div class="form-control">
                 <label for="Descripcion">Descripcion:</label>
-                <input 
-                    type="text"  
-                    name="descripcion" 
-                    placeholder="Agregar Descripcion"
-                    formControlName="descripcion"  
-                >
+                <input type="text" name="descripcion" placeholder="Agregar Descripcion" formControlName="descripcion">
                 <div *ngIf="Descripcion?.errors && Descripcion?.touched" class="error">
                     <p *ngIf="Descripcion?.hasError('required')">
                         La descripcion es requerida
                     </p>
                 </div>
             </div>
+            <div *ngIf="!this.edit && !this.mainUsuario" class="form-control">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Agregar email" [value]="Email"
+                    formControlName="email">
+                <div *ngIf="Email?.errors && Email?.touched" class="error">
+                    <p *ngIf="Email?.hasError('required')">
+                        El email es requerido
+                    </p>
+                    <p *ngIf="Email?.hasError('email')">
+                        El formato del email debe ser valido
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="form-control">
-            <label for="email">Email:</label>
-            <input 
-                type="email" 
-                name="email" 
-                id="email" 
-                placeholder="Agregar email"
-                [value] = "Email"
-                formControlName="email"
-            >
-            <div *ngIf="Email?.errors && Email?.touched" class="error">
-                <p *ngIf="Email?.hasError('required')">
-                    El email es requerido
-                </p>
-                <p *ngIf="Email?.hasError('email')">
-                    El formato del email debe ser valido
+            <label for="imagen">Imagen</label>
+            <input type="file" style="display: none;" (change)="onFileSelected($event)" #fileUpload
+                formGroupName="imagen">
+            <div class="file-upload">
+                <button type="button" mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+                    <i class='bx bx-folder-plus'></i>
+                </button>
+                {{ Imagen?.value || "No file uploaded yet." }}
+            </div>
+            <div *ngIf="Imagen?.errors && Imagen?.touched" class="error">
+                <p *ngIf="Imagen?.hasError('required')">
+                    Una imagen es requerida
                 </p>
             </div>
+        </div>
+        <div *ngIf="this.edit" class="form-control">
+            <label for="encontrado">Encontrado:</label>
+            <input type="checkbox" name="encontrado" placeholder="false" formControlName="encontrado">
         </div>
         <div class="form-buttons">
             <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">

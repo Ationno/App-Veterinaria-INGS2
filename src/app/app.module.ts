@@ -82,6 +82,8 @@ import { FormularioPagoComponent } from './components/turnos/formulario-pago/for
 import { VeterinariaComponent } from './components/home/mapa/veterinaria/veterinaria.component';
 import { FormularioVeterinariaComponent } from './components/home/mapa/formulario-veterinaria/formulario-veterinaria.component';
 import { CampaniaActualComponent } from './components/home/campania-actual/campania-actual.component';
+import { FormularioComunicarseComponent } from './components/perdidos/formulario-comunicarse/formulario-comunicarse.component';
+import { PerrosEncontradosComponent } from './components/home/perros-encontrados/perros-encontrados.component';
 
 @NgModule({
   declarations: [
@@ -138,7 +140,9 @@ import { CampaniaActualComponent } from './components/home/campania-actual/campa
     FormularioPagoComponent,
     VeterinariaComponent,
     FormularioVeterinariaComponent,
-    CampaniaActualComponent
+    CampaniaActualComponent,
+    FormularioComunicarseComponent,
+    PerrosEncontradosComponent
   ],
   imports: [
     BrowserModule,

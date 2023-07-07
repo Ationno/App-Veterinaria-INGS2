@@ -3,7 +3,7 @@
   <div class="busqueda">
     <div class="busqueda_nombre">
       <h2 for="search">Buscar</h2>
-      <button [routerLink]="'/perdidos/formPerdidos/-1'" *ngIf="isLogged" class="button button-green" > Agregar Anuncio </button>
+      <button [routerLink]="'/perdidos/formPerdidos/-1'" class="button button-green" > Agregar Anuncio </button>
     </div>
     <div class="busqueda_inputs">
       <div>
@@ -14,11 +14,20 @@
             [(ngModel)]="busquedaNombre"
           >
       </div>
+      <div>
+        <label for="search">Mostrar encontrados:</label>
+          <input 
+            type="checkbox"  
+            name="busquedaEncontrado"
+            placeholder="false"
+            [(ngModel)]="busquedaEncontrado"
+          >
+      </div>
     </div>
   </div>
   <div class="perdidos">
     <app-perfil-perdido
-        *ngFor="let perdido of perdidos | filterPerdido: busquedaNombre" 
+        *ngFor="let perdido of perdidos | filterPerdido: busquedaNombre:busquedaEncontrado" 
         [perdido] = "perdido"
         (onDeletePerdido)="deletePerdido(perdido)"
     ></app-perfil-perdido>

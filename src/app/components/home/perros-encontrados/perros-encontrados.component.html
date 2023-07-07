@@ -1,0 +1,13 @@
+<div>
+    <h1>Perros Perdidos</h1>
+    <h2>Busca ayuda rapidamente</h2>
+    <div class="contenido">
+        <h3>Estos animales fueron encontrados gracias a nuestra ayuda:</h3>
+        <div class="perdidos">
+            <app-perfil-perdido
+                *ngFor="let perdido of perdidos"
+                [perdido] = "perdido"
+            ></app-perfil-perdido>
+        </div>
+    </div>
+</div>

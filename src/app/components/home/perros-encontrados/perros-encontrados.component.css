@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+  margin-bottom: 0.15em;
+  font-weight: 1000;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  color: #75B5C7;
+}
+
+.perdidos {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 175px));
+  gap: 1em;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+}
+
+.button {
+  margin-top: 1.5em;
+}
+
+.contenido {
+    margin: 0 2em;
+}
+
+.contenido h3 {
+    margin-bottom: .5em;
+}

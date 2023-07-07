@@ -16,6 +16,7 @@ export class PerdidosComponent {
     subscription?: Subscription;
     perdido!: Perdido;
     busquedaNombre!: string; 
+    busquedaEncontrado!: boolean;
     isLogged: boolean = false;
 	isAdmin: boolean = false;
 	

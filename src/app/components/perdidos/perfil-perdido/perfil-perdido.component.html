@@ -1,10 +1,15 @@
 <div class="perdido">
-    <h1>{{ perdido.titulo }} </h1>
-    <p>{{ perdido.descripcion }}</p>
-    <p>Nombre: {{perdido.nombre}} </p>
-    <p>contacto: {{ perdido.email }}</p>
-    <div style="display: flex;">
-        <button [routerLink]="['/perdidos/formPerdidos', perdido.id]" *ngIf="isLogged && isAdmin" class="button button-blue" value="editar">Editar</button>
-        <button (click)="onDelete(perdido)" *ngIf="isLogged && isAdmin" class="button button-red" value="borrar">Borrar</button>
+    <img [src]="this.imageSource" [alt]="this.perdido.imagen.nombre">
+    <div class="info">
+        <h1>{{ perdido.nombre }} </h1>
+        <h2 *ngIf="perdido.encontrado">Encontrado! <i class='bx bx-happy-beaming'></i></h2>
+        <p>{{ perdido.titulo }}</p>
+        <p>{{perdido.descripcion}} </p>
+        <button *ngIf="!this.isLogged && !perdido.encontrado" class="button button-green" [routerLink]="['/perdido/formComunicarse', perdido.id]" value="perdidos">Comunicarse</button>
+        <div style="display: flex;" *ngIf="this.mainUser">
+            <button *ngIf="(this.mainUser.id != perdido.usuario_id) && this.isLogged && !perdido.encontrado" class="button button-green" (click)="onComunicarseRegistrado(perdido.email)" value="perdidos">Comunicarse</button>
+            <button [routerLink]="['/perdidos/formPerdidos', perdido.id]" *ngIf="isLogged && (this.mainUser.id == perdido.usuario_id) && !perdido.encontrado" class="button button-blue" value="editar">Editar</button>
+            <button (click)="onDelete(perdido)" *ngIf="isLogged && isAdmin" class="button button-red" value="borrar">Borrar</button>
+        </div>
     </div>
 </div>

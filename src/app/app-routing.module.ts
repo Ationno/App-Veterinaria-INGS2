@@ -30,6 +30,7 @@ import { FormularioDonacionComponent } from './components/donaciones/formulario-
 import { HistorialDonacionesComponent } from './components/donaciones/historial-donaciones/historial-donaciones.component';
 import { FormularioPagoComponent } from './components/turnos/formulario-pago/formulario-pago.component';
 import { FormularioVeterinariaComponent } from './components/home/mapa/formulario-veterinaria/formulario-veterinaria.component';
+import { FormularioComunicarseComponent } from './components/perdidos/formulario-comunicarse/formulario-comunicarse.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -64,6 +65,7 @@ const routes: Routes = [
   { path: 'donaciones/historial', component: HistorialDonacionesComponent, pathMatch: 'full' },
   { path: 'donaciones/formDonacion/:campaniaId', component: FormularioDonacionComponent, pathMatch: 'full' },
   { path: 'mapa/formVeterinaria/:veterinariaId', component: FormularioVeterinariaComponent, pathMatch: 'full' },
+  { path: 'perdido/formComunicarse/:perdidoId', component: FormularioComunicarseComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

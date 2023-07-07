@@ -1,8 +1,11 @@
 .perdido {
     border: 1px solid #d1d1d1;
     border-radius: 5px;
-    padding: 1em;
     min-width:  275px;
+}
+
+.perdido .info {
+    padding: .5em 1em 1em 1em;
 }
 
 .button {
@@ -13,7 +16,7 @@
 h1 {
     font-weight: 700;
     font-size: 1.75rem;
-    margin-bottom: .25em;
+    margin-bottom: 8px;
 }
 
 h1 .borrar {
@@ -23,8 +26,21 @@ h1 .borrar {
     cursor: pointer;
 }
 
+h2 {
+    display: flex;
+    font-weight: 1000;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    align-items: center;
+    color: #2ea44f;
+}
+
+h2 i {
+    margin-left: .25em;
+}
+
 .perdido p {
-    margin: 5px 0;
+    margin: 0;
     font-size: 14px;
   }
     
@@ -34,4 +50,9 @@ h1 .borrar {
     
 .perdido p:last-of-type {
     margin-bottom: 0;
+}
+
+.perdido img {
+    width: 100%;
+    height: 200px;
 }
