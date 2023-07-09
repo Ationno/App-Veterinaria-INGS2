@@ -1,9 +1,18 @@
 .perdidos {
     display: flex;
     grid-template-columns: repeat(auto-fit, minmax(125px, 175px));
-    gap: 1em;
+    gap: 2em;
     flex-wrap: wrap;
     padding-bottom: 1rem;
+  }
+
+  .encontrados{
+    padding-top: 20px;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #F1965B;
+    padding-bottom: 20px;
   }
   
   .button {
