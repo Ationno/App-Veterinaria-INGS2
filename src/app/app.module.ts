@@ -84,6 +84,10 @@ import { FormularioVeterinariaComponent } from './components/home/mapa/formulari
 import { CampaniaActualComponent } from './components/home/campania-actual/campania-actual.component';
 import { FormularioComunicarseComponent } from './components/perdidos/formulario-comunicarse/formulario-comunicarse.component';
 import { PerrosEncontradosComponent } from './components/home/perros-encontrados/perros-encontrados.component';
+import { CruzaComponent } from './components/cruza/cruza.component';
+import { CruzaInformacionComponent } from './components/cruza/cruza-informacion/cruza-informacion.component';
+import { FilterCruzaPipe } from './pipes/filter-cruza.pipe';
+import { FormularioCruzaComponent } from './components/cruza/formulario-cruza/formulario-cruza.component';
 
 @NgModule({
   declarations: [
@@ -142,7 +146,11 @@ import { PerrosEncontradosComponent } from './components/home/perros-encontrados
     FormularioVeterinariaComponent,
     CampaniaActualComponent,
     FormularioComunicarseComponent,
-    PerrosEncontradosComponent
+    PerrosEncontradosComponent,
+    CruzaComponent,
+    CruzaInformacionComponent,
+    FilterCruzaPipe,
+    FormularioCruzaComponent
   ],
   imports: [
     BrowserModule,

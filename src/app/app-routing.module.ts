@@ -31,6 +31,8 @@ import { HistorialDonacionesComponent } from './components/donaciones/historial-
 import { FormularioPagoComponent } from './components/turnos/formulario-pago/formulario-pago.component';
 import { FormularioVeterinariaComponent } from './components/home/mapa/formulario-veterinaria/formulario-veterinaria.component';
 import { FormularioComunicarseComponent } from './components/perdidos/formulario-comunicarse/formulario-comunicarse.component';
+import { FormularioCruzaComponent } from './components/cruza/formulario-cruza/formulario-cruza.component';
+import { CruzaComponent } from './components/cruza/cruza.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -40,6 +42,7 @@ const routes: Routes = [
   { path: 'perdidos', component: PerdidosComponent, pathMatch: 'full' },
   { path: 'campanias', component: CampaniasComponent, pathMatch: 'full' },
   { path: 'turnos', component: TurnosComponent, pathMatch: 'full' },
+  { path: 'cruza', component: CruzaComponent, pathMatch: 'full' },
   { path: 'campanias/formCampanias/:id', component: FormularioCampaniaComponent, pathMatch: 'full' },
   { path: 'usuarios/formUsuarios/:id', component: FormularioUsuarioComponent, pathMatch: 'full' },
   { path: 'anuncios/formAnuncios/:id', component: FormularioAnuncioComponent, pathMatch: 'full' },
@@ -65,7 +68,8 @@ const routes: Routes = [
   { path: 'donaciones/historial', component: HistorialDonacionesComponent, pathMatch: 'full' },
   { path: 'donaciones/formDonacion/:campaniaId', component: FormularioDonacionComponent, pathMatch: 'full' },
   { path: 'mapa/formVeterinaria/:veterinariaId', component: FormularioVeterinariaComponent, pathMatch: 'full' },
-  { path: 'perdido/formComunicarse/:perdidoId', component: FormularioComunicarseComponent, pathMatch: 'full' }
+  { path: 'perdido/formComunicarse/:perdidoId', component: FormularioComunicarseComponent, pathMatch: 'full' },
+  { path: 'cruza/formCruza/:usuarioId/:cruzaId', component: FormularioCruzaComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

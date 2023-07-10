@@ -1,0 +1,70 @@
+<div>
+    <h1 class="h1-delineado">Cruza</h1>
+    <div class="busqueda">
+        <div class="busqueda_titulo">
+            <h2 for="search">Buscar</h2>
+            <button *ngIf="isLogged && !isAdmin && !haySeleccionado" [routerLink]="['/cruza/formCruza', this.usuarioId, -1]" class="button button-green" > Agregar mascota para cruza </button>
+            <button *ngIf="isLogged && !isAdmin && haySeleccionado" (click)="cancelarCruza()" class="button button-red" > Cancelar cruza </button>
+        </div>
+        <div class="busqueda_inputs">
+            <div *ngIf="!haySeleccionado">
+                <label for="search">Nombre:</label>
+                <input 
+                    type="text"  
+                    name="busquedaNombre"
+                    [(ngModel)]="busquedaNombre"
+                >
+            </div>
+            <div>
+                <label for="search">Raza:</label>
+                <input 
+                    type="text"  
+                    name="busquedaDNI"
+                    [(ngModel)]="busquedaRaza"
+                >
+            </div>
+            <div *ngIf="!haySeleccionado">
+                <label for="search">Tamaño:</label>
+                <select 
+                    type="text"  
+                    name="busquedaTamano"
+                    [(ngModel)]="busquedaTamano"
+                >
+                    <option value=""></option>
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div *ngIf="!haySeleccionado">
+                <label for="search">Sexo:</label>
+                <select 
+                    type="text"  
+                    name="busquedaSexo"
+                    [(ngModel)]="busquedaSexo"
+                >
+                    <option value=""></option>
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+            </select>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!haySeleccionado" class="cruza">
+        <app-cruza-informacion
+            *ngFor="let cruza of getFilteredCruzas() | filterCruza: busquedaNombre:busquedaRaza:busquedaTamano:busquedaSexo" 
+            [cruza] = "cruza"
+            [haySeleccionado]="haySeleccionado"
+            (onDeleteCruza)="deleteCruza(cruza)"
+            (onComenzarCruza)="comenzarCruza(cruza)"
+        ></app-cruza-informacion>
+    </div>
+    <div *ngIf="haySeleccionado" class="cruza">
+        <app-cruza-informacion
+            *ngFor="let cruza of recomendados | filterCruza: busquedaRaza:busquedaSexo" 
+            [cruza] = "cruza"
+            [haySeleccionado]="haySeleccionado"
+        >
+        </app-cruza-informacion>
+    </div>
+</div>

@@ -14,10 +14,10 @@
                     <span>Descubre la mascota de tus sueños</span>
                 </div>
             </li>
-            <li>
-                <i class='bx bxs-baby-carriage'></i>
+            <li *ngIf="isLogged">
+                <i class='bx bxs-baby-carriage' routerLink="/cruza"></i>
                 <div>
-                    <a class="nav-link" routerLink="/" href="">Cruza de Perros</a>
+                    <a class="nav-link" routerLink="/cruza" href="">Cruza de Perros</a>
                     <span>Encuentra la pareja ideal de tu mascota</span>
                 </div>
             </li>

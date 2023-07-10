@@ -1,0 +1,14 @@
+<div class="cruza">
+    <h1>{{cruza.mascota.nombre}}  </h1>
+    <h2>{{cruza.mascota.raza}}</h2>
+    <p>{{ "Fecha de celo: " + (this.fecha | date:'dd/MM/yyyy') }}</p>
+    <p>{{"Color: " + cruza.mascota.color}}</p>
+    <p>{{"Tamaño: " + cruza.mascota.tamano}}</p>
+    <p>{{"Sexo: " + cruza.mascota.sexo}}</p>
+    <div *ngIf="isLogged && !isAdmin && this.mainUser" style="display: flex;">
+        <button *ngIf="!haySeleccionado" (click)="onComenzar(cruza)" class="button button-green" value="cruza">Comenzar cruza</button>
+        <button *ngIf="!haySeleccionado" [routerLink]="['/cruza/formCruza', cruza.usuario_id, cruza.id]" class="button button-blue" value="editar">Editar</button>
+        <button *ngIf="!haySeleccionado" (click)="onDelete(cruza)" class="button button-red" value="borrar">Borrar</button>
+        <button *ngIf="haySeleccionado" (click)="realizarCruza()" class="button button-green" value="cruza">Realizar cruza</button>
+    </div>
+</div>
