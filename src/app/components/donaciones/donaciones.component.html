@@ -3,7 +3,7 @@
         <h1>Donaciones </h1>
         <button [routerLink]="'/donaciones/historial'" class="button button-green"> Historial </button>
     </div>
-    <h2>¡Ayudanos con cualquier monto que puedas!</h2>
+    <h2 class="h2-donaciones">¡Ayudanos con cualquier monto que puedas!</h2>
     <h3 *ngIf="this.isLogged"><i>(El 20% del monto que dones sera restado de tu proximo turno)</i></h3>
     <h2 *ngIf="this.campania" class="subtitulo_donacion"><u><b>Haz una donacion para cumplir un objetivo</b></u></h2>
     <div *ngIf="this.campania" class="campania">

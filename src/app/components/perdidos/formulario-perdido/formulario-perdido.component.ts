@@ -33,6 +33,10 @@ export class FormularioPerdidoComponent {
 			usuario_id: new FormControl(),
 			encontrado: new FormControl(false),
 			nombre: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+			raza: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+			color: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+			tamano: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
+			sexo: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
      		titulo: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
       		descripcion: new FormControl('', {validators: Validators.required, updateOn: 'blur'}),
 			email: new FormControl('', {validators: [Validators.required, Validators.email], updateOn: "blur"}),
@@ -73,6 +77,22 @@ export class FormularioPerdidoComponent {
 
 	get Nombre(){
 		return this.form.get("nombre");
+	}
+
+	get Raza(){
+		return this.form.get("raza");
+	}
+
+	get Color(){
+		return this.form.get("color");
+	}
+
+	get Tamano(){
+		return this.form.get("tamano");
+	}
+
+ 	get Sexo(){
+		return this.form.get("sexo");
 	}
 
 	get Titulo(){

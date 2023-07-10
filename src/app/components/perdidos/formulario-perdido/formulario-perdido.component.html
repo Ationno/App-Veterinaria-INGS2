@@ -35,6 +35,75 @@
         </div>
         <div class="form-column">
             <div class="form-control">
+                <label for="raza">Raza:</label>
+                <input 
+                    type="text"  
+                    name="raza" 
+                    placeholder="Agregar raza"
+                    formControlName="raza"  
+                >
+                <div *ngIf="Raza?.errors && Raza?.touched" class="error">
+                    <p *ngIf="Raza?.hasError('required')">
+                        La Raza es requerida
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="color">Color:</label>
+                <input 
+                    type="text" 
+                    name="color" 
+                    id="color" 
+                    placeholder="Agregar color"
+                    formControlName="color"
+                >
+                <div *ngIf="Color?.errors && Color?.touched" class="error">
+                    <p *ngIf="Color?.hasError('required')">
+                        El color es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-control">
+                <label for="tamano">Tamaño:</label>
+                <select 
+                    type="text"  
+                    name="tamano" 
+                    placeholder="Agregar tamaño"
+                    formControlName="tamano"  
+                >
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+                <div *ngIf="Tamano?.errors && Tamano?.touched" class="error">
+                    <p *ngIf="Tamano?.hasError('required')">
+                        El tamaño es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="sexo">Sexo:</label>
+                <select 
+                    type="sexo" 
+                    name="sexo" 
+                    id="sexo" 
+                    placeholder="Agregar sexo"
+                    formControlName="sexo"
+                >
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                </select>
+                <div *ngIf="Sexo?.errors && Sexo?.touched" class="error">
+                    <p *ngIf="Sexo?.hasError('required')">
+                        El sexo es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-control">
                 <label for="Descripcion">Descripcion:</label>
                 <input type="text" name="descripcion" placeholder="Agregar Descripcion" formControlName="descripcion">
                 <div *ngIf="Descripcion?.errors && Descripcion?.touched" class="error">

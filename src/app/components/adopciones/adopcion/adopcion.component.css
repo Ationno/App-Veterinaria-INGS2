@@ -26,6 +26,10 @@ h2 {
     margin-top: .5em;
 }
 
+.p-bold{
+    font-weight: bold;
+}
+
 h1 .borrar {
     margin-left: 0.25em;
     font-size: 1.25rem;

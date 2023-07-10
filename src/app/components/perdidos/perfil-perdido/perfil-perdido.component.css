@@ -2,10 +2,21 @@
     border: 1px solid #d1d1d1;
     border-radius: 5px;
     min-width:  275px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .perdido .info {
     padding: .5em 1em 1em 1em;
+    max-width: 400px;
+    width: 100%;
+}
+
+.perro_info{
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 .button {
@@ -42,17 +53,14 @@ h2 i {
 .perdido p {
     margin: 0;
     font-size: 14px;
-  }
-    
-.perdido p:first-of-type {
-    font-weight: bold;
 }
     
-.perdido p:last-of-type {
-    margin-bottom: 0;
+.p-bold {
+    font-weight: bold;
 }
 
 .perdido img {
     width: 100%;
-    height: 200px;
+    max-width: 400px;
+    height: 300px;
 }

@@ -3,7 +3,7 @@
     <a *ngIf="isLogged" routerLink="/turnos" href="">Turnos</a>
     <div class="dropdown">
         <div class="dropdown-title">
-            <a href="">Mascotas</a>
+            <a routerLink="/adopciones" href="">Mascotas</a>
             <i class='bx bx-chevron-down'></i>
         </div>
         <ul class="dropdown-content" *ngIf="true">
@@ -36,10 +36,10 @@
                     <span>Contrata a profesionales certificados</span>
                 </div>
             </li>
-            <li routerLink="/perdidos">
+            <li *ngIf="isLogged" routerLink="/perdidos">
                 <i class='bx bx-search-alt-2'></i>
                 <div>
-                    <a class="nav-link" href="">Perros Perdidos</a>
+                    <a class="nav-link" routerLink="/perdidos" href="">Perros Perdidos</a>
                     <span>Encontremos a tu mascota</span>
                 </div>
             </li>
