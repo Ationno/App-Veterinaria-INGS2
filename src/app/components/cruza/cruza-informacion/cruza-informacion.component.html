@@ -9,6 +9,6 @@
         <button *ngIf="!haySeleccionado" (click)="onComenzar(cruza)" class="button button-green" value="cruza">Comenzar cruza</button>
         <button *ngIf="!haySeleccionado" [routerLink]="['/cruza/formCruza', cruza.usuario_id, cruza.id]" class="button button-blue" value="editar">Editar</button>
         <button *ngIf="!haySeleccionado" (click)="onDelete(cruza)" class="button button-red" value="borrar">Borrar</button>
-        <button *ngIf="haySeleccionado" (click)="realizarCruza()" class="button button-green" value="cruza">Realizar cruza</button>
+        <button *ngIf="haySeleccionado" (click)="realizarCruza(cruza.usuario_id)" class="button button-green" value="cruza">Realizar cruza</button>
     </div>
 </div>

@@ -20,4 +20,8 @@ export class CruzasService extends getDB {
 		super(http)
 		this.apiUrl += "cruza";
 	}
+
+	public enviarMail(any: any): Observable<any> {
+		return this.http.post<any>(this.apiUrl + "/enviarMail", any, httpOptions);
+	}
 }

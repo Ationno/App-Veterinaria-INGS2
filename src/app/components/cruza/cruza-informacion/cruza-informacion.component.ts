@@ -46,9 +46,11 @@ export class CruzaInformacionComponent {
         this.onComenzarCruza.emit(cruza)
     }
 
-    public realizarCruza(){
-
-    }
+    public realizarCruza(usuario_id: number){
+        this.cruzaService.enviarMail({"usuario_id": usuario_id, "email": this.mainUser.email}).subscribe((res) => {
+			alert(res.message)
+        });
+    }    
 
     
 }
