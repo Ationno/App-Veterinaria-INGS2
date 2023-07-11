@@ -3,7 +3,7 @@
   <div class="busqueda">
     <div class="busqueda_nombre">
       <h2 for="search">Buscar</h2>
-      <button [routerLink]="'/perdidos/formPerdidos/-1'" class="button button-green" > Agregar Anuncio </button>
+      <button [routerLink]="'/perdidos/formPerdidos/-1'" *ngIf="isLogged && !isAdmin" class="button button-green" > Agregar Anuncio </button>
     </div>
     <div class="busqueda_inputs">
       <div>

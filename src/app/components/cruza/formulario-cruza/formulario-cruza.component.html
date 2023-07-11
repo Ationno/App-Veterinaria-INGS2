@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="form-control">
-                <label for="fechaCelo">Fecha:</label>
+                <label for="fechaCelo">Fecha de celo:</label>
                 <input type="date" name="fechaCelo" placeholder="Agregar fecha" formControlName="fechaCelo">
                 <div *ngIf="FechaCelo?.errors && FechaCelo?.touched" class="error">
                     <p *ngIf="FechaCelo?.hasError('required')">

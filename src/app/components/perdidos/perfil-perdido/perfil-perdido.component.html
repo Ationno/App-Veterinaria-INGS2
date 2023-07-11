@@ -13,9 +13,9 @@
         </div>
         <button *ngIf="!this.isLogged && !perdido.encontrado" class="button button-green" [routerLink]="['/perdido/formComunicarse', perdido.id]" value="perdidos">Comunicarse</button>
         <div style="display: flex;" *ngIf="this.mainUser">
-            <button *ngIf="(this.mainUser.id != perdido.usuario_id) && this.isLogged && !perdido.encontrado" class="button button-green" (click)="onComunicarseRegistrado(perdido.email)" value="perdidos">Comunicarse</button>
+            <button *ngIf="(this.mainUser.id != perdido.usuario_id) && this.isLogged && !isAdmin && !perdido.encontrado" class="button button-green" (click)="onComunicarseRegistrado(perdido.email)" value="perdidos">Comunicarse</button>
             <button [routerLink]="['/perdidos/formPerdidos', perdido.id]" *ngIf="isLogged && (this.mainUser.id == perdido.usuario_id) && !perdido.encontrado" class="button button-blue" value="editar">Editar</button>
-            <button (click)="onDelete(perdido)" *ngIf="isLogged && isAdmin" class="button button-red" value="borrar">Borrar</button>
+            <button (click)="onDelete(perdido)" *ngIf="isLogged && !isAdmin && (this.mainUser.id == perdido.usuario_id)" class="button button-red" value="borrar">Borrar</button>
         </div>
     </div>
 </div>
