@@ -55,10 +55,14 @@ export class CruzaComponent {
     }
 
     comenzarCruza(cruza: Cruza){
-        this.haySeleccionado = true;
         const sexoRecomendado = cruza.mascota.sexo == 'Macho' ? 'Hembra' : 'Macho';
         const razaRecomendada = cruza.mascota.raza;  
         this.recomendados = this.cruzas.filter((c) => (c.mascota.raza == razaRecomendada) && (c.mascota.sexo == sexoRecomendado) && (c.usuario_id != cruza.usuario_id));
+        if(this.recomendados.length == 0){
+          alert("Actualmente no existen mascotas compatibles con la que seleccionó para realizar la cruza")
+        } else{
+          this.haySeleccionado = true;
+        }
     }
 
     cancelarCruza(){

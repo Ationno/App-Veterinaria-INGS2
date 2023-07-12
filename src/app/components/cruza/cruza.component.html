@@ -1,5 +1,9 @@
 <div>
     <h1 class="h1-delineado">Cruza</h1>
+    <div *ngIf="!isAdmin" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hola!</strong> Te recomendamos visitar la sección de <a routerLink="/adopciones" class="alert-link">adopciones</a> antes de realizar una cruza.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <div class="busqueda">
         <div class="busqueda_titulo">
             <h2 for="search">Buscar</h2>
@@ -15,15 +19,15 @@
                     [(ngModel)]="busquedaNombre"
                 >
             </div>
-            <div>
+            <div *ngIf="!haySeleccionado">
                 <label for="search">Raza:</label>
                 <input 
                     type="text"  
-                    name="busquedaDNI"
+                    name="busquedaRaza"
                     [(ngModel)]="busquedaRaza"
                 >
             </div>
-            <div *ngIf="!haySeleccionado">
+            <div>
                 <label for="search">Tamaño:</label>
                 <select 
                     type="text"  

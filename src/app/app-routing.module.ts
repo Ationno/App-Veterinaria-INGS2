@@ -69,7 +69,8 @@ const routes: Routes = [
   { path: 'donaciones/formDonacion/:campaniaId', component: FormularioDonacionComponent, pathMatch: 'full' },
   { path: 'mapa/formVeterinaria/:veterinariaId', component: FormularioVeterinariaComponent, pathMatch: 'full' },
   { path: 'perdido/formComunicarse/:perdidoId', component: FormularioComunicarseComponent, pathMatch: 'full' },
-  { path: 'cruza/formCruza/:usuarioId/:cruzaId', component: FormularioCruzaComponent, pathMatch: 'full' }
+  { path: 'cruza/formCruza/:usuarioId/:cruzaId', component: FormularioCruzaComponent, pathMatch: 'full' },
+  { path: 'cruza', component: AdopcionesComponent }
 ];
 
 const routerOptions: ExtraOptions = {
