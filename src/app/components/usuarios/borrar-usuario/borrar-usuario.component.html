@@ -1,9 +1,9 @@
 <div class="eliminar_usuario" *ngIf="this.usuario">
     <h1 class="h1-delineado">Eliminar a {{this.usuario.nombre}}</h1>
     <h2>¿Estas seguro de eliminar a {{this.usuario.nombre}}?</h2>
-    <h3> <b>Se eliminara:</b></h3>
+    <h2> <b>Se eliminara:</b></h2>
     <div *ngFor="let mascota of this.usuario.mascotas">
-        <h1 class="titulo_mascota">La mascota {{mascota.nombre}}</h1>
+        <h1 class="titulo_mascota">La mascota <b>{{mascota.nombre}}</b></h1>
         <div *ngIf="mascota.adopcion" class="eliminar_elemento">
             <h1>Adopcion</h1>
             <p>Titulo: {{mascota.adopcion.titulo}}</p>
@@ -16,9 +16,9 @@
             <p>Estado: {{turno.estado}}</p>
         </div>
     </div>
-    <h3> <b>Se cancelarán los siguientes turnos:</b></h3>
+    <h2> <b>Se cancelarán los siguientes turnos:</b></h2>
     <div *ngFor="let mascota of this.usuario.mascotas">
-        <h1 class="titulo_mascota">La mascota {{mascota.nombre}}</h1>
+        <h1 *ngIf="mascota.turnos.length > 0" class="titulo_mascota">La mascota {{mascota.nombre}}</h1>
         <div class="eliminar_elemento" *ngFor="let turno  of mascota.turnos | filterTurnoEstado: 'Aceptado'">
             <h1>Turno</h1>
             <p>Motivo: {{turno.motivo}}</p>

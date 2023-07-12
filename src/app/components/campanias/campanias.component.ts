@@ -18,6 +18,7 @@ export class CampaniasComponent {
     busquedaTitulo!: string; 
     isLogged: boolean = false;
 	isAdmin: boolean = false;
+    campaniaActual! : Campania;
 	
     constructor( public tokenService: TokenService, private router: Router,
         private campaniasService: CampaniasService,
@@ -30,12 +31,19 @@ export class CampaniasComponent {
 		this.campaniasService.get().subscribe((campanias) => {	
 			this.campanias = campanias
 		})
+        this.campaniasService.getCampaniaSeleccionada().subscribe((campania) => {
+            this.campaniaActual = campania[0]
+        })
 	}
 
     public deleteCampania(campania: Campania) {
+        console.log(campania)
 		this.campaniasService.delete(campania).subscribe(() => {
             alert("Campania eliminada exitosamente!")
 			this.campanias = this.campanias.filter( ele => ele.id !== campania.id )
+            this.campaniasService.getCampaniaSeleccionada().subscribe((campania) => {
+                this.campaniaActual = campania[0]
+            })
 		})
 	}
 
@@ -43,6 +51,9 @@ export class CampaniasComponent {
 		this.campaniasService.selectCampania(campania).subscribe((campanias) => {
             alert("Campania seleccionada exitosamente!")
             this.campanias = campanias
+            this.campaniasService.getCampaniaSeleccionada().subscribe((campania) => {
+                this.campaniaActual = campania[0]
+            })
 		})
 	}
 

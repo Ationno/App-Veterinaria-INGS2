@@ -1,3 +1,11 @@
+.campania-actual {
+  inline-size: fit-content;
+}
+
+.campania-actual h2 {
+  margin-bottom: 1em;
+}
+
 .campanias {
   display: flex;
   flex-direction: column;

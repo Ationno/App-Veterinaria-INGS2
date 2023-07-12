@@ -9,6 +9,6 @@ export class FilterCampaniaPipe implements PipeTransform {
     if (titulo) {
       return listaCampania.filter((ele) => ele.titulo.toLowerCase().includes(titulo.toLowerCase()));
     }
-    return listaCampania;
+    return listaCampania.filter((ele) => ele.seleccionada == false);
   }
 }

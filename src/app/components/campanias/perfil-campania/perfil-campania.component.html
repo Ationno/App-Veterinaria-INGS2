@@ -1,5 +1,5 @@
 <div class="campania">
-    <h1>{{campania.titulo}} <b *ngIf="campania.seleccionada" style="color: #2ea44f; font-size: .75em;">(Seleccionada)</b></h1>
+    <h1>{{campania.titulo}}</h1>
     <p>{{ campania.descripcion }}</p>
     <div style="display: flex;">
         <button [routerLink]="['/campanias/formCampanias', campania.id]" *ngIf="isLogged && isAdmin" class="button button-blue" value="editar">Editar</button>
