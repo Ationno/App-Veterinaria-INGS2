@@ -32,7 +32,7 @@ export class FormularioVeterinariaComponent implements AfterViewInit {
 	form: FormGroup;
 	sub: any;
 	marker: any;
-	direccion: string = " Clikea el mapa para conseguir una direccion";
+	direccion: string = " Clickea el mapa para conseguir una direccion";
 	edit: boolean = false;
 	private map!: L.Map;
 
@@ -129,7 +129,7 @@ export class FormularioVeterinariaComponent implements AfterViewInit {
 					alert(message.error)
 				} else {
 					alert("Veterinaria agregada exitosamente!")
-					this.router.navigate(['/']);
+					this.router.navigate(['/'],  {fragment:'visitanos'});
 					this.form.reset()
 				}
 			});
@@ -146,7 +146,7 @@ export class FormularioVeterinariaComponent implements AfterViewInit {
 					alert(message.error)
 				} else {
 					alert("Veterinaria editada exitosamente!")
-					this.router.navigate(['/']);
+					this.router.navigate(['/'], {fragment:'visitanos'});
 					this.form.reset()
 				}
 			})

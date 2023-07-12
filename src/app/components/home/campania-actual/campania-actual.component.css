@@ -1,0 +1,25 @@
+.banner_campania {
+  width: 100%;
+  height: 350px;
+  background-image: url(../../../../assets/img/perrito_fondo_azul.png);
+  background-size: 100% 600px;
+  background-position: center;
+}
+
+.banner_campania h1 {
+  font-size: 3em;
+  padding: 48px 0 24px 48px;
+  color: #f1965b;
+  font-weight: 1000;
+}
+
+.banner_campania p {
+  line-height: 1.5;
+  font-size: 1.5rem;
+  margin: 0 0 12px 48px;
+  max-width: 600px;
+}
+
+.banner_campania button {
+  margin-left: 48px;
+}

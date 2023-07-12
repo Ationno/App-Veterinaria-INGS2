@@ -27,11 +27,11 @@
                 </div>
             </div>
             <div class="form-control">
-                <label for="parrafo">Parrafo:</label>
+                <label for="parrafo">Disponibilidad:</label>
                 <input type="text" name="parrafo" placeholder="Agregar parrafo" formControlName="parrafo">
                 <div *ngIf="Parrafo?.errors && Parrafo?.touched" class="error">
                     <p *ngIf="Parrafo?.hasError('required')">
-                        El parrafo es requerido
+                        La disponibilidad es requerida
                     </p>
                 </div>
             </div>
@@ -39,7 +39,7 @@
         <div class="form-buttons">
             <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
             <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
-            <input [routerLink]="'/'" class="button button-red" type="submit" value="Cancelar">
+            <input [routerLink]="'/'" fragment="visitanos" class="button button-red" type="submit" value="Cancelar">
         </div>
     </form>
 </div>

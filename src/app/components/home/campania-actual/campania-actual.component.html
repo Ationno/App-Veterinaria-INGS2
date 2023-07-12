@@ -1,1 +1,5 @@
-<p>campania-actual works!</p>
+<div *ngIf="campania" class="banner_campania">
+    <h1>{{campania.titulo}}!</h1>
+    <p>{{campania.descripcion}}</p>
+    <button routerLink="/donaciones" class="button button-green">Donacion</button>
+</div>

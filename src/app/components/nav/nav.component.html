@@ -2,8 +2,8 @@
     <a href="/" class="yoprogramo"><img src="../../../assets/img/Logo Veterinaria Crop.png" alt="Logo Veterinaria"></a>
     <a *ngIf="isLogged" routerLink="/turnos" href="">Turnos</a>
     <div class="dropdown">
-        <div class="dropdown-title">
-            <a routerLink="/adopciones" href="">Mascotas</a>
+        <div style="pointer-events: none;" class="dropdown-title">
+            <a  href="">Mascotas</a>
             <i class='bx bx-chevron-down'></i>
         </div>
         <ul class="dropdown-content" *ngIf="true">
@@ -24,8 +24,8 @@
         </ul>
     </div>
     <div class="dropdown">
-        <div class="dropdown-title">
-            <a routerLink="/anuncios" href="">Anuncios</a>
+        <div style="pointer-events: none;" class="dropdown-title">
+            <a href="">Anuncios</a>
             <i class='bx bx-chevron-down'></i>
         </div>
         <ul class="dropdown-content" *ngIf="true">

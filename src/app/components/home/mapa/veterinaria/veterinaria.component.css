@@ -1,6 +1,7 @@
 .veterinaria {
     border-bottom: 1px solid #d1d1d1;
-    padding: 1em;
+    padding: 1em 0;
+    margin: 0 1em;
     box-sizing: border-box;
   }
   
@@ -12,7 +13,7 @@
   h1 {
     font-weight: 300;
     font-size: 1.75rem;
-    margin-bottom: .25em;
+    margin-bottom: 4px;
   }
   
   h1 .borrar {
@@ -22,15 +23,7 @@
     cursor: pointer;
   }
   
-  .campania p {
-    margin: 5px 0;
+  .veterinaria p {
+    margin-bottom: 2px;
     font-size: 17px;
-  }
-  
-  .campania p:last-of-type {
-    padding-bottom: 20px;
-    padding-top: 10px;
-    max-width: 500px;
-    width: 100%;
-    overflow-wrap: break-word;
   }

@@ -7,12 +7,11 @@
   }
 
   .encontrados{
-    padding-top: 20px;
+    padding: 20px 0px;
     font-family: 'Mulish', sans-serif;
     font-weight: 500;
     font-size: 1.2em;
     color: #F1965B;
-    padding-bottom: 20px;
   }
   
   .button {

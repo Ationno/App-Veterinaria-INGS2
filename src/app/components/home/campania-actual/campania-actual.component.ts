@@ -11,8 +11,11 @@ export class CampaniaActualComponent {
 	campania!: Campania;
 	
 	constructor(private campaniaService: CampaniasService) { 
+	}
+
+	ngOnInit() {
 		this.campaniaService.getCampaniaSeleccionada().subscribe((campania) => {
-			this.campania = campania;
+			this.campania = campania[0];
 		});
 	}
 }
