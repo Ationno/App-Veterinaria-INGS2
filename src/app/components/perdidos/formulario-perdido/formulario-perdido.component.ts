@@ -45,7 +45,6 @@ export class FormularioPerdidoComponent {
 			encontrado: new FormControl(false),
 			usuario_id: new FormControl(''),
 			nombre: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
-			fechaN: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			raza: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			color: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
 			tamano: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
@@ -122,9 +121,6 @@ export class FormularioPerdidoComponent {
 		return this.form.get("tamano");
 	}
 
-	get FechaN() {
-		return this.form.get("fechaN");
-	}
 
 	get Sexo() {
 		return this.form.get("sexo");
@@ -174,7 +170,6 @@ export class FormularioPerdidoComponent {
 			this.form.patchValue({
 				nombre: mascotaFiltrada?.nombre,
 				raza: mascotaFiltrada?.raza,
-				fechaN: mascotaFiltrada?.fechaN,
 				color: mascotaFiltrada?.color,
 				tamano: mascotaFiltrada?.tamano,
 				sexo: mascotaFiltrada?.sexo,
@@ -192,7 +187,6 @@ export class FormularioPerdidoComponent {
 					}
 				});
 			} else {
-				this.form.removeControl("fechaN");
 				this.perdidosService.add(this.form.getRawValue()).subscribe((message) => {
 					if (message.error)
 						alert(message.error)
