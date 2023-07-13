@@ -27,7 +27,10 @@ h2 {
 }
 
 .p-bold{
-    font-weight: bold;
+    font-weight: 600;
+    max-width: 300px;
+    width: 100%;
+    padding-bottom: 15px;
 }
 
 h1 .borrar {

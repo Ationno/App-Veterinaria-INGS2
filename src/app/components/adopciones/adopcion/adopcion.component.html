@@ -1,5 +1,6 @@
 <div class="adopcion">
     <h1>{{adopcion.titulo}} </h1>
+    <p class="p-bold">{{adopcion.descripcion}}</p>
     <div class="mascota_informacion">
         <h2>{{ (this.fechaHoy.getFullYear() - this.fecha.getFullYear()) + " años"}} </h2>
         <p>{{"Raza: " + adopcion.mascota.raza}}</p>
@@ -7,7 +8,6 @@
         <p>{{"Tamaño: " + adopcion.mascota.tamano}}</p>
         <p>{{"Sexo: " + adopcion.mascota.sexo}}</p>
     </div>
-    <p class="p-bold">{{adopcion.descripcion}}</p>
     <div style="display: flex;">
         <button *ngIf="!isCreator() && !adopcion.finalizada && !this.isLogged" class="button button-green" [routerLink]="['/adopciones/formAdoptar', adopcion.id]" value="mascotas">Adoptar</button>
         <button *ngIf="!isCreator() && !adopcion.finalizada && this.isLogged" class="button button-green" (click)="onAdoptarRegistrado(adopcion.usuario_id)" value="mascotas">Adoptar</button>

@@ -1,12 +1,15 @@
-.eliminar_usuario h2, .eliminar_usuario h3 {
+.eliminar_usuario h2, .eliminar_usuario {
     margin-bottom: .5em;
 }
 
 .donacion {
+    display: flex;
+    flex-direction: column;
     border: 1px solid #d1d1d1;
     border-radius: 5px;
     padding: 1em;
-    min-width:  275px;
+    width: 100%;
+    max-width: 500px;
     margin-bottom: 1em;
 }
 
@@ -24,4 +27,24 @@
 .titulo_mascota {
     font-size: 1.75em;
     margin-bottom: .25em;
+    color: #F1965B;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+h4{
+    color: #75B5C7;
+    margin-bottom: 20px;
+}
+
+span{
+    color: rgb(82, 84, 83);
+    padding-left: 5px;
+}
+
+h3{
+    font-size: 1.75em;
+    color: #F1965B;
+    margin-bottom: .25em;
+    margin-top: 40px;
 }

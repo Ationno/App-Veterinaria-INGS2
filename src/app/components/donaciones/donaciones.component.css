@@ -1,6 +1,8 @@
 h3 {
   margin-top: 0.25em;
   font-size: 1.25em;
+  color: #4d4c4c;
+  font-size: 1rem;
 }
 
 .h2-donaciones{
@@ -12,11 +14,12 @@ h3 {
 }
 
 .subtitulo_donacion {
-  margin-top: 1em;
+  margin-top: 2em;
+  color: #75B5C7;
 }
 
 .campania {
-  margin-top: 1em;
+  margin-top: 20px;
   border: 1px solid #d1d1d1;
   border-radius: 5px;
   padding: 1em;
@@ -58,6 +61,8 @@ h3 {
 }
 
 .parrafo {
-  margin-top: 5px;
+  margin-top: 20px;
   font-size: 17px;
+  max-width: 500px;
+  width: 100%;
 }

@@ -1,8 +1,7 @@
 <div *ngIf="perdidos.length > 0">
     <h1>Perros Perdidos</h1>
-    <h2>Busca ayuda rapidamente</h2>
+    <h2>Estos animales fueron encontrados gracias a nuestra ayuda:</h2>
     <div class="contenido">
-        <h3>Estos animales fueron encontrados gracias a nuestra ayuda:</h3>
         <div class="perdidos">
             <app-perfil-perdido
                 *ngFor="let perdido of perdidos"

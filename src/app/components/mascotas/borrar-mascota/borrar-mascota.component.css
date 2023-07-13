@@ -2,6 +2,11 @@
     margin-bottom: .5em;
 }
 
+h2{
+    color: #75B5C7;
+    font-weight: 700;
+}
+
 .eliminar_elemento {
     border: 1px solid #d1d1d1;
     border-radius: 5px;
