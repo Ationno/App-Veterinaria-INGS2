@@ -29,7 +29,7 @@ export class CampaniasComponent {
 
     ngOnInit() {
 		this.campaniasService.get().subscribe((campanias) => {	
-			this.campanias = campanias
+			this.campanias = campanias.filter(campania => campania.id != 0)
 		})
         this.campaniasService.getCampaniaSeleccionada().subscribe((campania) => {
             this.campaniaActual = campania[0]

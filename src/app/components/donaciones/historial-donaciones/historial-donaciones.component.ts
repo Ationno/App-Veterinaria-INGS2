@@ -25,7 +25,7 @@ export class HistorialDonacionesComponent {
 			this.donacionesAnonimas = donaciones.filter(donacion => donacion.campania_id === 0);
 		});
 		this.campaniaService.get().subscribe((campanias) => {
-			this.campanias = campanias;
+			this.campanias = campanias.filter(campania => campania.id != 0);
 		});
 	}
 
