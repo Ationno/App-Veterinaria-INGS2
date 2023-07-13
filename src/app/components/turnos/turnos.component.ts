@@ -20,10 +20,11 @@ export class TurnosComponent implements OnInit {
   busquedaHorario1!: string;
   busquedaMotivo2!: string;
   busquedaHorario2!: string;
+  busquedaMotivo3!: string;
+  busquedaHorario3!: string;
   usuarioId!: number;
   isLogged!: boolean;
   isAdmin!: boolean;
-  verHistorial: boolean = false;
 
   constructor(
     private turnosService: TurnosService,
@@ -93,11 +94,5 @@ export class TurnosComponent implements OnInit {
       // Filtro por fechas posterior a la actual y estado distinto a "rechazado"
       return turnoFecha.getTime() < fechaActual.getTime() && (turno.estado != "Rechazado");
     });
-  }
-
-
-
-  verHistorialTurnos(): void{
-    this.verHistorial = !this.verHistorial;
   }
 }
