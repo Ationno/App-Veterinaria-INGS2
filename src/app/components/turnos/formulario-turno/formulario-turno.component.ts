@@ -38,7 +38,7 @@ export class FormularioTurnoComponent {
     this.form = this.formBuilder.group({
       id: [],
       horario: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
-      motivo: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
+      motivo: new FormControl('', { validators: Validators.required}),
       fecha: new FormControl('', { updateOn: 'blur' }),
       mascota_id: new FormControl(''),
       usuario_id: new FormControl('')

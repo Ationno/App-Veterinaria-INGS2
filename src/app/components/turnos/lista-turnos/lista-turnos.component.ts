@@ -17,6 +17,7 @@ export class ListaTurnosComponent {
   isLogged!: boolean;
   isAdmin!: boolean;
   fecha!: Date;
+  @Output() turnoActualizado = new EventEmitter<Turno>();
 
   constructor(
     private authService: AuthService,
@@ -29,7 +30,6 @@ export class ListaTurnosComponent {
     this.fecha.setMinutes(this.fecha.getMinutes() + this.fecha.getTimezoneOffset());
     this.authService.getMainUsuario().subscribe((usuario) => {
       this.mainUser = usuario;
-      console.log(this.mainUser.email);
     });
     this.isLogged = this.tokenService.isLogged();
     this.isAdmin = this.tokenService.isAdmin();
@@ -38,6 +38,7 @@ export class ListaTurnosComponent {
   public onAccept(turno: Turno) {
     if (turno.id)
       this.turnosService.cambiarEstado(turno.id, "Aceptado", this.mainUser).subscribe(() => {
+        this.turnoActualizado.emit(turno);
         alert("Turno aceptado exitosamente")
       })
   }
@@ -45,15 +46,23 @@ export class ListaTurnosComponent {
   public onReject(turno: Turno) {
     if (turno.id)
       this.turnosService.cambiarEstado(turno.id, "Rechazado", this.mainUser).subscribe(() => {
+        this.turnoActualizado.emit(turno);
         alert("Turno rechazado exitosamente")
       })
   }
 
-  public confirmarAsistencia(turno: Turno, estado: string){
+  public confirmarAsistencia(turno: Turno, estado: string) {
     console.log(estado)
-    if(turno.id)
-        this.turnosService.confirmarAsistencia(turno.id, estado).subscribe((message) => {
+    if (turno.id)
+      this.turnosService.confirmarAsistencia(turno.id, estado).subscribe((message) => {
+        if (message.error)
+          alert(message.error)
+        else {
+          this.turnoActualizado.emit(turno);
+          if (estado == "Asistió")
+            this.router.navigate(['/turnos/formPagoTurno', turno.id])
           alert(message.message)
-        })
+        }
+      })
   }
 }

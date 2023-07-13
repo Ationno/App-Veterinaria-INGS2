@@ -8,7 +8,7 @@
         <div class="busqueda_titulo">
             <h2 for="search">Buscar</h2>
             <button *ngIf="isLogged && !isAdmin && !haySeleccionado" [routerLink]="['/cruza/formCruza', this.usuarioId, -1]" class="button button-green" > Agregar mascota para cruza </button>
-            <button *ngIf="isLogged && !isAdmin && haySeleccionado" (click)="cancelarCruza()" class="button button-red" > Cancelar cruza </button>
+            <button *ngIf="isLogged && !isAdmin && haySeleccionado" (click)="cancelarCruza()" class="button button-red" > Volver </button>
         </div>
         <div class="busqueda_inputs">
             <div *ngIf="!haySeleccionado">

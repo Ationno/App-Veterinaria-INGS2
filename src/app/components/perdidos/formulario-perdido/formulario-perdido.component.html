@@ -2,128 +2,22 @@
 <div class="centrar">
     <form *ngIf="true" [formGroup]="form">
         <h1>Cargue los datos</h1>
-        <div class="form-column">
-            <div *ngIf="!this.edit && !this.mainUsuario" class="form-control">
-                <label for="nombre">Nombre del perro:</label>
-                <input type="text" name="nombre" placeholder="Agregar nombre" formControlName="nombre">
-                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
-                    <p *ngIf="Nombre?.hasError('required')">
-                        El nombre es requerido
-                    </p>
-                </div>
-            </div>
-            <div *ngIf="!this.edit && this.mainUsuario" class="form-control">
-                <label for="nombre">Mascota:</label>
-                <select type="text" name="nombre" placeholder="Agregar mascota" formControlName="nombre">
-                    <option *ngFor="let mascota of this.mainUsuario.mascotas" [value]="mascota.nombre">{{mascota.nombre}}</option>
-                </select>
-                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
-                    <p *ngIf="Nombre?.hasError('required')">
-                        La mascota es requerida
-                    </p>
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="titulo">Titulo del anuncio:</label>
-                <input type="text" name="titulo" placeholder="Agregar titulo" formControlName="titulo">
-                <div *ngIf="Titulo?.errors && Titulo?.touched" class="error">
-                    <p *ngIf="Titulo?.hasError('required')">
-                        El titulo es requerido
-                    </p>
-                </div>
+        <div class="form-control">
+            <label for="titulo">Titulo:</label>
+            <input type="text" name="titulo" placeholder="Agregar titulo" formControlName="titulo">
+            <div *ngIf="Titulo?.errors && Titulo?.touched" class="error">
+                <p *ngIf="Titulo?.hasError('required')">
+                    El titulo es requerido
+                </p>
             </div>
         </div>
-        <div class="form-column">
-            <div class="form-control">
-                <label for="raza">Raza:</label>
-                <input 
-                    type="text"  
-                    name="raza" 
-                    placeholder="Agregar raza"
-                    formControlName="raza"  
-                >
-                <div *ngIf="Raza?.errors && Raza?.touched" class="error">
-                    <p *ngIf="Raza?.hasError('required')">
-                        La Raza es requerida
-                    </p>
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="color">Color:</label>
-                <input 
-                    type="text" 
-                    name="color" 
-                    id="color" 
-                    placeholder="Agregar color"
-                    formControlName="color"
-                >
-                <div *ngIf="Color?.errors && Color?.touched" class="error">
-                    <p *ngIf="Color?.hasError('required')">
-                        El color es requerido
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="form-column">
-            <div class="form-control">
-                <label for="tamano">Tamaño:</label>
-                <select 
-                    type="text"  
-                    name="tamano" 
-                    placeholder="Agregar tamaño"
-                    formControlName="tamano"  
-                >
-                    <option value="Pequeño">Pequeño</option>
-                    <option value="Mediano">Mediano</option>
-                    <option value="Grande">Grande</option>
-                </select>
-                <div *ngIf="Tamano?.errors && Tamano?.touched" class="error">
-                    <p *ngIf="Tamano?.hasError('required')">
-                        El tamaño es requerido
-                    </p>
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="sexo">Sexo:</label>
-                <select 
-                    type="sexo" 
-                    name="sexo" 
-                    id="sexo" 
-                    placeholder="Agregar sexo"
-                    formControlName="sexo"
-                >
-                    <option value="Macho">Macho</option>
-                    <option value="Hembra">Hembra</option>
-                </select>
-                <div *ngIf="Sexo?.errors && Sexo?.touched" class="error">
-                    <p *ngIf="Sexo?.hasError('required')">
-                        El sexo es requerido
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="form-column">
-            <div class="form-control">
-                <label for="Descripcion">Descripcion:</label>
-                <input type="text" name="descripcion" placeholder="Agregar Descripcion" formControlName="descripcion">
-                <div *ngIf="Descripcion?.errors && Descripcion?.touched" class="error">
-                    <p *ngIf="Descripcion?.hasError('required')">
-                        La descripcion es requerida
-                    </p>
-                </div>
-            </div>
-            <div *ngIf="!this.edit && !this.mainUsuario" class="form-control">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="Agregar email" [value]="Email"
-                    formControlName="email">
-                <div *ngIf="Email?.errors && Email?.touched" class="error">
-                    <p *ngIf="Email?.hasError('required')">
-                        El email es requerido
-                    </p>
-                    <p *ngIf="Email?.hasError('email')">
-                        El formato del email debe ser valido
-                    </p>
-                </div>
+        <div class="form-control">
+            <label for="descripcion">Descripcion:</label>
+            <input type="text" name="descripcion" placeholder="Agregar descripcion" formControlName="descripcion">
+            <div *ngIf="Descripcion?.errors && Descripcion?.touched" class="error">
+                <p *ngIf="Descripcion?.hasError('required')">
+                    La descripcion es requerida
+                </p>
             </div>
         </div>
         <div class="form-control">
@@ -142,14 +36,99 @@
                 </p>
             </div>
         </div>
+        <h3 *ngIf="this.eleccion == 'utilizar'">Elige una de tus mascotas</h3>
+        <div class="form-control" *ngIf="this.eleccion == 'utilizar'">
+            <label for="mascota_id">Mascota:</label>
+            <select type="text" name="mascota_id" placeholder="Agregar mascota" formControlName="mascota_id">
+                <option *ngFor="let mascota of mascotas" [value]="mascota.id">{{mascota.nombre}}</option>
+            </select>
+            <div *ngIf="Mascota?.errors && Mascota?.touched" class="error">
+                <p *ngIf="Mascota?.hasError('required')">
+                    La mascota es requerida
+                </p>
+            </div>
+        </div>
+        <h3 *ngIf="this.eleccion == 'agregar'">Nueva Mascota para anuncio de perdido</h3>
+        <div class="form-column" *ngIf="this.eleccion == 'agregar'">
+            <div class="form-control">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" placeholder="Agregar nombre" formControlName="nombre">
+                <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
+                    <p *ngIf="Nombre?.hasError('required')">
+                        El nombre es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="fechaN">Fecha de nacimiento:</label>
+                <input type="date" name="fechaN" placeholder="Agregar fecha de nacimiento" formControlName="fechaN">
+                <div *ngIf="FechaN?.errors && FechaN?.touched" class="error">
+                    <p *ngIf="FechaN?.hasError('required')">
+                        La fecha de nacimiento es requerida
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column" *ngIf="this.eleccion == 'agregar'">
+            <div class="form-control">
+                <label for="raza">Raza:</label>
+                <input type="text" name="raza" placeholder="Agregar raza" formControlName="raza">
+                <div *ngIf="Raza?.errors && Raza?.touched" class="error">
+                    <p *ngIf="Raza?.hasError('required')">
+                        La Raza es requerida
+                    </p>
+                </div>
+            </div>
+            <div class="form-control" *ngIf="this.eleccion == 'agregar'">
+                <label for="color">Color:</label>
+                <input type="text" name="color" id="color" placeholder="Agregar color" formControlName="color">
+                <div *ngIf="Color?.errors && Color?.touched" class="error">
+                    <p *ngIf="Color?.hasError('required')">
+                        El color es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-column" *ngIf="this.eleccion == 'agregar'">
+            <div class="form-control">
+                <label for="tamano">Tamaño:</label>
+                <select type="text" name="tamano" placeholder="Agregar tamaño" formControlName="tamano">
+                    <option value="Pequeño">Pequeño</option>
+                    <option value="Mediano">Mediano</option>
+                    <option value="Grande">Grande</option>
+                </select>
+                <div *ngIf="Tamano?.errors && Tamano?.touched" class="error">
+                    <p *ngIf="Tamano?.hasError('required')">
+                        El tamaño es requerido
+                    </p>
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="sexo">Sexo:</label>
+                <select type="sexo" name="sexo" id="sexo" placeholder="Agregar sexo" formControlName="sexo">
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                </select>
+                <div *ngIf="Sexo?.errors && Sexo?.touched" class="error">
+                    <p *ngIf="Sexo?.hasError('required')">
+                        El sexo es requerido
+                    </p>
+                </div>
+            </div>
+        </div>
         <div *ngIf="this.edit" class="form-control">
             <label for="encontrado">Encontrado:</label>
             <input type="checkbox" name="encontrado" placeholder="false" formControlName="encontrado">
         </div>
         <div class="form-buttons">
-            <input *ngIf="!this.edit" class="button button-green" type="submit" value="Agregar" (click)="onAdd()">
+            <input *ngIf="!this.edit && !this.eleccion" class="button button-green" type="submit"
+                value="Agregar Mascota" (click)="agregarMascota()">
+            <input *ngIf="!this.edit && !this.eleccion && !this.tokenService.isAdmin()" class="button button-green"
+                type="submit" value="Mascotas Propias" (click)="utilizarMascota()">
+            <input *ngIf="!this.edit && this.eleccion" class="button button-green" type="submit" value="Agregar"
+                (click)="onAdd()">
             <input *ngIf="this.edit" class="button button-green" type="submit" value="Editar" (click)="onEdit()">
-            <input [routerLink]="'/perdidos'" class="button button-red" type="submit" value="Cancelar">
+            <input [routerLink]="['/perdidos']" class="button button-red" type="submit" value="Cancelar">
         </div>
     </form>
 </div>

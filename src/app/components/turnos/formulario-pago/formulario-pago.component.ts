@@ -24,7 +24,7 @@ export class FormularioPagoComponent {
     ){
         this.form = this.formBuilder.group({
             id: [],
-            monto: new FormControl('', { validators: [Validators.required, Validators.min(0)], updateOn: 'blur' }),
+            monto: new FormControl('', { validators: [Validators.required, Validators.min(0)] }),
             turno_id: new FormControl(''),
             titular: new FormControl('', { validators: [Validators.required, Validators.pattern('^[a-zA-Z ]*$')], updateOn: 'blur' }),
             nroTarjeta: new FormControl('', { validators: [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern('^[0-9]*$')], updateOn: 'blur' }),

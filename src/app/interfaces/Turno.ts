@@ -1,3 +1,6 @@
+import { Mascota } from "./Mascota";
+import { Usuario } from "./Usuario";
+
 export interface Turno {
     id?: number,
     horario: string,
@@ -5,5 +8,7 @@ export interface Turno {
     estado: string,
     fecha: Date,
     usuario_id: number,
-    mascota_id: number
+    mascota_id: number,
+    mascota: Mascota,
+    usuario: Usuario
 }

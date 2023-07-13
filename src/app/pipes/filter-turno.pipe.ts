@@ -5,7 +5,7 @@ import { Turno } from '../interfaces/Turno';
     name: 'filterTurno'
 })
 export class FilterTurnoPipe implements PipeTransform {
-    transform(turnos: Turno[], horario: string = "", motivo: string = ""): Turno[] {
+    transform(turnos: Turno[], motivo: string = "", horario: string = ""): Turno[] {
         if (turnos)
             if (horario || motivo)
                 return turnos.filter((ele) =>

@@ -31,6 +31,7 @@ export class PerdidosComponent {
 		this.perdidosService.get().subscribe((perdidos) => {	
 			this.perdidos = perdidos
 		})
+        
 	}
 
     public deletePerdido(perdido: Perdido) {

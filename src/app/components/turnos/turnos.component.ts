@@ -16,8 +16,10 @@ export class TurnosComponent implements OnInit {
   turnosPasados: Turno[] = [];
   subscription?: Subscription;
   turno!: Turno;
-  busquedaMotivo!: string;
-  busquedaHorario!: string;
+  busquedaMotivo1!: string;
+  busquedaHorario1!: string;
+  busquedaMotivo2!: string;
+  busquedaHorario2!: string;
   usuarioId!: number;
   isLogged!: boolean;
   isAdmin!: boolean;
@@ -42,6 +44,12 @@ export class TurnosComponent implements OnInit {
     })
   }
 
+  getTurnosActualizados() {
+    this.turnosService.get().subscribe((turnos) => {
+      this.turnos = turnos;
+    })
+  }
+
   getFilteredTurnos(): Turno[] {
     if (this.isAdmin) {
       return this.turnos;
@@ -56,7 +64,7 @@ export class TurnosComponent implements OnInit {
     return filteredTurnos.filter((turno) => {
       const turnoFecha = new Date(turno.fecha);
       // Filtro por fecha igual a la fecha actual y estado "aceptado"
-      return (turnoFecha.toLocaleDateString() == fechaActual.toLocaleDateString()) && turno.estado == 'aceptado';
+      return (turnoFecha.toLocaleDateString() == fechaActual.toLocaleDateString());
     });
   }
 
@@ -87,6 +95,6 @@ export class TurnosComponent implements OnInit {
 
 
   verHistorialTurnos(): void{
-    this.verHistorial = true;
+    this.verHistorial = !this.verHistorial;
   }
 }

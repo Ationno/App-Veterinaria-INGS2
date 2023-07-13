@@ -7,10 +7,11 @@
                 class="button button-green">
                 Solicitar turno
         </button>
-        <button class="button button-purple" (click)="verHistorialTurnos()">
+        <button *ngIf="!verHistorial" class="button button-purple" (click)="verHistorialTurnos()">
             Ver historial de turnos
         </button>
         </div>
+        
     </div>
     <div *ngIf="!verHistorial" class="busqueda">
         <div class="busqueda_titulo">
@@ -18,12 +19,21 @@
         </div>
         <div class="busqueda_inputs">
             <div>
-                <label for="search">Motivo:</label>
-                <input type="text" name="busquedaMotivo" [(ngModel)]="busquedaMotivo">
+                <label for="motivo">Motivo:</label>
+                <select 
+                    type="motivo" 
+                    name="motivo" 
+                    id="motivo" 
+                    [(ngModel)]="busquedaMotivo1"
+                >
+                    <option value="vacunación">Vacunación general</option>
+                    <option value="vacunación antirrábica">Vacunación antirrábica</option>
+                    <option value="desparacitación">Desparacitación</option>
+                </select>
             </div>
             <div>
                 <label for="search">Horario:</label>
-                <select type="text" name="busquedaHorario" [(ngModel)]="busquedaHorario">
+                <select type="text" name="busquedaHorario" [(ngModel)]="busquedaHorario1">
                     <option value=""></option>
                     <option value="Mañana">Mañana</option>
                     <option value="Tarde">Tarde</option>
@@ -33,23 +43,38 @@
 
     </div>
     <div *ngIf="!verHistorial" class="turnos">
-        <app-lista-turnos *ngFor="let turno of getTurnosDelDia() | filterTurno: busquedaMotivo:busquedaHorario"
+        <app-lista-turnos *ngFor="let turno of getTurnosDelDia() | filterTurno: busquedaMotivo1:busquedaHorario1"
+            (turnoActualizado)="getTurnosActualizados()"
             [turno]="turno">
         </app-lista-turnos>
     </div>
-    <h2>{{this.verHistorial ? 'Historial' : 'Turnos próximos'}}</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="margin-top: 1em;">{{this.verHistorial ? 'Historial' : 'Turnos próximos'}}</h2>
+        <button *ngIf="verHistorial" class="button button-purple" (click)="verHistorialTurnos()">
+            Volver
+        </button>
+    </div>
     <div class="busqueda">
         <div class="busqueda_titulo">
             <h3 for="search">Buscar</h3>
         </div>
         <div class="busqueda_inputs">
             <div>
-                <label for="search">Motivo:</label>
-                <input type="text" name="busquedaMotivo" [(ngModel)]="busquedaMotivo">
+                <label for="motivo">Motivo:</label>
+                <select 
+                    type="motivo" 
+                    name="motivo" 
+                    id="motivo" 
+                    [(ngModel)]="busquedaMotivo2"
+                >
+                    <option value="vacunación">Vacunación general</option>
+                    <option value="vacunación antirrábica">Vacunación antirrábica</option>
+                    <option value="desparacitación">Desparacitación</option>
+                </select>
             </div>
             <div>
                 <label for="search">Horario:</label>
-                <select type="text" name="busquedaHorario" [(ngModel)]="busquedaHorario">
+                <select type="text" name="busquedaHorario" [(ngModel)]="busquedaHorario2">
                     <option value=""></option>
                     <option value="Mañana">Mañana</option>
                     <option value="Tarde">Tarde</option>
@@ -58,12 +83,14 @@
         </div>
     </div>
     <div *ngIf="!verHistorial" class="turnos">
-        <app-lista-turnos *ngFor="let turno of getTurnosProximos() | filterTurno: busquedaMotivo:busquedaHorario"
+        <app-lista-turnos *ngFor="let turno of getTurnosProximos() | filterTurno: busquedaMotivo2:busquedaHorario2"
+            (turnoActualizado)="getTurnosActualizados()"
             [turno]="turno">
         </app-lista-turnos>
     </div>
     <div *ngIf="verHistorial" class="turnos">
-        <app-lista-turnos *ngFor="let turno of getTurnosPasados() | filterTurno: busquedaMotivo:busquedaHorario"
+        <app-lista-turnos *ngFor="let turno of getTurnosPasados() | filterTurno: busquedaMotivo1:busquedaHorario1"
+            (turnoActualizado)="getTurnosActualizados()"
             [turno]="turno">
         </app-lista-turnos>
     </div>
