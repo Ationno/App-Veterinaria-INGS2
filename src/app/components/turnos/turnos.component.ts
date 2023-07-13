@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class TurnosComponent implements OnInit {
   turnos: Turno[] = [];
+  turnosPasados: Turno[] = [];
   subscription?: Subscription;
   turno!: Turno;
   busquedaMotivo!: string;
@@ -20,6 +21,7 @@ export class TurnosComponent implements OnInit {
   usuarioId!: number;
   isLogged!: boolean;
   isAdmin!: boolean;
+  verHistorial: boolean = false;
 
   constructor(
     private turnosService: TurnosService,
@@ -46,5 +48,45 @@ export class TurnosComponent implements OnInit {
     } else {
       return this.turnos.filter((turno => turno.usuario_id == this.usuarioId))
     }
+  }
+
+  getTurnosDelDia(): Turno[] {
+    const fechaActual = new Date();
+    const filteredTurnos = this.getFilteredTurnos();
+    return filteredTurnos.filter((turno) => {
+      const turnoFecha = new Date(turno.fecha);
+      // Filtro por fecha igual a la fecha actual y estado "aceptado"
+      return (turnoFecha.toLocaleDateString() == fechaActual.toLocaleDateString()) && turno.estado == 'aceptado';
+    });
+  }
+
+  getTurnosProximos(): Turno[] {
+    const fechaActual = new Date();
+    fechaActual.setHours(0,0,0,0)
+    const filteredTurnos = this.getFilteredTurnos();
+    return filteredTurnos.filter((turno) => {
+      const turnoFecha = new Date(turno.fecha)
+      turnoFecha.setHours(0,0,0,0)
+      // Filtro por fechas posterior a la actual y estado distinto a "rechazado"
+      return turnoFecha.getTime() > fechaActual.getTime() && (turno.estado != "Rechazado");
+    });
+  }
+
+  getTurnosPasados(): Turno[] {
+    const fechaActual = new Date();
+    fechaActual.setHours(0,0,0,0)
+    const filteredTurnos = this.getFilteredTurnos();
+    return filteredTurnos.filter((turno) => {
+      const turnoFecha = new Date(turno.fecha)
+      turnoFecha.setHours(0,0,0,0)
+      // Filtro por fechas posterior a la actual y estado distinto a "rechazado"
+      return turnoFecha.getTime() < fechaActual.getTime() && (turno.estado != "Rechazado");
+    });
+  }
+
+
+
+  verHistorialTurnos(): void{
+    this.verHistorial = true;
   }
 }

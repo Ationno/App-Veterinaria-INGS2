@@ -18,6 +18,10 @@
             </div>
         </div>
         <div class="form-control">
+            <label for="montoTotal">Descuento por donaciones:</label>
+            <input type="text" name="montoTotal" value="{{this.montoDescuento.toFixed(2)}}" readonly>
+        </div>
+        <div class="form-control">
             <label for="montoTotal">Monto a pagar en total:</label>
             <input type="text" name="montoTotal" [value]="montoTotal" readonly>
         </div>
