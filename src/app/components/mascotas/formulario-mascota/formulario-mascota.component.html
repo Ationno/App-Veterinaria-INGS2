@@ -17,7 +17,7 @@
                     </p>
                 </div>
             </div>
-            <div class="form-control">
+            <div *ngIf="!this.edit" class="form-control">
                 <label for="fechaN">Fecha de Nacimiento:</label>
                 <input 
                     type="date"  

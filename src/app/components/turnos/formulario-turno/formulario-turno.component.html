@@ -16,7 +16,17 @@
             </div>
             <div class="form-control">
                 <label for="motivo">Motivo:</label>
-                <input type="text" name="motivo" placeholder="Agregar motivo" formControlName="motivo">
+                <select 
+                    type="motivo" 
+                    name="motivo" 
+                    id="motivo" 
+                    placeholder="Agregar motivo"
+                    formControlName="motivo"
+                >
+                    <option value="vacunación">Vacunación general</option>
+                    <option value="vacunación antirrábica">Vacunación antirrábica</option>
+                    <option value="desparacitación">Desparacitación</option>
+                </select>
                 <div *ngIf="Motivo?.errors && Motivo?.touched" class="error">
                     <p *ngIf="Motivo?.hasError('required')">
                         El motivo es requerido
@@ -25,7 +35,7 @@
             </div>
         </div>
         <div class="form-column">
-            <div *ngIf="!this.edit" class="form-control">
+            <div *ngIf="!this.edit && (this.form.get('motivo')!.value == 'desparacitación') " class="form-control">
                 <label for="fecha">Fecha:</label>
                 <input type="date" name="fecha" placeholder="Agregar fecha" formControlName="fecha">
                 <div *ngIf="Fecha?.errors && Fecha?.touched" class="error">

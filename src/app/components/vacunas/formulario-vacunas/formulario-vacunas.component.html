@@ -4,13 +4,17 @@
         <h1>Cargue los datos</h1>  
         <div class="form-column">
             <div class="form-control">
-                <label for="nombre">Nombre de la vacuna:</label>
-                <input 
+                <label for="nombre">Nombre:</label>
+                <select 
                     type="text" 
                     name="nombre" 
+                    id="nombre" 
                     placeholder="Agregar nombre"
                     formControlName="nombre"
                 >
+                    <option value="vacunación">Vacunación general</option>
+                    <option value="vacunación antirrábica">Vacunación antirrábica</option>
+                </select>
                 <div *ngIf="Nombre?.errors && Nombre?.touched" class="error">
                     <p *ngIf="Nombre?.hasError('required')">
                         El nombre es requerido

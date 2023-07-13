@@ -8,11 +8,13 @@
         <div id="map"></div>
     </div>
 </div>
-<div class="veterinarias">
-    <h2>Veterinarias</h2>
-    <app-veterinaria
-        *ngFor="let veterinaria of veterinarias" 
-        [veterinaria] = "veterinaria"
-        (onDeleteVeterinaria)="deleteVeterinaria(veterinaria)"
-    ></app-veterinaria>
-  </div>
+<ng-container *ngIf="this.veterinarias"> 
+    <div *ngIf="this.veterinarias.length>0" class="veterinarias">
+        <h2>Veterinarias</h2>
+        <app-veterinaria
+            *ngFor="let veterinaria of veterinarias" 
+            [veterinaria] = "veterinaria"
+            (onDeleteVeterinaria)="deleteVeterinaria(veterinaria)"
+        ></app-veterinaria>
+      </div>
+</ng-container>

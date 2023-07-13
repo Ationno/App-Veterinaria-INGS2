@@ -39,7 +39,7 @@ export class FormularioTurnoComponent {
       id: [],
       horario: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
       motivo: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
-      fecha: new FormControl('', { validators: Validators.required, updateOn: 'blur' }),
+      fecha: new FormControl('', { updateOn: 'blur' }),
       mascota_id: new FormControl(''),
       usuario_id: new FormControl('')
     })
@@ -98,7 +98,7 @@ export class FormularioTurnoComponent {
         if (message.error) {
           alert(message.error)
         } else {
-          alert(message.message)
+          alert(message.message + '. La fecha del turno es: ' + message.fecha_turno)
           this.router.navigate(['/turnos']);
           this.form.reset()
         }
