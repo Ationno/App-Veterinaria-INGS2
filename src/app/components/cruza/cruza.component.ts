@@ -42,7 +42,7 @@ export class CruzaComponent {
     public deleteCruza(cruza: Cruza) {
       this.cruzaService.delete(cruza).subscribe(() => {
         this.cruzas = this.cruzas.filter( ele => ele.id !== cruza.id )
-        alert("Mascota eliminada exitosamente")
+        alert("Cruza eliminada exitosamente")
       })
     }
 
