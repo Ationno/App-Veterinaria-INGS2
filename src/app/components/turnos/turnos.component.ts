@@ -80,7 +80,7 @@ export class TurnosComponent implements OnInit {
       turnoFecha.setHours(0,0,0,0)
       // Filtro por fechas posterior a la actual y estado distinto a "rechazado"
       return turnoFecha.getTime() > fechaActual.getTime() && (turno.estado != "Rechazado");
-    });
+    }).sort((a,b) => { return new Date(a.fecha).getTime() - new Date(b.fecha).getTime()});
   }
 
   getTurnosPasados(): Turno[] {
@@ -93,6 +93,6 @@ export class TurnosComponent implements OnInit {
       turnoFecha.setHours(0,0,0,0)
       // Filtro por fechas posterior a la actual y estado distinto a "rechazado"
       return turnoFecha.getTime() < fechaActual.getTime() && (turno.estado != "Rechazado");
-    });
+    }).sort((a,b) => { return new Date(a.fecha).getTime() - new Date(b.fecha).getTime()});
   }
 }

@@ -10,5 +10,8 @@ export interface Turno {
     usuario_id: number,
     mascota_id: number,
     mascota: Mascota,
-    usuario: Usuario
+    usuario: Usuario,
+    nomUsuario: string,
+    nomMascota: string,
+    dniUser: string
 }

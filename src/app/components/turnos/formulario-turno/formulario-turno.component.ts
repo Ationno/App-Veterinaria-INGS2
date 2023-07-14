@@ -45,18 +45,21 @@ export class FormularioTurnoComponent {
       motivo: new FormControl('', { validators: Validators.required}),
       fecha: new FormControl('', { updateOn: 'blur' }),
       mascota_id: new FormControl(''),
-      usuario_id: new FormControl('')
+      usuario_id: new FormControl(''),
+      nomUsuario: new FormControl(''),
+      nomMascota: new FormControl(''),
+      dniUser: new FormControl('')
     })
     this.sub = this.route.params.subscribe(params => {
+      this.authService.getMainUsuario().subscribe((usuario) => {
+        this.mainUser = usuario;
+      })
       this.usuarioId = params['usuarioId'];
       this.usuariosService.getById(this.usuarioId).subscribe((usuario) => {
         this.mascotas = usuario.mascotas;
       })
       this.edit = params['turnoId'] != -1;
       if (this.edit) {
-        this.authService.getMainUsuario().subscribe((usuario) => {
-          this.mainUser = usuario;
-        })
         this.edit = true;
         this.turnosService.getById(params['turnoId']).subscribe((turno) => {
           console.log(turno)
@@ -99,12 +102,18 @@ export class FormularioTurnoComponent {
 
   public onAdd(): void {
     if (this.form.valid) {
-      this.form.patchValue({ "usuario_id": this.usuarioId })
+      this.form.patchValue({ 
+        "usuario_id": this.usuarioId,
+        "nomUsuario": this.mainUser.nombre,
+        "dniUser": this.mainUser.DNI,
+        "nomMascota": this.mascotas.find(mascota => mascota.id == this.form.value.mascota_id)?.nombre
+      })
       this.turnosService.add(this.form.getRawValue()).subscribe((message) => {
         if (message.error) {
           alert(message.error)
         } else {
           let fecha = new Date(message.fecha_turno)
+          fecha.setDate(fecha.getDate() + 1)
           alert(message.message + '. La fecha del turno es: ' + fecha.toLocaleDateString())
           this.router.navigate(['/turnos']);
           this.form.reset()
