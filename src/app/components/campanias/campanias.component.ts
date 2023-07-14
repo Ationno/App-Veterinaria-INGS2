@@ -50,7 +50,7 @@ export class CampaniasComponent {
     public selectCampania(campania: Campania) {
 		this.campaniasService.selectCampania(campania).subscribe((campanias) => {
             alert("Campania seleccionada exitosamente!")
-            this.campanias = campanias
+            this.campanias = campanias.filter((ele:any) => ele.id != 0)
             this.campaniasService.getCampaniaSeleccionada().subscribe((campania) => {
                 this.campaniaActual = campania[0]
             })
