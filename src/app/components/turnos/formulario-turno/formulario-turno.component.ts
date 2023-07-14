@@ -7,6 +7,8 @@ import { TurnosService } from 'src/app/servicios/turnos.service';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
+import { Usuario } from 'src/app/interfaces/Usuario';
 
 
 @Component({
@@ -27,13 +29,15 @@ export class FormularioTurnoComponent {
   mascotaId!: number;
   mascotas!: Mascota[];
   mascota!: Mascota;
+  mainUser!: Usuario;
 
   constructor(
     private formBuilder: FormBuilder,
     private turnosService: TurnosService,
     private usuariosService: UsuariosService,
     private route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private authService: AuthService
   ) {
     this.form = this.formBuilder.group({
       id: [],
@@ -50,6 +54,9 @@ export class FormularioTurnoComponent {
       })
       this.edit = params['turnoId'] != -1;
       if (this.edit) {
+        this.authService.getMainUsuario().subscribe((usuario) => {
+          this.mainUser = usuario;
+        })
         this.edit = true;
         this.turnosService.getById(params['turnoId']).subscribe((turno) => {
           console.log(turno)
@@ -93,7 +100,6 @@ export class FormularioTurnoComponent {
   public onAdd(): void {
     if (this.form.valid) {
       this.form.patchValue({ "usuario_id": this.usuarioId })
-
       this.turnosService.add(this.form.getRawValue()).subscribe((message) => {
         if (message.error) {
           alert(message.error)
@@ -116,6 +122,7 @@ export class FormularioTurnoComponent {
   public onEdit(): void {
     this.form.removeControl("fecha")
     if (this.form.valid) {
+      this.form.patchValue({ "usuario_id": this.mainUser.id })
       this.turnosService.edit(this.form.getRawValue()).subscribe((message) => {
         if (message.error) {
           alert(message.error)
