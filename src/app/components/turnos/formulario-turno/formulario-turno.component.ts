@@ -104,7 +104,8 @@ export class FormularioTurnoComponent {
         if (message.error) {
           alert(message.error)
         } else {
-          alert(message.message + '. La fecha del turno es: ' + message.fecha_turno)
+          let fecha = new Date(message.fecha_turno)
+          alert(message.message + '. La fecha del turno es: ' + fecha.toLocaleDateString())
           this.router.navigate(['/turnos']);
           this.form.reset()
         }
