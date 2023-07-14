@@ -50,7 +50,7 @@ export class ListaTurnosComponent {
         alert("Turno rechazado exitosamente")
       })
   }
-
+  //Hola
   public confirmarAsistencia(turno: Turno, estado: string) {
     console.log(estado)
     if (turno.id)
