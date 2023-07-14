@@ -65,7 +65,6 @@ export class TurnosComponent implements OnInit {
     return filteredTurnos.filter((turno) => { 
       const turnoFecha = new Date(turno.fecha);
       turnoFecha.setDate(turnoFecha.getDate()+1)
-      console.log(turnoFecha.toLocaleDateString(), fechaActual.toLocaleDateString())
       // Filtro por fecha igual a la fecha actual y estado "aceptado"
       return (turnoFecha.toLocaleDateString() == fechaActual.toLocaleDateString()) && (turno.estado != "Rechazado");
     });
@@ -77,6 +76,7 @@ export class TurnosComponent implements OnInit {
     const filteredTurnos = this.getFilteredTurnos();
     return filteredTurnos.filter((turno) => {
       const turnoFecha = new Date(turno.fecha)
+      turnoFecha.setDate(turnoFecha.getDate()+1)
       turnoFecha.setHours(0,0,0,0)
       // Filtro por fechas posterior a la actual y estado distinto a "rechazado"
       return turnoFecha.getTime() > fechaActual.getTime() && (turno.estado != "Rechazado");
